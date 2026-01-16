@@ -41,6 +41,25 @@ const addTabKeyboardNavigation = (tabElements, tab, onActivate) => {
   });
 };
 
+const setTabActiveState = (tabElements, panelElements, tab) => {
+  const targetId = tab.getAttribute('aria-controls');
+  if (!targetId) {
+    return;
+  }
+
+  tabElements.forEach((item) => {
+    const isActive = item === tab;
+    item.classList.toggle('is-active', isActive);
+    item.setAttribute('aria-selected', String(isActive));
+    item.setAttribute('tabindex', isActive ? '0' : '-1');
+  });
+
+  panelElements.forEach((panel) => {
+    const isActive = panel.id === targetId;
+    panel.toggleAttribute('hidden', !isActive);
+  });
+};
+
 const createElement = (tag, className, textContent) => {
   const element = document.createElement(tag);
   if (className) {
@@ -70,22 +89,8 @@ if (isDataReady(featuredTechniques, featuredTechniquesList)) {
 
 if (tabs.length && panels.length) {
   const activateTab = (tab, { updateHash = false } = {}) => {
+    setTabActiveState(tabs, panels, tab);
     const targetId = tab.getAttribute('aria-controls');
-    if (!targetId) {
-      return;
-    }
-    tabs.forEach((item) => {
-      const isActive = item === tab;
-      item.classList.toggle('is-active', isActive);
-      item.setAttribute('aria-selected', String(isActive));
-      item.setAttribute('tabindex', isActive ? '0' : '-1');
-    });
-
-    panels.forEach((panel) => {
-      const isActive = panel.id === targetId;
-      panel.classList.toggle('is-active', isActive);
-      panel.toggleAttribute('hidden', !isActive);
-    });
 
     window.scrollTo(0, 0);
 
@@ -230,6 +235,48 @@ if (isDataReady(techniquesData, techniquesList)) {
 
 const foundationTabList = document.querySelector('#foundation-tablist');
 const foundationPanels = document.querySelector('#foundation-tabpanels');
+
+const loginForm = document.querySelector('#login-form');
+const mypageAuth = document.querySelector('#mypage-auth');
+const mypageContent = document.querySelector('#mypage-content');
+const logoutButton = document.querySelector('#logout-button');
+const mypageTabs = Array.from(document.querySelectorAll('#mypage-tablist .subtab'));
+const mypagePanels = Array.from(document.querySelectorAll('.mypage-panel'));
+const LOGIN_STATE_KEY = 'shoseijutsu-login-state';
+
+const updateMyPageAuthState = (isLoggedIn) => {
+  if (!mypageAuth || !mypageContent) {
+    return;
+  }
+  mypageAuth.hidden = isLoggedIn;
+  mypageContent.hidden = !isLoggedIn;
+};
+
+if (mypageTabs.length && mypagePanels.length) {
+  mypageTabs.forEach((tab) => {
+    tab.addEventListener('click', () => setTabActiveState(mypageTabs, mypagePanels, tab));
+    addTabKeyboardNavigation(mypageTabs, tab, (currentTab) =>
+      setTabActiveState(mypageTabs, mypagePanels, currentTab),
+    );
+  });
+}
+
+if (loginForm) {
+  loginForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    localStorage.setItem(LOGIN_STATE_KEY, 'true');
+    updateMyPageAuthState(true);
+  });
+}
+
+if (logoutButton) {
+  logoutButton.addEventListener('click', () => {
+    localStorage.removeItem(LOGIN_STATE_KEY);
+    updateMyPageAuthState(false);
+  });
+}
+
+updateMyPageAuthState(localStorage.getItem(LOGIN_STATE_KEY) === 'true');
 
 // Foundation card detail modal
 const createFoundationDetailModal = () => {
