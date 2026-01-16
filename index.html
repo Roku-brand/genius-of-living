@@ -143,23 +143,128 @@
           <p class="tab-hero__desc">お気に入りの処世術や学習の進捗を管理し、パーソナライズされた体験を提供します。</p>
         </div>
         <div class="panel__inner">
-          <div class="grid two">
-            <article class="card">
-              <h3>保存済み処世術</h3>
-              <p>よく使う判断ラベルをピン留めして、即時に参照できるようにします。</p>
+          <div class="mypage-auth" id="mypage-auth">
+            <article class="card login-card">
+              <h3>ログインしてマイページ機能を解放</h3>
+              <p>
+                「保存した処世術」「保存した思想基盤」「マイ処世術」はログイン後に利用できます。ユーザー名とパスワードを入力してください。
+              </p>
+              <form id="login-form" class="login-form">
+                <label class="login-form__field">
+                  <span>ユーザー名</span>
+                  <input type="text" name="username" placeholder="例：shoseijutsu" required />
+                </label>
+                <label class="login-form__field">
+                  <span>パスワード</span>
+                  <input type="password" name="password" placeholder="••••••••" required />
+                </label>
+                <button type="submit" class="primary-button" id="login-submit">ログイン</button>
+              </form>
             </article>
-            <article class="card">
-              <h3>学習ログ</h3>
-              <p>今週再確認した処世術と思想基盤を記録し、振り返りを支援します。</p>
-            </article>
-            <article class="card">
-              <h3>目標設定</h3>
-              <p>達成術のラベルを紐づけて、進捗管理と振り返りの軸を作ります。</p>
-            </article>
-            <article class="card">
-              <h3>通知設定</h3>
-              <p>特定の判断ラベルに関するリマインドを受け取ることができます。</p>
-            </article>
+          </div>
+
+          <div class="mypage-content" id="mypage-content" hidden>
+            <div class="mypage-header">
+              <div>
+                <p class="mypage-status" id="mypage-status">ログイン済み：あなたのマイページが有効です。</p>
+                <p class="mypage-desc">保存した情報や自分専用の処世術をタブで管理できます。</p>
+              </div>
+              <button type="button" class="secondary-button" id="logout-button">ログアウト</button>
+            </div>
+
+            <div class="subtabs" id="mypage-tablist" role="tablist" aria-label="マイページタブ">
+              <button
+                class="subtab is-active"
+                role="tab"
+                aria-selected="true"
+                aria-controls="mypage-panel-saved-techniques"
+                id="mypage-tab-saved-techniques"
+                tabindex="0"
+                type="button"
+              >
+                保存した処世術
+              </button>
+              <button
+                class="subtab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="mypage-panel-saved-foundations"
+                id="mypage-tab-saved-foundations"
+                tabindex="-1"
+                type="button"
+              >
+                保存した思想基盤
+              </button>
+              <button
+                class="subtab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="mypage-panel-my-techniques"
+                id="mypage-tab-my-techniques"
+                tabindex="-1"
+                type="button"
+              >
+                マイ処世術
+              </button>
+            </div>
+
+            <div class="mypage-panels">
+              <div
+                class="mypage-panel"
+                id="mypage-panel-saved-techniques"
+                role="tabpanel"
+                aria-labelledby="mypage-tab-saved-techniques"
+              >
+                <div class="grid two">
+                  <article class="card">
+                    <h3>判断ラベルの保存棚</h3>
+                    <p>よく使う処世術をピン留めし、判断の起点をすぐに呼び出せます。</p>
+                  </article>
+                  <article class="card">
+                    <h3>最近保存した処世術</h3>
+                    <p>直近で保存したラベルを時系列で確認し、再利用のリズムを整えます。</p>
+                  </article>
+                </div>
+              </div>
+
+              <div
+                class="mypage-panel"
+                id="mypage-panel-saved-foundations"
+                role="tabpanel"
+                aria-labelledby="mypage-tab-saved-foundations"
+                hidden
+              >
+                <div class="grid two">
+                  <article class="card">
+                    <h3>思想基盤のコレクション</h3>
+                    <p>気になった思想カードを分類し、処世術の裏付けとして活用します。</p>
+                  </article>
+                  <article class="card">
+                    <h3>参照頻度の高い基盤</h3>
+                    <p>繰り返し見直す理論を可視化し、学習の偏りを整えます。</p>
+                  </article>
+                </div>
+              </div>
+
+              <div
+                class="mypage-panel"
+                id="mypage-panel-my-techniques"
+                role="tabpanel"
+                aria-labelledby="mypage-tab-my-techniques"
+                hidden
+              >
+                <div class="grid two">
+                  <article class="card">
+                    <h3>あなた専用の処世術</h3>
+                    <p>自身の経験から編み出した処世術を整理し、再現可能な形にします。</p>
+                  </article>
+                  <article class="card">
+                    <h3>共有準備エリア</h3>
+                    <p>公開前の下書きをここで整え、言語化の質を高めます。</p>
+                  </article>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
