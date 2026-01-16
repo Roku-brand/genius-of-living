@@ -1,5 +1,9 @@
 import { techniquesData } from './data/techniques.js';
-import { foundationData } from './data/foundation.js';
+import {
+  foundationCategories,
+  getAllFoundationItems,
+  searchFoundationItems,
+} from './data/foundation/index.js';
 
 const tabs = Array.from(document.querySelectorAll('.tab'));
 const panels = Array.from(document.querySelectorAll('.panel'));
@@ -175,7 +179,160 @@ if (isDataReady(techniquesData, techniquesList)) {
 const foundationTabList = document.querySelector('#foundation-tablist');
 const foundationPanels = document.querySelector('#foundation-tabpanels');
 
-if (isDataReady(foundationData, foundationTabList, foundationPanels)) {
+// Foundation card detail modal
+const createFoundationDetailModal = () => {
+  const modal = createElement('div', 'foundation-modal');
+  modal.id = 'foundation-detail-modal';
+  modal.hidden = true;
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+
+  const overlay = createElement('div', 'foundation-modal__overlay');
+  overlay.addEventListener('click', () => closeFoundationModal());
+
+  const content = createElement('div', 'foundation-modal__content');
+  content.id = 'foundation-modal-content';
+
+  modal.appendChild(overlay);
+  modal.appendChild(content);
+  document.body.appendChild(modal);
+
+  return modal;
+};
+
+const foundationModal = createFoundationDetailModal();
+
+const closeFoundationModal = () => {
+  foundationModal.hidden = true;
+  document.body.style.overflow = '';
+};
+
+const openFoundationModal = (item) => {
+  const content = document.querySelector('#foundation-modal-content');
+  content.innerHTML = '';
+
+  // Close button
+  const closeBtn = createElement('button', 'foundation-modal__close', '×');
+  closeBtn.type = 'button';
+  closeBtn.setAttribute('aria-label', '閉じる');
+  closeBtn.addEventListener('click', closeFoundationModal);
+
+  // Header
+  const header = createElement('div', 'foundation-modal__header');
+  const tagIdBadge = createElement('span', 'foundation-card__tag-id', item.tagId);
+  const title = createElement('h3', 'foundation-modal__title', item.title);
+  const summary = createElement('p', 'foundation-modal__summary', item.summary);
+  header.appendChild(tagIdBadge);
+  header.appendChild(title);
+  header.appendChild(summary);
+
+  // Sections
+  const sectionsContainer = createElement('div', 'foundation-modal__sections');
+
+  // Definition
+  const defSection = createModalSection('定義', item.definition);
+  sectionsContainer.appendChild(defSection);
+
+  // Key Points
+  const keyPointsSection = createModalListSection('要点', item.keyPoints);
+  sectionsContainer.appendChild(keyPointsSection);
+
+  // Pitfalls
+  const pitfallsSection = createModalListSection('落とし穴', item.pitfalls);
+  sectionsContainer.appendChild(pitfallsSection);
+
+  // Strategies
+  const strategiesSection = createModalListSection('戦略', item.strategies);
+  sectionsContainer.appendChild(strategiesSection);
+
+  // Application Conditions
+  const conditionsSection = createModalListSection('適用条件', item.applicationConditions);
+  sectionsContainer.appendChild(conditionsSection);
+
+  // Lifehacks
+  const lifehacksSection = createElement('div', 'foundation-modal__section');
+  const lifehacksTitle = createElement('h4', 'foundation-modal__section-title', '活用処世術');
+  const lifehacksTags = createElement('div', 'foundation-modal__tags');
+  item.lifehacks.forEach((lifehack) => {
+    const tag = createElement('span', 'foundation-modal__lifehack-tag', lifehack);
+    lifehacksTags.appendChild(tag);
+  });
+  lifehacksSection.appendChild(lifehacksTitle);
+  lifehacksSection.appendChild(lifehacksTags);
+  sectionsContainer.appendChild(lifehacksSection);
+
+  // Tags
+  const tagsSection = createElement('div', 'foundation-modal__section');
+  const tagsTitle = createElement('h4', 'foundation-modal__section-title', 'タグ');
+  const tagsContainer = createElement('div', 'foundation-modal__tags');
+  item.tags.forEach((tag) => {
+    const tagEl = createElement('span', 'foundation-modal__tag', tag);
+    tagsContainer.appendChild(tagEl);
+  });
+  tagsSection.appendChild(tagsTitle);
+  tagsSection.appendChild(tagsContainer);
+  sectionsContainer.appendChild(tagsSection);
+
+  content.appendChild(closeBtn);
+  content.appendChild(header);
+  content.appendChild(sectionsContainer);
+
+  foundationModal.hidden = false;
+  document.body.style.overflow = 'hidden';
+};
+
+const createModalSection = (title, text) => {
+  const section = createElement('div', 'foundation-modal__section');
+  const sectionTitle = createElement('h4', 'foundation-modal__section-title', title);
+  const sectionText = createElement('p', 'foundation-modal__section-text', text);
+  section.appendChild(sectionTitle);
+  section.appendChild(sectionText);
+  return section;
+};
+
+const createModalListSection = (title, items) => {
+  const section = createElement('div', 'foundation-modal__section');
+  const sectionTitle = createElement('h4', 'foundation-modal__section-title', title);
+  const list = createElement('ul', 'foundation-modal__list');
+  items.forEach((item) => {
+    const li = createElement('li', null, item);
+    list.appendChild(li);
+  });
+  section.appendChild(sectionTitle);
+  section.appendChild(list);
+  return section;
+};
+
+// Create a foundation card element
+const createFoundationCard = (item) => {
+  const card = createElement('article', 'foundation-card');
+  card.addEventListener('click', () => openFoundationModal(item));
+
+  const tagId = createElement('span', 'foundation-card__tag-id', item.tagId);
+  const content = createElement('div', 'foundation-card__content');
+  const title = createElement('h3', 'foundation-card__title', item.title);
+  const summary = createElement('p', 'foundation-card__summary', item.summary);
+
+  content.appendChild(title);
+  content.appendChild(summary);
+  card.appendChild(tagId);
+  card.appendChild(content);
+
+  return card;
+};
+
+// Render foundation cards in a grid
+const renderFoundationCards = (container, items) => {
+  container.innerHTML = '';
+  const grid = createElement('div', 'foundation-cards-grid');
+  items.forEach((item) => {
+    const card = createFoundationCard(item);
+    grid.appendChild(card);
+  });
+  container.appendChild(grid);
+};
+
+if (foundationTabList && foundationPanels && foundationCategories.length > 0) {
   const foundationTabs = [];
   const panelList = [];
 
@@ -199,39 +356,81 @@ if (isDataReady(foundationData, foundationTabList, foundationPanels)) {
     });
   };
 
-  foundationData.forEach((section, index) => {
+  // Create "索引" (Index) tab first
+  const indexTabButton = createElement('button', 'subtab is-active');
+  indexTabButton.type = 'button';
+  indexTabButton.id = 'foundation-tab-index';
+  indexTabButton.setAttribute('role', 'tab');
+  indexTabButton.setAttribute('aria-selected', 'true');
+  indexTabButton.setAttribute('aria-controls', 'foundation-panel-index');
+  indexTabButton.setAttribute('tabindex', '0');
+  indexTabButton.textContent = '索引';
+
+  const indexPanel = createElement('div', 'foundation-panel');
+  indexPanel.id = 'foundation-panel-index';
+  indexPanel.setAttribute('role', 'tabpanel');
+  indexPanel.setAttribute('aria-labelledby', 'foundation-tab-index');
+
+  // Search container
+  const searchContainer = createElement('div', 'foundation-search');
+  const searchInput = createElement('input', 'foundation-search__input');
+  searchInput.type = 'text';
+  searchInput.placeholder = '思想カードを検索（タイトル、タグ、処世術など）...';
+  searchInput.setAttribute('aria-label', '思想カード検索');
+
+  const searchResultsCount = createElement('div', 'foundation-search__count');
+  searchResultsCount.id = 'foundation-search-count';
+
+  const searchResults = createElement('div', 'foundation-search__results');
+  searchResults.id = 'foundation-search-results';
+
+  searchContainer.appendChild(searchInput);
+  searchContainer.appendChild(searchResultsCount);
+  indexPanel.appendChild(searchContainer);
+  indexPanel.appendChild(searchResults);
+
+  // Initialize search results with all items
+  const allItems = getAllFoundationItems();
+  renderFoundationCards(searchResults, allItems);
+  searchResultsCount.textContent = `全 ${allItems.length} 件`;
+
+  // Search functionality
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value;
+    const results = searchFoundationItems(query);
+    renderFoundationCards(searchResults, results);
+    if (query.trim()) {
+      searchResultsCount.textContent = `${results.length} 件見つかりました`;
+    } else {
+      searchResultsCount.textContent = `全 ${results.length} 件`;
+    }
+  });
+
+  foundationTabList.appendChild(indexTabButton);
+  foundationPanels.appendChild(indexPanel);
+  foundationTabs.push(indexTabButton);
+  panelList.push(indexPanel);
+
+  // Create category tabs
+  foundationCategories.forEach((section) => {
     const tabButton = createElement('button', 'subtab');
     tabButton.type = 'button';
-    if (index === 0) {
-      tabButton.classList.add('is-active');
-    }
     tabButton.id = `foundation-tab-${section.id}`;
     tabButton.setAttribute('role', 'tab');
-    tabButton.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+    tabButton.setAttribute('aria-selected', 'false');
     tabButton.setAttribute('aria-controls', `foundation-panel-${section.id}`);
-    tabButton.setAttribute('tabindex', index === 0 ? '0' : '-1');
+    tabButton.setAttribute('tabindex', '-1');
     tabButton.textContent = section.title;
 
     const panel = createElement('div', 'foundation-panel');
     panel.id = `foundation-panel-${section.id}`;
     panel.setAttribute('role', 'tabpanel');
     panel.setAttribute('aria-labelledby', tabButton.id);
-    if (index !== 0) {
-      panel.hidden = true;
-    }
+    panel.hidden = true;
 
-    const grid = createElement('div', 'grid two');
+    // Render cards for this category
+    renderFoundationCards(panel, section.items);
 
-    section.items.forEach((item) => {
-      const card = createElement('article', 'card');
-      const title = createElement('h3', null, item.title);
-      const description = createElement('p', null, item.description);
-      card.appendChild(title);
-      card.appendChild(description);
-      grid.appendChild(card);
-    });
-
-    panel.appendChild(grid);
     foundationTabList.appendChild(tabButton);
     foundationPanels.appendChild(panel);
     foundationTabs.push(tabButton);
@@ -243,3 +442,10 @@ if (isDataReady(foundationData, foundationTabList, foundationPanels)) {
     addTabKeyboardNavigation(foundationTabs, tabButton, setActiveFoundationTab);
   });
 }
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !foundationModal.hidden) {
+    closeFoundationModal();
+  }
+});
