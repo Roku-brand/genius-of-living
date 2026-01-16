@@ -129,8 +129,6 @@ export const techniquesData = [
           { id: 10, title: '第三者を通じて褒める', subtitle: '第三者経由の称賛は信頼される', foundations: ['S-009'] },
           { id: 11, title: '相手の利益を先に出す', subtitle: '助けると巡って自分に返る', foundations: ['S-001', 'W-010'] },
           { id: 12, title: '期待を少し下回らせておく', subtitle: '見せ方で受け止め方が変わる', foundations: ['C-007'] },
-          { id: 13, title: '相手の成功体験を引き出す', subtitle: '肯定的な記憶が信頼を強める', foundations: ['S-008'] },
-          { id: 14, title: 'フォローの連絡を欠かさない', subtitle: '継続接触で関係が深まる', foundations: ['B-005'] },
         ],
       },
       {
