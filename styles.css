@@ -84,7 +84,11 @@ body {
   background: linear-gradient(135deg, var(--color-primary), #3a7ca5);
   color: #fff;
   padding: 24px 24px 28px;
-  border-radius: 16px 16px 0 0;
+  border-radius: 0;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50% + 24px);
+  padding-right: calc(50vw - 50% + 24px);
 }
 
 .tab-hero__title {
@@ -144,9 +148,13 @@ body {
 
 .panel {
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(26, 26, 26, 0.08);
-  overflow: hidden;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
 }
 
 .panel__inner {
@@ -216,16 +224,16 @@ body {
 }
 
 .techniques-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
 }
 
 .technique-row {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 16px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
   padding: 16px 18px;
   border-radius: 16px;
   border: 1px solid var(--color-primary-border);
@@ -242,6 +250,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 100%;
 }
 
 .technique-tag {
@@ -327,10 +336,10 @@ body {
   }
 
   .tab-hero {
-    padding: 20px 16px 24px;
+    padding: 20px calc(50vw - 50% + 16px) 24px;
   }
 
-  .technique-row {
+  .techniques-list {
     grid-template-columns: 1fr;
   }
 
