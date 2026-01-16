@@ -23,6 +23,35 @@ const activateTab = (tab, { updateHash = false } = {}) => {
 
 tabs.forEach((tab) => {
   tab.addEventListener('click', () => activateTab(tab, { updateHash: true }));
+  tab.addEventListener('keydown', (event) => {
+    const currentIndex = tabs.indexOf(tab);
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      const nextIndex = (currentIndex + 1) % tabs.length;
+      tabs[nextIndex].focus();
+      return;
+    }
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      const prevIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      tabs[prevIndex].focus();
+      return;
+    }
+    if (event.key === 'Home') {
+      event.preventDefault();
+      tabs[0].focus();
+      return;
+    }
+    if (event.key === 'End') {
+      event.preventDefault();
+      tabs[tabs.length - 1].focus();
+      return;
+    }
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      activateTab(tab, { updateHash: true });
+    }
+  });
 });
 
 const activateTabFromHash = () => {

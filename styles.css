@@ -97,10 +97,6 @@ body {
   box-shadow: 0 20px 50px rgba(26, 26, 26, 0.08);
 }
 
-.panel + .panel {
-  margin-top: 24px;
-}
-
 .panel__inner {
   display: flex;
   flex-direction: column;
