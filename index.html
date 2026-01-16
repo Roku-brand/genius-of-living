@@ -1,1 +1,238 @@
-index
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>処世術禄 | 人生の処世術OS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="hero__badge">サービス名</p>
+        <h1>処世術禄</h1>
+        <p class="hero__lead">
+          人生・仕事・対人関係の判断を、タイトル単位で一覧・参照・再利用できる知識体系に。
+          深い理論は思想基盤に集約し、処世術を「引き金となる言葉（判断ラベル）」として運用します。
+        </p>
+      </div>
+    </header>
+
+    <main class="container">
+      <nav class="tabs" role="tablist" aria-label="主要タブ">
+        <button
+          class="tab is-active"
+          role="tab"
+          aria-selected="true"
+          aria-controls="tab-top"
+          id="tab-top-button"
+          tabindex="0"
+        >
+          トップ
+        </button>
+        <button
+          class="tab"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tab-techniques"
+          id="tab-techniques-button"
+          tabindex="-1"
+        >
+          処世術一覧
+        </button>
+        <button
+          class="tab"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tab-foundation"
+          id="tab-foundation-button"
+          tabindex="-1"
+        >
+          思想基盤
+        </button>
+        <button
+          class="tab"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tab-mypage"
+          id="tab-mypage-button"
+          tabindex="-1"
+        >
+          マイページ
+        </button>
+      </nav>
+
+      <section id="tab-top" class="panel is-active" role="tabpanel" aria-labelledby="tab-top-button">
+        <div class="panel__inner">
+          <h2>処世術禄が目指すもの</h2>
+          <div class="grid two">
+            <article class="card">
+              <h3>① 判断の再利用を可能に</h3>
+              <p>
+                人生術・思考術・対人術・スキル術・達成術を「判断ラベル」として整理し、日常の意思決定を高速化します。
+              </p>
+            </article>
+            <article class="card">
+              <h3>② 理論は思想基盤へ集約</h3>
+              <p>
+                心理学・行動科学・先人の経験則を辞書的に整理。必要なときに深掘りできる構造を作ります。
+              </p>
+            </article>
+            <article class="card">
+              <h3>③ 情報過多の終焉</h3>
+              <p>
+                断片的な知識を統合し、人生の処世術OSとして機能するフレームワークを提供します。
+              </p>
+            </article>
+            <article class="card">
+              <h3>④ 使い方のイメージ</h3>
+              <p>
+                迷いが生じた瞬間に「判断ラベル」を検索し、必要であれば思想基盤で裏付けを確認します。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-techniques" class="panel" role="tabpanel" aria-labelledby="tab-techniques-button" hidden>
+        <div class="panel__inner">
+          <h2>処世術一覧（判断ラベル）</h2>
+          <p class="section-lead">5つのカテゴリに分類された処世術を、タイトル単位で一覧化します。</p>
+          <div class="grid three">
+            <article class="card">
+              <h3>人生術</h3>
+              <ul class="label-list">
+                <li><span>長期視点</span> — 今の痛みより未来の成果を優先。</li>
+                <li><span>余白確保</span> — 予定を埋めず回復余力を持つ。</li>
+                <li><span>選択の原則</span> — 価値観に沿った選択肢だけ残す。</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>思考術</h3>
+              <ul class="label-list">
+                <li><span>因果分解</span> — 問題の要素を切り分けて見る。</li>
+                <li><span>反証思考</span> — 反対意見を先に検討する。</li>
+                <li><span>判断保留</span> — 感情が高いときは決めない。</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>対人術</h3>
+              <ul class="label-list">
+                <li><span>期待調整</span> — 先に合意を取って摩擦を防ぐ。</li>
+                <li><span>共感要約</span> — 相手の言葉を整理して返す。</li>
+                <li><span>境界線</span> — 役割と責任の線引きを明確化。</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>スキル術</h3>
+              <ul class="label-list">
+                <li><span>最短学習</span> — 目的から逆算して学ぶ。</li>
+                <li><span>型を借りる</span> — 先人のテンプレを採用する。</li>
+                <li><span>反復設計</span> — 小さな実践を積み上げる。</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>達成術</h3>
+              <ul class="label-list">
+                <li><span>進捗可視化</span> — 見える化で継続力を保つ。</li>
+                <li><span>負荷分散</span> — タスクを細分化して進める。</li>
+                <li><span>振り返り</span> — 週次で改善点を抽出。</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-foundation" class="panel" role="tabpanel" aria-labelledby="tab-foundation-button" hidden>
+        <div class="panel__inner">
+          <h2>思想基盤</h2>
+          <p class="section-lead">心理学・行動科学・先人の教えを辞書的に管理し、処世術の裏付けとして活用します。</p>
+          <div class="grid two">
+            <article class="card">
+              <h3>心理学</h3>
+              <dl>
+                <div>
+                  <dt>認知バイアス</dt>
+                  <dd>判断の偏りを理解し、処世術のトリガーに変換する。</dd>
+                </div>
+                <div>
+                  <dt>自己効力感</dt>
+                  <dd>行動継続の土台となる信念を育てる。</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="card">
+              <h3>行動科学</h3>
+              <dl>
+                <div>
+                  <dt>習慣形成</dt>
+                  <dd>行動を自動化するトリガー設計。</dd>
+                </div>
+                <div>
+                  <dt>環境デザイン</dt>
+                  <dd>意思決定を支援する場の整備。</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="card">
+              <h3>先人の教え</h3>
+              <dl>
+                <div>
+                  <dt>中庸</dt>
+                  <dd>極端を避け、長期視点での均衡を保つ。</dd>
+                </div>
+                <div>
+                  <dt>守破離</dt>
+                  <dd>型を守り、破り、独自化する成長段階。</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="card">
+              <h3>社会科学</h3>
+              <dl>
+                <div>
+                  <dt>相互依存</dt>
+                  <dd>他者との関係性を前提に判断する。</dd>
+                </div>
+                <div>
+                  <dt>資源配分</dt>
+                  <dd>有限リソースをどこに投下するか決める。</dd>
+                </div>
+              </dl>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-mypage" class="panel" role="tabpanel" aria-labelledby="tab-mypage-button" hidden>
+        <div class="panel__inner">
+          <h2>マイページ</h2>
+          <div class="grid two">
+            <article class="card">
+              <h3>保存済み処世術</h3>
+              <p>よく使う判断ラベルをピン留めして、即時に参照できるようにします。</p>
+            </article>
+            <article class="card">
+              <h3>学習ログ</h3>
+              <p>今週再確認した処世術と思想基盤を記録し、振り返りを支援します。</p>
+            </article>
+            <article class="card">
+              <h3>目標設定</h3>
+              <p>達成術のラベルを紐づけて、進捗管理と振り返りの軸を作ります。</p>
+            </article>
+            <article class="card">
+              <h3>通知設定</h3>
+              <p>特定の判断ラベルに関するリマインドを受け取ることができます。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>処世術禄 — 人生の処世術OSを構築するためのナレッジベース。</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
