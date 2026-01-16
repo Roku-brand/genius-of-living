@@ -1,1 +1,558 @@
-how about you 
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>処世術禄 制作仕様書（完全版）</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --text: #1f2328;
+      --muted: #6a737d;
+      --line: #e3e6ea;
+      --panel: #f6f8fa;
+      --accent: #0f62fe;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", system-ui, sans-serif;
+      line-height: 1.6;
+    }
+    header {
+      padding: 32px 24px 16px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+    }
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+    header p {
+      margin: 0;
+      color: var(--muted);
+    }
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    section {
+      margin-bottom: 32px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    section:last-of-type {
+      border-bottom: none;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+    h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+    .summary-grid,
+    .card-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .card h4 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+    .count {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f0f3f7;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 12px 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .tag-list li {
+      background: #e7edf6;
+      color: #1a3b6c;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+    }
+    .muted {
+      color: var(--muted);
+    }
+    .inline-code {
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      background: #f2f2f2;
+      padding: 0 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>処世術禄 制作仕様書（完全版）</h1>
+    <p>人生・仕事・対人関係の判断と立ち回りを、状況に応じて引き出せる実践知として整理する。</p>
+  </header>
+  <main>
+    <section id="top">
+      <h2>トップ</h2>
+      <div class="summary-grid">
+        <div class="card">
+          <h4>処世術数</h4>
+          <div class="count" data-count="tactics">0</div>
+        </div>
+        <div class="card">
+          <h4>判断基盤数</h4>
+          <div class="count" data-count="foundations">0</div>
+        </div>
+        <div class="card">
+          <h4>ケース数</h4>
+          <div class="count" data-count="cases">0</div>
+        </div>
+      </div>
+      <h3>基本原則</h3>
+      <ul>
+        <li>処世術（実践レイヤ）と判断基盤（理論レイヤ）の二層構造。</li>
+        <li>情報は読むためではなく、状況に応じて引き出し、使うための実践知として提供。</li>
+        <li>各エントリはID参照で相互にリンクし、主従関係は持たない。</li>
+      </ul>
+      <h3>注目処世術</h3>
+      <div class="card">
+        <h4>夢はスケールで決める <span class="muted">（ビジョン拡張原理）</span></h4>
+        <p class="muted">人生術 / 夢と挑戦の処世術</p>
+      </div>
+    </section>
+
+    <section id="product-definition">
+      <h2>1. プロダクト定義</h2>
+      <h3>1.1 名称</h3>
+      <p>サービス名：処世術禄</p>
+      <h3>1.2 目的</h3>
+      <ul>
+        <li>人生・仕事・対人関係における判断と立ち回りを再利用可能な知識として体系化する。</li>
+        <li>状況に応じて引き出し、使うための実践知として提供する。</li>
+      </ul>
+      <h3>1.3 基本構造</h3>
+      <div class="card-grid">
+        <div class="card">
+          <h4>処世術（実践レイヤ）</h4>
+          <p>具体的な行動指針・立ち回り・思考の使い方。</p>
+        </div>
+        <div class="card">
+          <h4>判断基盤（理論レイヤ）</h4>
+          <p>心理・行動・意思決定の原理を整理した辞書・参照体系。</p>
+        </div>
+      </div>
+      <p class="muted">両者はID参照により相互にリンクされる。</p>
+    </section>
+
+    <section id="ia">
+      <h2>2. 全体情報構造（IA）</h2>
+      <pre>処世術禄
+├─ トップ
+├─ 処世術一覧
+│   └─ カテゴリ
+│       └─ 処世術群（棚）
+│           └─ 処世術（個票）
+├─ 判断基盤
+│   └─ 領域
+│       └─ テーマ
+│           └─ 判断基盤エントリ
+└─ マイページ
+    └─ お気に入り／個人用処世術</pre>
+    </section>
+
+    <section id="tactics">
+      <h2>3. 処世術（実践レイヤ）仕様</h2>
+      <h3>3.1 カテゴリ（最上位分類）</h3>
+      <ul>
+        <li>人生術</li>
+        <li>思考術</li>
+        <li>対人術</li>
+        <li>スキル術</li>
+        <li>達成術</li>
+      </ul>
+      <p class="muted">用途：一覧表示・探索のための分類。思想的な上下関係は持たない。</p>
+
+      <h3>3.2 処世術群（棚）</h3>
+      <p>似た状況・目的を扱う処世術の集合単位。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>フィールド</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>id</td>
+            <td>一意ID（例：life-dream-challenge）</td>
+          </tr>
+          <tr>
+            <td>category</td>
+            <td>人生術 など</td>
+          </tr>
+          <tr>
+            <td>title</td>
+            <td>夢と挑戦の処世術</td>
+          </tr>
+          <tr>
+            <td>description</td>
+            <td>この処世術群が扱う局面の説明</td>
+          </tr>
+          <tr>
+            <td>order</td>
+            <td>表示順</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted">件数表記は配下の処世術数を自動集計して表示する。</p>
+
+      <div class="card-grid">
+        <div class="card" data-tactic-group="life-dream-challenge">
+          <h4>人生術 / 夢と挑戦の処世術 <span class="count">（<span data-group-count>0</span>）</span></h4>
+          <p class="muted">挑戦の規模と意思決定を扱う棚。</p>
+        </div>
+        <div class="card" data-tactic-group="skill-deliberate-loop">
+          <h4>スキル術 / 上達を回す処世術 <span class="count">（<span data-group-count>0</span>）</span></h4>
+          <p class="muted">学習の反復と検証を中心に設計。</p>
+        </div>
+      </div>
+
+      <h3>3.3 処世術（個票）</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>フィールド</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>title</td>
+            <td>夢はスケールで決める</td>
+          </tr>
+          <tr>
+            <td>principle</td>
+            <td>ビジョン拡張原理</td>
+          </tr>
+          <tr>
+            <td>category</td>
+            <td>人生術</td>
+          </tr>
+          <tr>
+            <td>groupId</td>
+            <td>life-dream-challenge</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="card">
+        <h4>例：夢はスケールで決める <span class="muted">I-001</span></h4>
+        <p><span class="inline-code">principle</span>：ビジョン拡張原理</p>
+      </div>
+    </section>
+
+    <section id="foundation">
+      <h2>4. 判断基盤（理論レイヤ）仕様</h2>
+      <h3>4.1 判断基盤の役割</h3>
+      <ul>
+        <li>処世術を誤らずに使うための前提理解。</li>
+        <li>感情・認知・行動・関係性に関する原理の整理。</li>
+        <li>辞書として単独参照でき、処世術と横断的に接続される。</li>
+      </ul>
+
+      <h3>4.2 領域（最上位）</h3>
+      <ul>
+        <li>感情</li>
+        <li>評価</li>
+        <li>適応</li>
+        <li>行動</li>
+        <li>人間関係</li>
+        <li>問題解決</li>
+      </ul>
+
+      <h3>4.3 テーマ（領域内分類）</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>フィールド</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>id</td>
+            <td>emotion-anxiety-functionalization</td>
+          </tr>
+          <tr>
+            <td>domain</td>
+            <td>感情</td>
+          </tr>
+          <tr>
+            <td>title</td>
+            <td>不安の機能化</td>
+          </tr>
+          <tr>
+            <td>description</td>
+            <td>このテーマが扱う現象・視点</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>4.4 判断基盤エントリ（辞書項目）</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>フィールド</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>id</td>
+            <td>F-EMO-ANX-001</td>
+          </tr>
+          <tr>
+            <td>term</td>
+            <td>不安の警報化</td>
+          </tr>
+          <tr>
+            <td>domain</td>
+            <td>感情</td>
+          </tr>
+          <tr>
+            <td>themeId</td>
+            <td>emotion-anxiety-functionalization</td>
+          </tr>
+        </tbody>
+      </table>
+      <h4>本文構造（確定）</h4>
+      <ul>
+        <li><strong>definition</strong>：不安はリスクの検知信号であり、無視ではなく観測対象。</li>
+        <li><strong>essence</strong>：警報を行動設計に転換することで先回りが可能になる。</li>
+        <li><strong>pitfalls</strong>：不安を避けるほど情報取得が減り、判断精度が落ちる。</li>
+        <li><strong>strategy</strong>：不安の出所を分解し、検証可能なアクションに置き換える。</li>
+        <li><strong>conditions</strong>：未知の挑戦・選択肢が多い局面。</li>
+      </ul>
+      <h4>リンク・分類</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>フィールド</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>appliedTacticIds</td>
+            <td>I-001, I-002</td>
+          </tr>
+          <tr>
+            <td>tags</td>
+            <td>
+              <ul class="tag-list">
+                <li>不安</li>
+                <li>警戒</li>
+                <li>意思決定</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>status</td>
+            <td>published</td>
+          </tr>
+          <tr>
+            <td>updatedAt</td>
+            <td>2026-01-16</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="relation">
+      <h2>5. 両レイヤの関係性</h2>
+      <ul>
+        <li>判断基盤 → 処世術：「この原理は、どの処世術で使われるか」を示す。</li>
+        <li>処世術 → 判断基盤：「この処世術の背景にある原理」を参照する。</li>
+      </ul>
+      <p class="muted">主従関係はなく、相互参照による横断構造とする。</p>
+    </section>
+
+    <section id="screens">
+      <h2>6. 画面仕様（概要）</h2>
+      <h3>6.1 トップ</h3>
+      <ul>
+        <li>世界観コピー</li>
+        <li>件数サマリー（処世術数／判断基盤数／ケース数）</li>
+        <li>基本原則</li>
+        <li>注目処世術</li>
+      </ul>
+      <h3>6.2 処世術一覧</h3>
+      <ul>
+        <li>5カテゴリ別に処世術群を表示</li>
+        <li>群カード：タイトル＋件数</li>
+        <li>群 → 処世術一覧 → 個票</li>
+      </ul>
+      <h3>6.3 判断基盤</h3>
+      <ul>
+        <li>左：領域ナビ</li>
+        <li>上：キーワード検索</li>
+        <li>中央：テーマ一覧</li>
+        <li>テーマ → エントリ → 活用処世術リンク</li>
+      </ul>
+      <h3>6.4 マイページ</h3>
+      <ul>
+        <li>お気に入り処世術</li>
+        <li>お気に入り判断基盤</li>
+        <li>個人用処世術（将来拡張）</li>
+      </ul>
+    </section>
+
+    <section id="id-rules">
+      <h2>7. ID命名規則</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>種別</th>
+            <th>例</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>処世術</td>
+            <td>I-001</td>
+          </tr>
+          <tr>
+            <td>判断基盤</td>
+            <td>F-EMO-ANX-001</td>
+          </tr>
+          <tr>
+            <td>処世術群</td>
+            <td>life-dream-challenge</td>
+          </tr>
+          <tr>
+            <td>判断基盤テーマ</td>
+            <td>emotion-anxiety-functionalization</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script>
+    const data = {
+      tacticGroups: [
+        {
+          id: "life-dream-challenge",
+          category: "人生術",
+          title: "夢と挑戦の処世術",
+          description: "挑戦の規模と意思決定を扱う棚",
+          order: 1
+        },
+        {
+          id: "skill-deliberate-loop",
+          category: "スキル術",
+          title: "上達を回す処世術",
+          description: "学習の反復と検証を中心に設計",
+          order: 2
+        }
+      ],
+      tactics: [
+        {
+          id: "I-001",
+          title: "夢はスケールで決める",
+          principle: "ビジョン拡張原理",
+          category: "人生術",
+          groupId: "life-dream-challenge"
+        },
+        {
+          id: "I-002",
+          title: "挑戦の損失を限定する",
+          principle: "試行回数最適化",
+          category: "人生術",
+          groupId: "life-dream-challenge"
+        },
+        {
+          id: "I-003",
+          title: "学びを小さくループする",
+          principle: "反復強化原理",
+          category: "スキル術",
+          groupId: "skill-deliberate-loop"
+        }
+      ],
+      foundationEntries: [
+        {
+          id: "F-EMO-ANX-001",
+          term: "不安の警報化",
+          domain: "感情",
+          themeId: "emotion-anxiety-functionalization",
+          appliedTacticIds: ["I-001", "I-002"],
+          tags: ["不安", "警戒", "意思決定"],
+          status: "published",
+          updatedAt: "2026-01-16"
+        }
+      ],
+      cases: []
+    };
+
+    const countTargets = {
+      tactics: data.tactics.length,
+      foundations: data.foundationEntries.length,
+      cases: data.cases.length
+    };
+
+    Object.entries(countTargets).forEach(([key, value]) => {
+      const el = document.querySelector(`[data-count="${key}"]`);
+      if (el) {
+        el.textContent = String(value);
+      }
+    });
+
+    document.querySelectorAll("[data-tactic-group]").forEach((groupEl) => {
+      const groupId = groupEl.dataset.tacticGroup;
+      const groupCount = data.tactics.filter((tactic) => tactic.groupId === groupId).length;
+      const countEl = groupEl.querySelector("[data-group-count]");
+      if (countEl) {
+        countEl.textContent = String(groupCount);
+      }
+    });
+  </script>
+</body>
+</html>
