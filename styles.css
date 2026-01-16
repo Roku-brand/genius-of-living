@@ -10,6 +10,15 @@
   --color-primary: #2b5c8a;
   --color-primary-shadow: rgba(43, 92, 138, 0.35);
   --color-primary-border: rgba(43, 92, 138, 0.12);
+  --color-primary-light: rgba(43, 92, 138, 0.1);
+  --color-text: #1f1f1f;
+  --color-text-secondary: #666;
+  --color-text-tertiary: #999;
+  --color-text-body: #333;
+  --color-text-muted: #444;
+  --color-overlay: rgba(0, 0, 0, 0.5);
+  --color-shadow: rgba(0, 0, 0, 0.2);
+  --color-shadow-light: rgba(0, 0, 0, 0.08);
   --layout-top-margin: 32px;
   background: var(--color-background);
 }
@@ -502,13 +511,13 @@ body {
 }
 
 .foundation-search__input::placeholder {
-  color: #999;
+  color: var(--color-text-tertiary);
 }
 
 .foundation-search__count {
   margin-top: 12px;
   font-size: 14px;
-  color: #666;
+  color: var(--color-text-secondary);
 }
 
 /* Foundation Cards Grid */
@@ -532,7 +541,7 @@ body {
 
 .foundation-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 16px var(--color-shadow-light);
   border-color: var(--color-primary);
 }
 
@@ -548,7 +557,7 @@ body {
   min-width: 52px;
   height: 32px;
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-surface);
   font-size: 12px;
   font-weight: 700;
   border-radius: 6px;
@@ -565,14 +574,14 @@ body {
 .foundation-card__title {
   font-size: 16px;
   font-weight: 600;
-  color: #1f1f1f;
+  color: var(--color-text);
   line-height: 1.4;
   margin: 0;
 }
 
 .foundation-card__summary {
   font-size: 13px;
-  color: #666;
+  color: var(--color-text-secondary);
   line-height: 1.5;
   margin: 0;
 }
@@ -601,7 +610,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--color-overlay);
 }
 
 .foundation-modal__content {
@@ -613,7 +622,7 @@ body {
   border-radius: 16px;
   padding: 28px;
   overflow-y: auto;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px var(--color-shadow);
   animation: modalSlideIn 0.2s ease-out;
 }
 
@@ -636,7 +645,7 @@ body {
   height: 36px;
   border: none;
   background: var(--color-surface-muted);
-  color: #666;
+  color: var(--color-text-secondary);
   font-size: 24px;
   line-height: 1;
   border-radius: 50%;
@@ -646,7 +655,7 @@ body {
 
 .foundation-modal__close:hover {
   background: var(--color-tab-bg);
-  color: #333;
+  color: var(--color-text-body);
 }
 
 .foundation-modal__close:focus-visible {
@@ -672,7 +681,7 @@ body {
 
 .foundation-modal__summary {
   font-size: 15px;
-  color: #444;
+  color: var(--color-text-muted);
   line-height: 1.6;
   margin: 0;
 }
@@ -701,7 +710,7 @@ body {
 
 .foundation-modal__section-text {
   font-size: 14px;
-  color: #333;
+  color: var(--color-text-body);
   line-height: 1.7;
   margin: 0;
 }
@@ -716,7 +725,7 @@ body {
 
 .foundation-modal__list li {
   font-size: 14px;
-  color: #333;
+  color: var(--color-text-body);
   line-height: 1.6;
 }
 
@@ -729,7 +738,7 @@ body {
 .foundation-modal__tag {
   display: inline-block;
   padding: 4px 10px;
-  background: rgba(43, 92, 138, 0.1);
+  background: var(--color-primary-light);
   color: var(--color-primary);
   font-size: 12px;
   font-weight: 500;
@@ -740,7 +749,7 @@ body {
   display: inline-block;
   padding: 6px 12px;
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-surface);
   font-size: 13px;
   font-weight: 600;
   border-radius: 8px;
