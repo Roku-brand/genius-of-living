@@ -108,48 +108,7 @@
         <div class="panel__inner">
           <h2>処世術一覧（判断ラベル）</h2>
           <p class="section-lead">5つのカテゴリに分類された処世術を、タイトル単位で一覧化します。</p>
-          <div class="grid three">
-            <article class="card">
-              <h3>人生術</h3>
-              <ul class="label-list">
-                <li><span>長期視点</span> — 今の痛みより未来の成果を優先。</li>
-                <li><span>余白確保</span> — 予定を埋めず回復余力を持つ。</li>
-                <li><span>選択の原則</span> — 価値観に沿った選択肢だけ残す。</li>
-              </ul>
-            </article>
-            <article class="card">
-              <h3>思考術</h3>
-              <ul class="label-list">
-                <li><span>因果分解</span> — 問題の要素を切り分けて見る。</li>
-                <li><span>反証思考</span> — 反対意見を先に検討する。</li>
-                <li><span>判断保留</span> — 感情が高いときは決めない。</li>
-              </ul>
-            </article>
-            <article class="card">
-              <h3>対人術</h3>
-              <ul class="label-list">
-                <li><span>期待調整</span> — 先に合意を取って摩擦を防ぐ。</li>
-                <li><span>共感要約</span> — 相手の言葉を整理して返す。</li>
-                <li><span>境界線</span> — 役割と責任の線引きを明確化。</li>
-              </ul>
-            </article>
-            <article class="card">
-              <h3>スキル術</h3>
-              <ul class="label-list">
-                <li><span>最短学習</span> — 目的から逆算して学ぶ。</li>
-                <li><span>型を借りる</span> — 先人のテンプレを採用する。</li>
-                <li><span>反復設計</span> — 小さな実践を積み上げる。</li>
-              </ul>
-            </article>
-            <article class="card">
-              <h3>達成術</h3>
-              <ul class="label-list">
-                <li><span>進捗可視化</span> — 見える化で継続力を保つ。</li>
-                <li><span>負荷分散</span> — タスクを細分化して進める。</li>
-                <li><span>振り返り</span> — 週次で改善点を抽出。</li>
-              </ul>
-            </article>
-          </div>
+          <div id="techniques-list" class="techniques-list"></div>
         </div>
       </section>
 
@@ -157,60 +116,8 @@
         <div class="panel__inner">
           <h2>思想基盤</h2>
           <p class="section-lead">心理学・行動科学・先人の教えを辞書的に管理し、処世術の裏付けとして活用します。</p>
-          <div class="grid two">
-            <article class="card">
-              <h3>心理学</h3>
-              <dl>
-                <div>
-                  <dt>認知バイアス</dt>
-                  <dd>判断の偏りを理解し、処世術のトリガーに変換する。</dd>
-                </div>
-                <div>
-                  <dt>自己効力感</dt>
-                  <dd>行動継続の土台となる信念を育てる。</dd>
-                </div>
-              </dl>
-            </article>
-            <article class="card">
-              <h3>行動科学</h3>
-              <dl>
-                <div>
-                  <dt>習慣形成</dt>
-                  <dd>行動を自動化するトリガー設計。</dd>
-                </div>
-                <div>
-                  <dt>環境デザイン</dt>
-                  <dd>意思決定を支援する場の整備。</dd>
-                </div>
-              </dl>
-            </article>
-            <article class="card">
-              <h3>先人の教え</h3>
-              <dl>
-                <div>
-                  <dt>中庸</dt>
-                  <dd>極端を避け、長期視点での均衡を保つ。</dd>
-                </div>
-                <div>
-                  <dt>守破離</dt>
-                  <dd>型を守り、破り、独自化する成長段階。</dd>
-                </div>
-              </dl>
-            </article>
-            <article class="card">
-              <h3>社会科学</h3>
-              <dl>
-                <div>
-                  <dt>相互依存</dt>
-                  <dd>他者との関係性を前提に判断する。</dd>
-                </div>
-                <div>
-                  <dt>資源配分</dt>
-                  <dd>有限リソースをどこに投下するか決める。</dd>
-                </div>
-              </dl>
-            </article>
-          </div>
+          <div class="subtabs" id="foundation-tablist" role="tablist" aria-label="思想基盤カテゴリ"></div>
+          <div id="foundation-tabpanels" class="foundation-panels"></div>
         </div>
       </section>
 
@@ -243,6 +150,6 @@
       <p>処世術禄 — 人生の処世術OSを構築するためのナレッジベース。</p>
     </footer>
 
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>
