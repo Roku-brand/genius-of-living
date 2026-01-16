@@ -3,6 +3,7 @@ const ADMIN_CONFIG = {
   // 下記ハッシュは "g0l-admin" の SHA-256 です。必要に応じて差し替えてください。
   passphraseHash:
     "cbc356bc7161057ec5b710c2a604d725270f59947feb48eec8e33edba650553d",
+  passphraseHashKey: "admin-passphrase-hash",
   sessionKey: "admin-session-active",
   sessionTimestampKey: "admin-session-start",
   attemptsKey: "admin-login-attempts",
@@ -27,6 +28,11 @@ const adminMemo = document.getElementById("admin-memo");
 const memoStatus = document.getElementById("memo-status");
 const editButton = document.getElementById("edit-button");
 const editStatus = document.getElementById("edit-status");
+const passphraseForm = document.getElementById("passphrase-form");
+const newPassphraseInput = document.getElementById("new-passphrase");
+const confirmPassphraseInput = document.getElementById("confirm-passphrase");
+const passphraseStatus = document.getElementById("passphrase-status");
+const resetPassphraseButton = document.getElementById("reset-passphrase");
 
 let logoutTimerId = null;
 
@@ -39,6 +45,18 @@ const hashText = async (text) => {
   const encoded = new TextEncoder().encode(text);
   const hashBuffer = await crypto.subtle.digest("SHA-256", encoded);
   return toHex(hashBuffer);
+};
+
+const getActivePassphraseHash = () =>
+  localStorage.getItem(ADMIN_CONFIG.passphraseHashKey) ||
+  ADMIN_CONFIG.passphraseHash;
+
+const setActivePassphraseHash = (hash) => {
+  if (hash) {
+    localStorage.setItem(ADMIN_CONFIG.passphraseHashKey, hash);
+  } else {
+    localStorage.removeItem(ADMIN_CONFIG.passphraseHashKey);
+  }
 };
 
 const getSessionStart = () => {
@@ -160,7 +178,7 @@ const handleLogin = async (event) => {
   const passphrase = passphraseInput.value.trim();
   const hashed = await hashText(passphrase);
 
-  if (hashed === ADMIN_CONFIG.passphraseHash) {
+  if (hashed === getActivePassphraseHash()) {
     setLoginState(true);
     resetAttempts();
     clearLock();
@@ -205,6 +223,37 @@ const handleMemoInput = () => {
   memoStatus.textContent = "保存済み";
 };
 
+const handlePassphraseSubmit = async (event) => {
+  event.preventDefault();
+  passphraseStatus.textContent = "";
+
+  const newPassphrase = newPassphraseInput.value.trim();
+  const confirmPassphrase = confirmPassphraseInput.value.trim();
+
+  if (!newPassphrase || !confirmPassphrase) {
+    passphraseStatus.textContent = "合言葉を入力してください。";
+    return;
+  }
+
+  if (newPassphrase !== confirmPassphrase) {
+    passphraseStatus.textContent = "合言葉が一致しません。";
+    return;
+  }
+
+  const hashed = await hashText(newPassphrase);
+  setActivePassphraseHash(hashed);
+  newPassphraseInput.value = "";
+  confirmPassphraseInput.value = "";
+  passphraseStatus.textContent = "合言葉を更新しました。";
+};
+
+const handlePassphraseReset = () => {
+  setActivePassphraseHash(null);
+  newPassphraseInput.value = "";
+  confirmPassphraseInput.value = "";
+  passphraseStatus.textContent = "デフォルトの合言葉に戻しました。";
+};
+
 const handleEditClick = () => {
   editStatus.textContent = "編集ボタンがクリックされました（ダミー）。";
 };
@@ -213,6 +262,8 @@ loginForm.addEventListener("submit", handleLogin);
 logoutButton.addEventListener("click", () => handleLogout("ログアウトしました。"));
 visibilityToggle.addEventListener("change", handleVisibilityChange);
 adminMemo.addEventListener("input", handleMemoInput);
+passphraseForm.addEventListener("submit", handlePassphraseSubmit);
+resetPassphraseButton.addEventListener("click", handlePassphraseReset);
 editButton.addEventListener("click", handleEditClick);
 
 renderLockMessage();
