@@ -3,9 +3,14 @@
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   color: #1f1f1f;
   --color-background: #f7f6f3;
+  --color-surface: #fff;
+  --color-surface-muted: #f8f9fb;
+  --color-tab-bg: #f1f2f4;
+  --color-tab-text: #333;
   --color-primary: #2b5c8a;
   --color-primary-shadow: rgba(43, 92, 138, 0.35);
   --color-primary-border: rgba(43, 92, 138, 0.12);
+  --layout-top-margin: 32px;
   background: var(--color-background);
 }
 
@@ -20,6 +25,59 @@ body {
   display: flex;
   flex-direction: column;
   background: var(--color-background);
+}
+
+.site-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-primary-border);
+  padding: 12px 16px;
+}
+
+.site-header__inner {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.site-header__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.menu-button {
+  border: 1px solid var(--color-primary-border);
+  background: var(--color-surface-muted);
+  width: 44px;
+  height: 40px;
+  border-radius: 12px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-button:hover {
+  background: var(--color-tab-bg);
+}
+
+.menu-button:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.menu-button__line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 999px;
 }
 
 .hero {
@@ -43,7 +101,7 @@ body {
   opacity: 0.8;
 }
 
-.hero h1 {
+.hero h2 {
   font-size: clamp(32px, 4vw, 48px);
   font-weight: 700;
 }
@@ -56,20 +114,21 @@ body {
 
 .container {
   width: min(1100px, 100%);
-  margin: -24px auto 0;
+  margin: var(--layout-top-margin) auto 0;
   padding: 0 16px 48px;
   flex: 1;
 }
 
 .tabs {
-  background: #fff;
-  border-radius: 16px;
-  padding: 12px;
-  display: grid;
+  display: flex;
   gap: 8px;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.08);
-  margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0;
 }
 
 .tab {
@@ -78,8 +137,8 @@ body {
   border-radius: 12px;
   font-size: 15px;
   font-weight: 600;
-  background: #f1f2f4;
-  color: #333;
+  background: var(--color-tab-bg);
+  color: var(--color-tab-text);
   cursor: pointer;
   transition: all 0.2s ease;
 }

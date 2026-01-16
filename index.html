@@ -7,61 +7,71 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="hero">
+    <header class="site-header">
+      <div class="site-header__inner">
+        <button class="menu-button" type="button" aria-label="メニューを開く">
+          <span class="menu-button__line"></span>
+          <span class="menu-button__line"></span>
+          <span class="menu-button__line"></span>
+        </button>
+        <h1 class="site-header__title">処世術禄</h1>
+        <nav class="tabs" role="tablist" aria-label="主要タブ">
+          <button
+            class="tab is-active"
+            role="tab"
+            aria-selected="true"
+            aria-controls="tab-top"
+            id="tab-top-button"
+            tabindex="0"
+          >
+            トップ
+          </button>
+          <button
+            class="tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-techniques"
+            id="tab-techniques-button"
+            tabindex="-1"
+          >
+            処世術一覧
+          </button>
+          <button
+            class="tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-foundation"
+            id="tab-foundation-button"
+            tabindex="-1"
+          >
+            思想基盤
+          </button>
+          <button
+            class="tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-mypage"
+            id="tab-mypage-button"
+            tabindex="-1"
+          >
+            マイページ
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
       <div class="hero__content">
         <p class="hero__badge">サービス名</p>
-        <h1>処世術禄</h1>
+        <h2>処世術禄</h2>
         <p class="hero__lead">
           人生・仕事・対人関係の判断を、タイトル単位で一覧・参照・再利用できる知識体系に。
           深い理論は思想基盤に集約し、処世術を「引き金となる言葉（判断ラベル）」として運用します。
         </p>
       </div>
-    </header>
+    </section>
 
     <main class="container">
-      <nav class="tabs" role="tablist" aria-label="主要タブ">
-        <button
-          class="tab is-active"
-          role="tab"
-          aria-selected="true"
-          aria-controls="tab-top"
-          id="tab-top-button"
-          tabindex="0"
-        >
-          トップ
-        </button>
-        <button
-          class="tab"
-          role="tab"
-          aria-selected="false"
-          aria-controls="tab-techniques"
-          id="tab-techniques-button"
-          tabindex="-1"
-        >
-          処世術一覧
-        </button>
-        <button
-          class="tab"
-          role="tab"
-          aria-selected="false"
-          aria-controls="tab-foundation"
-          id="tab-foundation-button"
-          tabindex="-1"
-        >
-          思想基盤
-        </button>
-        <button
-          class="tab"
-          role="tab"
-          aria-selected="false"
-          aria-controls="tab-mypage"
-          id="tab-mypage-button"
-          tabindex="-1"
-        >
-          マイページ
-        </button>
-      </nav>
-
       <section id="tab-top" class="panel is-active" role="tabpanel" aria-labelledby="tab-top-button">
         <div class="panel__inner">
           <h2>処世術禄が目指すもの</h2>
