@@ -1,5 +1,54 @@
+import { techniquesData } from './data/techniques.js';
+import { foundationData } from './data/foundation.js';
+
 const tabs = Array.from(document.querySelectorAll('.tab'));
 const panels = Array.from(document.querySelectorAll('.panel'));
+
+const addTabKeyboardNavigation = (tabElements, tab, onActivate) => {
+  tab.addEventListener('keydown', (event) => {
+    const currentIndex = tabElements.indexOf(tab);
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      const nextIndex = (currentIndex + 1) % tabElements.length;
+      tabElements[nextIndex].focus();
+      return;
+    }
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      const prevIndex = (currentIndex - 1 + tabElements.length) % tabElements.length;
+      tabElements[prevIndex].focus();
+      return;
+    }
+    if (event.key === 'Home') {
+      event.preventDefault();
+      tabElements[0].focus();
+      return;
+    }
+    if (event.key === 'End') {
+      event.preventDefault();
+      tabElements[tabElements.length - 1].focus();
+      return;
+    }
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onActivate(tab);
+    }
+  });
+};
+
+const createElement = (tag, className, textContent) => {
+  const element = document.createElement(tag);
+  if (className) {
+    element.className = className;
+  }
+  if (textContent) {
+    element.textContent = textContent;
+  }
+  return element;
+};
+
+const isDataReady = (data, ...elements) =>
+  elements.every(Boolean) && data && Array.isArray(data);
 
 if (tabs.length && panels.length) {
   const activateTab = (tab, { updateHash = false } = {}) => {
@@ -27,35 +76,9 @@ if (tabs.length && panels.length) {
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => activateTab(tab, { updateHash: true }));
-    tab.addEventListener('keydown', (event) => {
-      const currentIndex = tabs.indexOf(tab);
-      if (event.key === 'ArrowRight') {
-        event.preventDefault();
-        const nextIndex = (currentIndex + 1) % tabs.length;
-        tabs[nextIndex].focus();
-        return;
-      }
-      if (event.key === 'ArrowLeft') {
-        event.preventDefault();
-        const prevIndex = (currentIndex - 1 + tabs.length) % tabs.length;
-        tabs[prevIndex].focus();
-        return;
-      }
-      if (event.key === 'Home') {
-        event.preventDefault();
-        tabs[0].focus();
-        return;
-      }
-      if (event.key === 'End') {
-        event.preventDefault();
-        tabs[tabs.length - 1].focus();
-        return;
-      }
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        activateTab(tab, { updateHash: true });
-      }
-    });
+    addTabKeyboardNavigation(tabs, tab, (currentTab) =>
+      activateTab(currentTab, { updateHash: true }),
+    );
   });
 
   const activateTabFromHash = () => {
@@ -71,4 +94,98 @@ if (tabs.length && panels.length) {
 
   activateTabFromHash();
   window.addEventListener('hashchange', activateTabFromHash);
+}
+
+const techniquesList = document.querySelector('#techniques-list');
+
+if (isDataReady(techniquesData, techniquesList)) {
+  techniquesData.forEach((category) => {
+    const row = createElement('article', 'technique-row');
+    const title = createElement('h3', 'technique-row__title', category.title);
+    const list = createElement('ul', 'technique-buttons');
+
+    category.items.forEach((item) => {
+      const listItem = createElement('li');
+      const button = createElement('button', 'technique-tag', item);
+      button.type = 'button';
+      listItem.appendChild(button);
+      list.appendChild(listItem);
+    });
+
+    row.appendChild(title);
+    row.appendChild(list);
+    techniquesList.appendChild(row);
+  });
+}
+
+const foundationTabList = document.querySelector('#foundation-tablist');
+const foundationPanels = document.querySelector('#foundation-tabpanels');
+
+if (isDataReady(foundationData, foundationTabList, foundationPanels)) {
+  const foundationTabs = [];
+  const panelList = [];
+
+  const setActiveFoundationTab = (tab) => {
+    const targetId = tab.getAttribute('aria-controls');
+    if (!targetId) {
+      console.warn('Foundation tab missing aria-controls attribute.', tab);
+      return;
+    }
+
+    foundationTabs.forEach((item) => {
+      const isActive = item === tab;
+      item.classList.toggle('is-active', isActive);
+      item.setAttribute('aria-selected', String(isActive));
+      item.setAttribute('tabindex', isActive ? '0' : '-1');
+    });
+
+    panelList.forEach((panel) => {
+      const isActive = panel.id === targetId;
+      panel.toggleAttribute('hidden', !isActive);
+    });
+  };
+
+  foundationData.forEach((section, index) => {
+    const tabButton = createElement('button', 'subtab');
+    tabButton.type = 'button';
+    if (index === 0) {
+      tabButton.classList.add('is-active');
+    }
+    tabButton.id = `foundation-tab-${section.id}`;
+    tabButton.setAttribute('role', 'tab');
+    tabButton.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+    tabButton.setAttribute('aria-controls', `foundation-panel-${section.id}`);
+    tabButton.setAttribute('tabindex', index === 0 ? '0' : '-1');
+    tabButton.textContent = section.title;
+
+    const panel = createElement('div', 'foundation-panel');
+    panel.id = `foundation-panel-${section.id}`;
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('aria-labelledby', tabButton.id);
+    if (index !== 0) {
+      panel.hidden = true;
+    }
+
+    const grid = createElement('div', 'grid two');
+
+    section.items.forEach((item) => {
+      const card = createElement('article', 'card');
+      const title = createElement('h3', null, item.title);
+      const description = createElement('p', null, item.description);
+      card.appendChild(title);
+      card.appendChild(description);
+      grid.appendChild(card);
+    });
+
+    panel.appendChild(grid);
+    foundationTabList.appendChild(tabButton);
+    foundationPanels.appendChild(panel);
+    foundationTabs.push(tabButton);
+    panelList.push(panel);
+  });
+
+  foundationTabs.forEach((tabButton) => {
+    tabButton.addEventListener('click', () => setActiveFoundationTab(tabButton));
+    addTabKeyboardNavigation(foundationTabs, tabButton, setActiveFoundationTab);
+  });
 }

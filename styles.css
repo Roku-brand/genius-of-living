@@ -226,6 +226,91 @@ body {
   margin-right: 6px;
 }
 
+.techniques-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.technique-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 1px solid var(--color-primary-border);
+  background: var(--color-surface-muted);
+}
+
+.technique-row__title {
+  font-size: 18px;
+  color: var(--color-primary);
+}
+
+.technique-buttons {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.technique-tag {
+  border: 1px solid var(--color-primary-border);
+  background: var(--color-surface);
+  color: var(--color-tab-text);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.technique-tag:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.subtabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.subtab {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--color-tab-bg);
+  color: var(--color-tab-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.subtab.is-active {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 6px 14px var(--color-primary-shadow);
+}
+
+.subtab:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.foundation-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.foundation-panel[hidden] {
+  display: none;
+}
+
 .card dl {
   display: grid;
   gap: 12px;
@@ -250,6 +335,10 @@ body {
 @media (max-width: 640px) {
   .panel {
     padding: 24px 16px 32px;
+  }
+
+  .technique-row {
+    grid-template-columns: 1fr;
   }
 
   .tab {
