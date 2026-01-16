@@ -63,6 +63,38 @@
           </div>
 
           <div class="dashboard__card">
+            <h3>合言葉の設定</h3>
+            <p class="dashboard__note">
+              合言葉は端末の localStorage に保存されます。設定後は次回ログインから新しい合言葉が必要です。
+            </p>
+            <form id="passphrase-form" class="form">
+              <label class="form__label" for="new-passphrase">新しい合言葉</label>
+              <input
+                id="new-passphrase"
+                name="new-passphrase"
+                type="password"
+                autocomplete="new-password"
+                required
+              />
+              <label class="form__label" for="confirm-passphrase">合言葉（確認）</label>
+              <input
+                id="confirm-passphrase"
+                name="confirm-passphrase"
+                type="password"
+                autocomplete="new-password"
+                required
+              />
+              <div class="form__actions">
+                <button type="submit" class="button">合言葉を更新</button>
+                <button type="button" class="button button--ghost" id="reset-passphrase">
+                  デフォルトへ戻す
+                </button>
+              </div>
+              <p class="dashboard__saved" id="passphrase-status">未更新</p>
+            </form>
+          </div>
+
+          <div class="dashboard__card">
             <h3>管理者専用操作</h3>
             <p class="dashboard__note">ログイン中のみ表示される編集ボタンです。</p>
             <button class="button" id="edit-button">編集（ダミー）</button>
