@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>処世術禄 制作仕様書（完全版）</title>
+  <title>処世術禄</title>
   <style>
     :root {
       color-scheme: light;
@@ -123,16 +123,109 @@
       padding: 0 6px;
       border-radius: 4px;
     }
+    .lead {
+      margin-top: 6px;
+      color: var(--muted);
+    }
+    .stack-lg > * + * {
+      margin-top: 16px;
+    }
+    .category-section {
+      padding-bottom: 12px;
+    }
+    .tactic-list {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+    .tactic-list li {
+      margin-bottom: 6px;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .link-list {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 0;
+    }
+    .link-list li {
+      margin-bottom: 6px;
+    }
+    .foundation-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin: 12px 0 16px;
+    }
+    .search-label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      flex: 1 1 240px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .foundation-layout {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 16px;
+    }
+    .domain-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .chip {
+      border: 1px solid var(--line);
+      background: #ffffff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      cursor: pointer;
+      text-align: left;
+    }
+    .chip.is-active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+    .entry-card {
+      border-top: 1px dashed var(--line);
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+    .definition-list {
+      margin: 8px 0;
+      padding-left: 18px;
+    }
+    @media (max-width: 720px) {
+      .foundation-layout {
+        grid-template-columns: 1fr;
+      }
+      .domain-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>処世術禄 制作仕様書（完全版）</h1>
+    <h1>処世術禄</h1>
     <p>人生・仕事・対人関係の判断と立ち回りを、状況に応じて引き出せる実践知として整理する。</p>
   </header>
   <main>
     <section id="top">
       <h2>トップ</h2>
+      <p class="lead">状況に応じて引き出せる「処世術」と、その背景にある判断原理を整理する。</p>
       <div class="summary-grid">
         <div class="card">
           <h4>処世術数</h4>
@@ -155,343 +248,91 @@
       </ul>
       <h3>注目処世術</h3>
       <div class="card">
-        <h4>夢はスケールで決める <span class="muted">（ビジョン拡張原理）</span></h4>
+        <h4>夢はスケールで決める <span class="muted">I-001</span></h4>
         <p class="muted">人生術 / 夢と挑戦の処世術</p>
+        <p class="meta">背景原理：ビジョン拡張原理（F-EMO-ANX-001）</p>
       </div>
-    </section>
-
-    <section id="product-definition">
-      <h2>1. プロダクト定義</h2>
-      <h3>1.1 名称</h3>
-      <p>サービス名：処世術禄</p>
-      <h3>1.2 目的</h3>
-      <ul>
-        <li>人生・仕事・対人関係における判断と立ち回りを再利用可能な知識として体系化する。</li>
-        <li>状況に応じて引き出し、使うための実践知として提供する。</li>
-      </ul>
-      <h3>1.3 基本構造</h3>
-      <div class="card-grid">
-        <div class="card">
-          <h4>処世術（実践レイヤ）</h4>
-          <p>具体的な行動指針・立ち回り・思考の使い方。</p>
-        </div>
-        <div class="card">
-          <h4>判断基盤（理論レイヤ）</h4>
-          <p>心理・行動・意思決定の原理を整理した辞書・参照体系。</p>
-        </div>
-      </div>
-      <p class="muted">両者はID参照により相互にリンクされる。</p>
-    </section>
-
-    <section id="ia">
-      <h2>2. 全体情報構造（IA）</h2>
-      <pre>処世術禄
-├─ トップ
-├─ 処世術一覧
-│   └─ カテゴリ
-│       └─ 処世術群（棚）
-│           └─ 処世術（個票）
-├─ 判断基盤
-│   └─ 領域
-│       └─ テーマ
-│           └─ 判断基盤エントリ
-└─ マイページ
-    └─ お気に入り／個人用処世術</pre>
     </section>
 
     <section id="tactics">
-      <h2>3. 処世術（実践レイヤ）仕様</h2>
-      <h3>3.1 カテゴリ（最上位分類）</h3>
-      <ul>
-        <li>人生術</li>
-        <li>思考術</li>
-        <li>対人術</li>
-        <li>スキル術</li>
-        <li>達成術</li>
-      </ul>
-      <p class="muted">用途：一覧表示・探索のための分類。思想的な上下関係は持たない。</p>
-
-      <h3>3.2 処世術群（棚）</h3>
-      <p>似た状況・目的を扱う処世術の集合単位。</p>
-      <table>
-        <thead>
-          <tr>
-            <th>フィールド</th>
-            <th>内容</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>id</td>
-            <td>一意ID（例：life-dream-challenge）</td>
-          </tr>
-          <tr>
-            <td>category</td>
-            <td>人生術 など</td>
-          </tr>
-          <tr>
-            <td>title</td>
-            <td>夢と挑戦の処世術</td>
-          </tr>
-          <tr>
-            <td>description</td>
-            <td>この処世術群が扱う局面の説明</td>
-          </tr>
-          <tr>
-            <td>order</td>
-            <td>表示順</td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="muted">件数表記は配下の処世術数を自動集計して表示する。</p>
-
-      <div class="card-grid">
-        <div class="card" data-tactic-group="life-dream-challenge">
-          <h4>人生術 / 夢と挑戦の処世術 <span class="count">（<span data-group-count>0</span>）</span></h4>
-          <p class="muted">挑戦の規模と意思決定を扱う棚。</p>
-        </div>
-        <div class="card" data-tactic-group="skill-deliberate-loop">
-          <h4>スキル術 / 上達を回す処世術 <span class="count">（<span data-group-count>0</span>）</span></h4>
-          <p class="muted">学習の反復と検証を中心に設計。</p>
-        </div>
-      </div>
-
-      <h3>3.3 処世術（個票）</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>フィールド</th>
-            <th>内容</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>title</td>
-            <td>夢はスケールで決める</td>
-          </tr>
-          <tr>
-            <td>principle</td>
-            <td>ビジョン拡張原理</td>
-          </tr>
-          <tr>
-            <td>category</td>
-            <td>人生術</td>
-          </tr>
-          <tr>
-            <td>groupId</td>
-            <td>life-dream-challenge</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="card">
-        <h4>例：夢はスケールで決める <span class="muted">I-001</span></h4>
-        <p><span class="inline-code">principle</span>：ビジョン拡張原理</p>
-      </div>
+      <h2>処世術一覧</h2>
+      <p class="muted">5カテゴリ別に処世術群を整理し、棚ごとの処世術を一覧表示する。</p>
+      <div id="tactic-category-list" class="stack-lg"></div>
     </section>
 
     <section id="foundation">
-      <h2>4. 判断基盤（理論レイヤ）仕様</h2>
-      <h3>4.1 判断基盤の役割</h3>
-      <ul>
-        <li>処世術を誤らずに使うための前提理解。</li>
-        <li>感情・認知・行動・関係性に関する原理の整理。</li>
-        <li>辞書として単独参照でき、処世術と横断的に接続される。</li>
-      </ul>
-
-      <h3>4.2 領域（最上位）</h3>
-      <ul>
-        <li>感情</li>
-        <li>評価</li>
-        <li>適応</li>
-        <li>行動</li>
-        <li>人間関係</li>
-        <li>問題解決</li>
-      </ul>
-
-      <h3>4.3 テーマ（領域内分類）</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>フィールド</th>
-            <th>内容</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>id</td>
-            <td>emotion-anxiety-functionalization</td>
-          </tr>
-          <tr>
-            <td>domain</td>
-            <td>感情</td>
-          </tr>
-          <tr>
-            <td>title</td>
-            <td>不安の機能化</td>
-          </tr>
-          <tr>
-            <td>description</td>
-            <td>このテーマが扱う現象・視点</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>4.4 判断基盤エントリ（辞書項目）</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>フィールド</th>
-            <th>内容</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>id</td>
-            <td>F-EMO-ANX-001</td>
-          </tr>
-          <tr>
-            <td>term</td>
-            <td>不安の警報化</td>
-          </tr>
-          <tr>
-            <td>domain</td>
-            <td>感情</td>
-          </tr>
-          <tr>
-            <td>themeId</td>
-            <td>emotion-anxiety-functionalization</td>
-          </tr>
-        </tbody>
-      </table>
-      <h4>本文構造（確定）</h4>
-      <ul>
-        <li><strong>definition</strong>：不安はリスクの検知信号であり、無視ではなく観測対象。</li>
-        <li><strong>essence</strong>：警報を行動設計に転換することで先回りが可能になる。</li>
-        <li><strong>pitfalls</strong>：不安を避けるほど情報取得が減り、判断精度が落ちる。</li>
-        <li><strong>strategy</strong>：不安の出所を分解し、検証可能なアクションに置き換える。</li>
-        <li><strong>conditions</strong>：未知の挑戦・選択肢が多い局面。</li>
-      </ul>
-      <h4>リンク・分類</h4>
-      <table>
-        <thead>
-          <tr>
-            <th>フィールド</th>
-            <th>内容</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>appliedTacticIds</td>
-            <td>I-001, I-002</td>
-          </tr>
-          <tr>
-            <td>tags</td>
-            <td>
-              <ul class="tag-list">
-                <li>不安</li>
-                <li>警戒</li>
-                <li>意思決定</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>status</td>
-            <td>published</td>
-          </tr>
-          <tr>
-            <td>updatedAt</td>
-            <td>2026-01-16</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2>判断基盤</h2>
+      <p class="muted">領域ごとの原理を辞書化し、処世術と相互参照できる状態に整える。</p>
+      <div class="foundation-toolbar">
+        <label class="search-label">
+          キーワード検索
+          <input id="foundation-search" class="search-input" type="search" placeholder="用語・タグ・本文から検索" />
+        </label>
+      </div>
+      <div class="foundation-layout">
+        <nav id="foundation-domain-nav" class="domain-nav" aria-label="判断基盤の領域"></nav>
+        <div id="foundation-theme-list" class="stack-lg"></div>
+      </div>
     </section>
 
-    <section id="relation">
-      <h2>5. 両レイヤの関係性</h2>
-      <ul>
-        <li>判断基盤 → 処世術：「この原理は、どの処世術で使われるか」を示す。</li>
-        <li>処世術 → 判断基盤：「この処世術の背景にある原理」を参照する。</li>
-      </ul>
-      <p class="muted">主従関係はなく、相互参照による横断構造とする。</p>
-    </section>
-
-    <section id="screens">
-      <h2>6. 画面仕様（概要）</h2>
-      <h3>6.1 トップ</h3>
-      <ul>
-        <li>世界観コピー</li>
-        <li>件数サマリー（処世術数／判断基盤数／ケース数）</li>
-        <li>基本原則</li>
-        <li>注目処世術</li>
-      </ul>
-      <h3>6.2 処世術一覧</h3>
-      <ul>
-        <li>5カテゴリ別に処世術群を表示</li>
-        <li>群カード：タイトル＋件数</li>
-        <li>群 → 処世術一覧 → 個票</li>
-      </ul>
-      <h3>6.3 判断基盤</h3>
-      <ul>
-        <li>左：領域ナビ</li>
-        <li>上：キーワード検索</li>
-        <li>中央：テーマ一覧</li>
-        <li>テーマ → エントリ → 活用処世術リンク</li>
-      </ul>
-      <h3>6.4 マイページ</h3>
-      <ul>
-        <li>お気に入り処世術</li>
-        <li>お気に入り判断基盤</li>
-        <li>個人用処世術（将来拡張）</li>
-      </ul>
-    </section>
-
-    <section id="id-rules">
-      <h2>7. ID命名規則</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>種別</th>
-            <th>例</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>処世術</td>
-            <td>I-001</td>
-          </tr>
-          <tr>
-            <td>判断基盤</td>
-            <td>F-EMO-ANX-001</td>
-          </tr>
-          <tr>
-            <td>処世術群</td>
-            <td>life-dream-challenge</td>
-          </tr>
-          <tr>
-            <td>判断基盤テーマ</td>
-            <td>emotion-anxiety-functionalization</td>
-          </tr>
-        </tbody>
-      </table>
+    <section id="mypage">
+      <h2>マイページ</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h4>お気に入り処世術</h4>
+          <ul id="favorite-tactics" class="link-list"></ul>
+        </div>
+        <div class="card">
+          <h4>お気に入り判断基盤</h4>
+          <ul id="favorite-foundations" class="link-list"></ul>
+        </div>
+        <div class="card">
+          <h4>個人用処世術</h4>
+          <p class="muted">将来拡張予定。現状はドラフトとして保存。</p>
+          <ul id="personal-tactics" class="link-list"></ul>
+        </div>
+      </div>
     </section>
   </main>
 
   <script>
     const data = {
+      categories: ["人生術", "思考術", "対人術", "スキル術", "達成術"],
       tacticGroups: [
         {
           id: "life-dream-challenge",
           category: "人生術",
           title: "夢と挑戦の処世術",
-          description: "挑戦の規模と意思決定を扱う棚",
+          description: "挑戦の規模と意思決定を扱う棚。",
           order: 1
+        },
+        {
+          id: "thinking-reframe",
+          category: "思考術",
+          title: "視点を整える処世術",
+          description: "前提を置き換え、判断の再設計を行う。",
+          order: 2
+        },
+        {
+          id: "interpersonal-boundary",
+          category: "対人術",
+          title: "距離感を保つ処世術",
+          description: "関係性の境界線を明確にする。",
+          order: 3
         },
         {
           id: "skill-deliberate-loop",
           category: "スキル術",
           title: "上達を回す処世術",
-          description: "学習の反復と検証を中心に設計",
-          order: 2
+          description: "学習の反復と検証を中心に設計。",
+          order: 4
+        },
+        {
+          id: "achievement-focus-sprint",
+          category: "達成術",
+          title: "集中を設計する処世術",
+          description: "成果を出すためのスプリント設計。",
+          order: 5
         }
       ],
       tactics: [
@@ -511,10 +352,77 @@
         },
         {
           id: "I-003",
+          title: "評価軸を仮置きする",
+          principle: "暫定基準化",
+          category: "思考術",
+          groupId: "thinking-reframe"
+        },
+        {
+          id: "I-004",
+          title: "仮説を短周期で試す",
+          principle: "思考ループ短縮",
+          category: "思考術",
+          groupId: "thinking-reframe"
+        },
+        {
+          id: "I-005",
+          title: "距離感を言語化する",
+          principle: "境界設計",
+          category: "対人術",
+          groupId: "interpersonal-boundary"
+        },
+        {
+          id: "I-006",
           title: "学びを小さくループする",
           principle: "反復強化原理",
           category: "スキル術",
           groupId: "skill-deliberate-loop"
+        },
+        {
+          id: "I-007",
+          title: "集中時間を設計する",
+          principle: "スプリント設計",
+          category: "達成術",
+          groupId: "achievement-focus-sprint"
+        }
+      ],
+      foundationDomains: ["感情", "評価", "適応", "行動", "人間関係", "問題解決"],
+      foundationThemes: [
+        {
+          id: "emotion-anxiety-functionalization",
+          domain: "感情",
+          title: "不安の機能化",
+          description: "不安を検知信号として扱う視点。"
+        },
+        {
+          id: "evaluation-goal-calibration",
+          domain: "評価",
+          title: "目標の採点基準",
+          description: "評価軸を再定義して判断のブレを抑える。"
+        },
+        {
+          id: "adaptation-environment-fit",
+          domain: "適応",
+          title: "環境適合の見直し",
+          description: "環境の変化に合わせて行動の設計を修正。"
+        },
+        {
+          id: "action-feedback-loop",
+          domain: "行動",
+          title: "フィードバック設計",
+          description: "行動後のレビューで次の一手を整える。"
+        },
+        {
+          id: "relationship-boundary-design",
+          domain: "人間関係",
+          title: "境界線の設計",
+          description: "役割と距離感を明文化して摩擦を抑える。"
+        },
+        {
+          id: "problem-solving-hypothesis-loop",
+          domain: "問題解決",
+          title: "仮説検証ループ",
+          description: "小さな検証で学習を高速化する。"
         }
       ],
       foundationEntries: [
@@ -523,13 +431,98 @@
           term: "不安の警報化",
           domain: "感情",
           themeId: "emotion-anxiety-functionalization",
+          definition: "不安はリスクの検知信号であり、無視ではなく観測対象。",
+          essence: "警報を行動設計に転換することで先回りが可能になる。",
+          pitfalls: "不安を避けるほど情報取得が減り、判断精度が落ちる。",
+          strategy: "不安の出所を分解し、検証可能なアクションに置き換える。",
+          conditions: "未知の挑戦・選択肢が多い局面。",
           appliedTacticIds: ["I-001", "I-002"],
           tags: ["不安", "警戒", "意思決定"],
           status: "published",
           updatedAt: "2026-01-16"
+        },
+        {
+          id: "F-EVA-GOAL-001",
+          term: "評価軸の再構成",
+          domain: "評価",
+          themeId: "evaluation-goal-calibration",
+          definition: "目的に合わせて評価基準を組み替える。",
+          essence: "評価の物差しを調整すると意思決定が安定する。",
+          pitfalls: "周囲の基準に引きずられると達成感が薄れる。",
+          strategy: "目的を言語化し、一次評価項目だけを残す。",
+          conditions: "目標が曖昧で判断が揺れる局面。",
+          appliedTacticIds: ["I-003"],
+          tags: ["評価", "基準", "目標"],
+          status: "published",
+          updatedAt: "2026-01-16"
+        },
+        {
+          id: "F-ADP-FIT-001",
+          term: "適応ストレスの棚卸し",
+          domain: "適応",
+          themeId: "adaptation-environment-fit",
+          definition: "環境変化による負荷を言語化して整理する。",
+          essence: "負荷の源を特定すると適応戦略が選びやすい。",
+          pitfalls: "変化の原因が曖昧だと行動が迷走する。",
+          strategy: "変化点を列挙し、影響度の高い順に対応する。",
+          conditions: "役割や環境が変わった直後の局面。",
+          appliedTacticIds: ["I-004"],
+          tags: ["適応", "環境", "調整"],
+          status: "published",
+          updatedAt: "2026-01-16"
+        },
+        {
+          id: "F-ACT-FB-001",
+          term: "行動ログの再設計",
+          domain: "行動",
+          themeId: "action-feedback-loop",
+          definition: "行動結果を記録し、改善に使える形に整える。",
+          essence: "振り返りの粒度を揃えると再現性が高まる。",
+          pitfalls: "記録だけで終わると改善が停滞する。",
+          strategy: "記録→評価→次の行動を一連で管理する。",
+          conditions: "行動量はあるが成果が読めない局面。",
+          appliedTacticIds: ["I-006"],
+          tags: ["行動", "フィードバック", "改善"],
+          status: "published",
+          updatedAt: "2026-01-16"
+        },
+        {
+          id: "F-REL-BND-001",
+          term: "役割境界の明文化",
+          domain: "人間関係",
+          themeId: "relationship-boundary-design",
+          definition: "関係性で担う役割と距離感を明文化する。",
+          essence: "期待値を揃えると摩擦が減り協力が続く。",
+          pitfalls: "曖昧な期待は不満として蓄積される。",
+          strategy: "相手と役割の範囲を共有し、更新の機会を作る。",
+          conditions: "協働が長期化し、摩擦が生じやすい局面。",
+          appliedTacticIds: ["I-005"],
+          tags: ["人間関係", "境界", "役割"],
+          status: "published",
+          updatedAt: "2026-01-16"
+        },
+        {
+          id: "F-PSL-HYP-001",
+          term: "仮説検証の短周期化",
+          domain: "問題解決",
+          themeId: "problem-solving-hypothesis-loop",
+          definition: "仮説を短いサイクルで検証し、学習速度を上げる。",
+          essence: "検証の回数を増やすと問題解決の精度が上がる。",
+          pitfalls: "検証が長いと修正が遅れる。",
+          strategy: "最小単位の検証を設計し、迅速に振り返る。",
+          conditions: "不確実性が高く、探索が必要な局面。",
+          appliedTacticIds: ["I-004", "I-007"],
+          tags: ["問題解決", "仮説", "検証"],
+          status: "published",
+          updatedAt: "2026-01-16"
         }
       ],
-      cases: []
+      cases: [],
+      favorites: {
+        tactics: ["I-001", "I-006"],
+        foundations: ["F-EMO-ANX-001", "F-REL-BND-001"],
+        personalTactics: ["マイ処世術：会議前に判断軸を1行で書く"]
+      }
     };
 
     const countTargets = {
@@ -545,14 +538,298 @@
       }
     });
 
-    document.querySelectorAll("[data-tactic-group]").forEach((groupEl) => {
-      const groupId = groupEl.dataset.tacticGroup;
-      const groupCount = data.tactics.filter((tactic) => tactic.groupId === groupId).length;
-      const countEl = groupEl.querySelector("[data-group-count]");
-      if (countEl) {
-        countEl.textContent = String(groupCount);
+    const tacticMap = new Map(data.tactics.map((tactic) => [tactic.id, tactic]));
+    const foundationMap = new Map(data.foundationEntries.map((entry) => [entry.id, entry]));
+
+    const renderTacticCategories = () => {
+      const container = document.getElementById("tactic-category-list");
+      if (!container) return;
+      container.innerHTML = "";
+
+      data.categories.forEach((category) => {
+        const section = document.createElement("div");
+        section.className = "category-section";
+
+        const heading = document.createElement("h3");
+        heading.textContent = category;
+        section.appendChild(heading);
+
+        const groups = data.tacticGroups
+          .filter((group) => group.category === category)
+          .sort((a, b) => a.order - b.order);
+
+        if (groups.length === 0) {
+          const empty = document.createElement("p");
+          empty.className = "muted";
+          empty.textContent = "準備中";
+          section.appendChild(empty);
+          container.appendChild(section);
+          return;
+        }
+
+        const grid = document.createElement("div");
+        grid.className = "card-grid";
+
+        groups.forEach((group) => {
+          const card = document.createElement("div");
+          card.className = "card";
+
+          const groupTactics = data.tactics.filter((tactic) => tactic.groupId === group.id);
+          const headingEl = document.createElement("h4");
+          headingEl.textContent = `${group.title}（${groupTactics.length}）`;
+          card.appendChild(headingEl);
+
+          const description = document.createElement("p");
+          description.className = "meta";
+          description.textContent = group.description;
+          card.appendChild(description);
+
+          const tacticList = document.createElement("ul");
+          tacticList.className = "tactic-list";
+
+          groupTactics.forEach((tactic) => {
+            const item = document.createElement("li");
+
+            const title = document.createElement("div");
+            title.textContent = `${tactic.title} (${tactic.id})`;
+            item.appendChild(title);
+
+            const principle = document.createElement("div");
+            principle.className = "meta";
+            principle.textContent = `principle：${tactic.principle}`;
+            item.appendChild(principle);
+
+            const related = data.foundationEntries
+              .filter((entry) => entry.appliedTacticIds.includes(tactic.id))
+              .map((entry) => `${entry.term} (${entry.id})`);
+
+            if (related.length > 0) {
+              const relatedText = document.createElement("div");
+              relatedText.className = "meta";
+              relatedText.textContent = `関連判断基盤：${related.join(" / ")}`;
+              item.appendChild(relatedText);
+            }
+
+            tacticList.appendChild(item);
+          });
+
+          card.appendChild(tacticList);
+          grid.appendChild(card);
+        });
+
+        section.appendChild(grid);
+        container.appendChild(section);
+      });
+    };
+
+    const foundationState = {
+      domain: "all",
+      search: ""
+    };
+
+    const matchesSearch = (entry, theme, searchValue) => {
+      if (!searchValue) return true;
+      const haystack = [
+        entry.id,
+        entry.term,
+        entry.definition,
+        entry.essence,
+        entry.pitfalls,
+        entry.strategy,
+        entry.conditions,
+        theme.title,
+        theme.description,
+        entry.tags ? entry.tags.join(" ") : ""
+      ]
+        .join(" ")
+        .toLowerCase();
+      return haystack.includes(searchValue);
+    };
+
+    const renderDomainNav = () => {
+      const nav = document.getElementById("foundation-domain-nav");
+      if (!nav) return;
+      nav.innerHTML = "";
+
+      const domains = [{ label: "すべて", value: "all" }].concat(
+        data.foundationDomains.map((domain) => ({ label: domain, value: domain }))
+      );
+
+      domains.forEach((domain) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = `chip${foundationState.domain === domain.value ? " is-active" : ""}`;
+        button.textContent = domain.label;
+        button.addEventListener("click", () => {
+          foundationState.domain = domain.value;
+          renderDomainNav();
+          renderFoundationThemes();
+        });
+        nav.appendChild(button);
+      });
+    };
+
+    const renderFoundationThemes = () => {
+      const container = document.getElementById("foundation-theme-list");
+      if (!container) return;
+      container.innerHTML = "";
+
+      const searchValue = foundationState.search.trim().toLowerCase();
+      const themes = data.foundationThemes.filter(
+        (theme) => foundationState.domain === "all" || theme.domain === foundationState.domain
+      );
+
+      let hasResults = false;
+
+      themes.forEach((theme) => {
+        const entries = data.foundationEntries.filter(
+          (entry) => entry.themeId === theme.id && matchesSearch(entry, theme, searchValue)
+        );
+
+        if (entries.length === 0) {
+          return;
+        }
+
+        hasResults = true;
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const title = document.createElement("h3");
+        title.textContent = theme.title;
+        card.appendChild(title);
+
+        const meta = document.createElement("p");
+        meta.className = "meta";
+        meta.textContent = `${theme.domain} / ${theme.description}`;
+        card.appendChild(meta);
+
+        entries.forEach((entry) => {
+          const entryCard = document.createElement("div");
+          entryCard.className = "entry-card";
+
+          const entryTitle = document.createElement("h4");
+          entryTitle.textContent = `${entry.term} (${entry.id})`;
+          entryCard.appendChild(entryTitle);
+
+          const list = document.createElement("ul");
+          list.className = "definition-list";
+
+          const addDefinition = (label, text) => {
+            const item = document.createElement("li");
+            const strong = document.createElement("strong");
+            strong.textContent = label;
+            item.appendChild(strong);
+            item.append(`：${text}`);
+            list.appendChild(item);
+          };
+
+          addDefinition("definition", entry.definition);
+          addDefinition("essence", entry.essence);
+          addDefinition("pitfalls", entry.pitfalls);
+          addDefinition("strategy", entry.strategy);
+          addDefinition("conditions", entry.conditions);
+          entryCard.appendChild(list);
+
+          const appliedTactics = entry.appliedTacticIds
+            .map((id) => tacticMap.get(id))
+            .filter(Boolean);
+
+          if (appliedTactics.length > 0) {
+            const appliedLabel = document.createElement("div");
+            appliedLabel.className = "meta";
+            appliedLabel.textContent = "活用処世術";
+            entryCard.appendChild(appliedLabel);
+
+            const appliedList = document.createElement("ul");
+            appliedList.className = "link-list";
+            appliedTactics.forEach((tactic) => {
+              const item = document.createElement("li");
+              item.textContent = `${tactic.title} (${tactic.id})`;
+              appliedList.appendChild(item);
+            });
+            entryCard.appendChild(appliedList);
+          }
+
+          if (entry.tags && entry.tags.length > 0) {
+            const tags = document.createElement("ul");
+            tags.className = "tag-list";
+            entry.tags.forEach((tag) => {
+              const tagItem = document.createElement("li");
+              tagItem.textContent = tag;
+              tags.appendChild(tagItem);
+            });
+            entryCard.appendChild(tags);
+          }
+
+          const status = document.createElement("p");
+          status.className = "meta";
+          status.textContent = `status: ${entry.status} / updated: ${entry.updatedAt}`;
+          entryCard.appendChild(status);
+
+          card.appendChild(entryCard);
+        });
+
+        container.appendChild(card);
+      });
+
+      if (!hasResults) {
+        const empty = document.createElement("p");
+        empty.className = "muted";
+        empty.textContent = "該当するエントリがありません。";
+        container.appendChild(empty);
       }
-    });
+    };
+
+    const renderFavorites = () => {
+      const favoriteTactics = document.getElementById("favorite-tactics");
+      const favoriteFoundations = document.getElementById("favorite-foundations");
+      const personalTactics = document.getElementById("personal-tactics");
+
+      const fillList = (listEl, items) => {
+        if (!listEl) return;
+        listEl.innerHTML = "";
+        if (!items || items.length === 0) {
+          const empty = document.createElement("li");
+          empty.className = "muted";
+          empty.textContent = "登録なし";
+          listEl.appendChild(empty);
+          return;
+        }
+
+        items.forEach((text) => {
+          const item = document.createElement("li");
+          item.textContent = text;
+          listEl.appendChild(item);
+        });
+      };
+
+      const favoriteTacticLabels = data.favorites.tactics.map((id) => {
+        const tactic = tacticMap.get(id);
+        return tactic ? `${tactic.title} (${tactic.id})` : id;
+      });
+      fillList(favoriteTactics, favoriteTacticLabels);
+
+      const favoriteFoundationLabels = data.favorites.foundations.map((id) => {
+        const entry = foundationMap.get(id);
+        return entry ? `${entry.term} (${entry.id})` : id;
+      });
+      fillList(favoriteFoundations, favoriteFoundationLabels);
+
+      fillList(personalTactics, data.favorites.personalTactics);
+    };
+
+    renderTacticCategories();
+    renderDomainNav();
+    renderFoundationThemes();
+    renderFavorites();
+
+    const searchInput = document.getElementById("foundation-search");
+    if (searchInput) {
+      searchInput.addEventListener("input", (event) => {
+        foundationState.search = event.target.value;
+        renderFoundationThemes();
+      });
+    }
   </script>
 </body>
 </html>
