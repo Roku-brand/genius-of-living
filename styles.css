@@ -1,8 +1,12 @@
 :root {
   color-scheme: light;
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-  background: #f7f6f3;
   color: #1f1f1f;
+  --color-background: #f7f6f3;
+  --color-primary: #2b5c8a;
+  --color-primary-shadow: rgba(43, 92, 138, 0.35);
+  --color-primary-border: rgba(43, 92, 138, 0.12);
+  background: var(--color-background);
 }
 
 * {
@@ -15,11 +19,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #f7f6f3;
+  background: var(--color-background);
 }
 
 .hero {
-  background: linear-gradient(135deg, #2b5c8a, #3a7ca5);
+  background: linear-gradient(135deg, var(--color-primary), #3a7ca5);
   color: #fff;
   padding: 48px 16px 56px;
 }
@@ -81,9 +85,9 @@ body {
 }
 
 .tab.is-active {
-  background: #2b5c8a;
+  background: var(--color-primary);
   color: #fff;
-  box-shadow: 0 6px 14px rgba(43, 92, 138, 0.35);
+  box-shadow: 0 6px 14px var(--color-primary-shadow);
 }
 
 .panel {
@@ -133,12 +137,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  border: 1px solid rgba(43, 92, 138, 0.12);
+  border: 1px solid var(--color-primary-border);
 }
 
 .card h3 {
   font-size: 18px;
-  color: #2b5c8a;
+  color: var(--color-primary);
 }
 
 .card p,
@@ -169,7 +173,7 @@ body {
 
 .card dt {
   font-weight: 700;
-  color: #2b5c8a;
+  color: var(--color-primary);
 }
 
 .card dd {
