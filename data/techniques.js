@@ -15,6 +15,8 @@ export const techniquesData = [
           { id: 8, title: 'ロールモデルを持つ', subtitle: '他者から学ぶと改善が早い', foundations: ['W-009'] },
           { id: 9, title: '期限を設けて動く', subtitle: '締切があると仕事が進む', foundations: ['B-010'] },
           { id: 10, title: '他者に宣言する', subtitle: '宣言すると行動を合わせやすい', foundations: ['B-005'] },
+          { id: 11, title: '中間目標を設計する', subtitle: '道筋を分解すると迷わない', foundations: ['B-008'] },
+          { id: 12, title: '想定リスクを書き出す', subtitle: '事前に備えると挑戦が続く', foundations: ['C-006'] },
         ],
       },
       {
@@ -30,6 +32,8 @@ export const techniquesData = [
           { id: 8, title: '直感を信じる瞬間を持つ', subtitle: '直感が最適解を示すことがある', foundations: [] },
           { id: 9, title: '経験に投資する', subtitle: '経験への投資が満足度を高める', foundations: [] },
           { id: 10, title: '感謝で締めくくる', subtitle: '感謝すると満足感が増す', foundations: [] },
+          { id: 11, title: '判断基準を先に決める', subtitle: '基準があると迷いが減る', foundations: ['T-001'] },
+          { id: 12, title: '行動後の学びを記録する', subtitle: '記録すると次に活かせる', foundations: ['B-001'] },
         ],
       },
       {
@@ -45,6 +49,8 @@ export const techniquesData = [
           { id: 8, title: '人間関係の棚卸しをする', subtitle: '関係を整理すると優先度が見える', foundations: ['T-006'] },
           { id: 9, title: 'キャリアの選択肢を広げる', subtitle: '偶然を活かすと機会が広がる', foundations: [] },
           { id: 10, title: '終わりを意識して始める', subtitle: 'ゴールから逆に考えると迷わない', foundations: [] },
+          { id: 11, title: 'ライフイベント年表を作る', subtitle: '時系列で整理すると優先度が見える', foundations: ['T-006'] },
+          { id: 12, title: '収入と支出を可視化する', subtitle: '資源を把握すると計画が現実的になる', foundations: ['T-001'] },
         ],
       },
     ],
@@ -65,6 +71,8 @@ export const techniquesData = [
           { id: 8, title: '回復の時間を確保する', subtitle: '休息で回復力が戻る', foundations: [] },
           { id: 9, title: '意味を見出す', subtitle: '意味を見つけると耐えられる', foundations: [] },
           { id: 10, title: '日常のルーティンを守る', subtitle: '繰り返しで行動が自動化する', foundations: ['B-001'] },
+          { id: 11, title: '睡眠と栄養を優先する', subtitle: '基盤を整えると回復力が上がる', foundations: ['T-001'] },
+          { id: 12, title: '支えになる人と定期的につながる', subtitle: '支援があると耐性が高まる', foundations: ['S-008'] },
         ],
       },
       {
@@ -80,6 +88,8 @@ export const techniquesData = [
           { id: 8, title: '感謝の対象に自分を含める', subtitle: '自分にも感謝すると肯定感が上がる', foundations: [] },
           { id: 9, title: '価値ある行動を続ける', subtitle: '繰り返しで行動が自動化する', foundations: ['B-001'] },
           { id: 10, title: '自己受容を練習する', subtitle: '評価せず受け入れると自己肯定が増す', foundations: [] },
+          { id: 11, title: 'できたこと日記をつける', subtitle: '達成を可視化すると自己評価が整う', foundations: ['B-001'] },
+          { id: 12, title: '他者への貢献を積み重ねる', subtitle: '役に立つ実感が自信につながる', foundations: ['S-001'] },
         ],
       },
       {
@@ -95,6 +105,8 @@ export const techniquesData = [
           { id: 8, title: '第三者の視点を想像する', subtitle: '思考の偏りに気づくと判断が整う', foundations: ['C-001'] },
           { id: 9, title: '今この瞬間に集中する', subtitle: '今に集中すると冷静になる', foundations: [] },
           { id: 10, title: '怒りのピークをやり過ごす', subtitle: '6秒待つと怒りが和らぐ', foundations: [] },
+          { id: 11, title: '判断を一晩寝かせる', subtitle: '時間を置くと感情が落ち着く', foundations: [] },
+          { id: 12, title: '情報を整理して優先度をつける', subtitle: '整理すると冷静に選べる', foundations: ['T-001'] },
         ],
       },
     ],
@@ -117,6 +129,8 @@ export const techniquesData = [
           { id: 10, title: '第三者を通じて褒める', subtitle: '第三者経由の称賛は信頼される', foundations: ['S-009'] },
           { id: 11, title: '相手の利益を先に出す', subtitle: '助けると巡って自分に返る', foundations: ['S-001', 'W-010'] },
           { id: 12, title: '期待を少し下回らせておく', subtitle: '見せ方で受け止め方が変わる', foundations: ['C-007'] },
+          { id: 13, title: '相手の成功体験を引き出す', subtitle: '肯定的な記憶が信頼を強める', foundations: ['S-008'] },
+          { id: 14, title: 'フォローの連絡を欠かさない', subtitle: '継続接触で関係が深まる', foundations: ['B-005'] },
         ],
       },
       {
@@ -132,6 +146,8 @@ export const techniquesData = [
           { id: 8, title: '握手をしっかりする', subtitle: 'しっかり握ると信頼感が生まれる', foundations: [] },
           { id: 9, title: '共通の話題を見つける', subtitle: '好意を示すと好意が返る', foundations: ['S-003'] },
           { id: 10, title: '相手に関心を示す', subtitle: '関心を示すと話しやすくなる', foundations: ['S-008'] },
+          { id: 11, title: '身だしなみを事前にチェックする', subtitle: '準備で第一印象が安定する', foundations: ['C-005'] },
+          { id: 12, title: '第一声を短く明るく伝える', subtitle: '最初の言葉で安心感が生まれる', foundations: [] },
         ],
       },
       {
@@ -147,6 +163,8 @@ export const techniquesData = [
           { id: 8, title: '約束を守る', subtitle: '約束を守ると信頼が増す', foundations: ['B-005'] },
           { id: 9, title: '感情的にならない', subtitle: '冷静さが信頼感を生む', foundations: ['C-002'] },
           { id: 10, title: '実績で示す', subtitle: '実績が評価を裏付ける', foundations: ['T-005'] },
+          { id: 11, title: '成果基準を共有する', subtitle: '基準を示すと評価が明確になる', foundations: ['T-003'] },
+          { id: 12, title: '要求には代替案を添える', subtitle: '代替案があると尊重されやすい', foundations: ['T-004'] },
         ],
       },
       {
@@ -162,6 +180,8 @@ export const techniquesData = [
           { id: 8, title: '透明性を保つ', subtitle: '透明性が疑念を減らす', foundations: ['T-005'] },
           { id: 9, title: '長期的な関係を意識する', subtitle: '長期視点で信頼が深まる', foundations: ['T-004'] },
           { id: 10, title: '小さな約束から始める', subtitle: '小さな約束で信頼が育つ', foundations: ['B-005'] },
+          { id: 11, title: '進捗をこまめに報告する', subtitle: '透明性が不安を減らす', foundations: ['T-005'] },
+          { id: 12, title: '期待値を最初に調整する', subtitle: '期待のズレを減らすと信頼が続く', foundations: ['C-007'] },
         ],
       },
       {
@@ -177,6 +197,8 @@ export const techniquesData = [
           { id: 8, title: '衝突を建設的に解消する', subtitle: '対立を整理すると協力に戻せる', foundations: [] },
           { id: 9, title: '集団の目標を共有する', subtitle: '報酬設計で行動が動く', foundations: ['T-003'] },
           { id: 10, title: '多様性を尊重する', subtitle: '多様性で発想が広がる', foundations: [] },
+          { id: 11, title: '会議の目的と役割を明確にする', subtitle: '役割が決まると連携が進む', foundations: ['T-002'] },
+          { id: 12, title: '合意事項を文書化する', subtitle: '見える化で協力が続く', foundations: ['T-005'] },
         ],
       },
       {
@@ -192,6 +214,8 @@ export const techniquesData = [
           { id: 8, title: '相手のペースに合わせる', subtitle: '相手に合わせると親近感が増す', foundations: ['S-007'] },
           { id: 9, title: 'デートプランを主導する', subtitle: 'リードすると安心感が増す', foundations: ['S-004'] },
           { id: 10, title: '感情を適切に伝える', subtitle: '開示すると相手も心を開く', foundations: ['S-008'] },
+          { id: 11, title: '相手の境界線を尊重する', subtitle: '尊重が安心感を生む', foundations: [] },
+          { id: 12, title: '相手の価値観を丁寧に理解する', subtitle: '理解が深まると信頼が高まる', foundations: ['C-002'] },
         ],
       },
       {
@@ -207,6 +231,8 @@ export const techniquesData = [
           { id: 8, title: '自立した姿勢を保つ', subtitle: '自立した姿勢が魅力になる', foundations: ['W-001'] },
           { id: 9, title: 'ミステリアスさを残す', subtitle: '希少だと価値が高く感じる', foundations: ['S-005'] },
           { id: 10, title: '相手の価値観を理解する', subtitle: '理解が深まると距離が縮まる', foundations: ['C-002'] },
+          { id: 11, title: '相手の努力を言葉で認める', subtitle: '承認が安心感につながる', foundations: ['S-001'] },
+          { id: 12, title: '自分の境界線も明確にする', subtitle: '対等さが関係を保つ', foundations: [] },
         ],
       },
     ],
@@ -227,6 +253,8 @@ export const techniquesData = [
           { id: 8, title: '話を膨らませる', subtitle: '肯定して広げると会話が続く', foundations: [] },
           { id: 9, title: '沈黙を恐れない', subtitle: '沈黙で話を整理できる', foundations: [] },
           { id: 10, title: '話題を上手に切り替える', subtitle: '話題の橋渡しで流れが途切れない', foundations: [] },
+          { id: 11, title: '相手の話を要約して返す', subtitle: '理解を示すと安心感が増す', foundations: ['S-008'] },
+          { id: 12, title: '会話の終わりに次の接点を作る', subtitle: '次の話題があると関係が続く', foundations: ['B-005'] },
         ],
       },
       {
@@ -242,6 +270,8 @@ export const techniquesData = [
           { id: 8, title: '社会的証明を示す', subtitle: '周囲の行動が判断基準になる', foundations: ['S-002'] },
           { id: 9, title: '希少性を伝える', subtitle: '希少だと価値が高く感じる', foundations: ['S-005'] },
           { id: 10, title: 'コミットメントを引き出す', subtitle: '宣言すると行動を合わせやすい', foundations: ['B-005'] },
+          { id: 11, title: '論点を箇条書きで整理する', subtitle: '整理すると伝え漏れが減る', foundations: ['T-001'] },
+          { id: 12, title: '相手の理解度を確認しながら進める', subtitle: '確認すると納得が深まる', foundations: ['S-008'] },
         ],
       },
       {
@@ -257,6 +287,8 @@ export const techniquesData = [
           { id: 8, title: 'シンプルなスライドにする', subtitle: 'シンプルな視覚で伝わる', foundations: [] },
           { id: 9, title: '最後を印象的に締める', subtitle: '最後の印象が強く残る', foundations: [] },
           { id: 10, title: '質問に落ち着いて答える', subtitle: '質問に落ち着いて答えると信頼が高まる', foundations: [] },
+          { id: 11, title: '直前に声と姿勢を整える', subtitle: '身体を整えると落ち着く', foundations: [] },
+          { id: 12, title: '失敗時のリカバリ手順を決める', subtitle: '備えがあると不安が減る', foundations: ['C-006'] },
         ],
       },
       {
@@ -272,6 +304,8 @@ export const techniquesData = [
           { id: 8, title: '複数の論点を作る', subtitle: '複数条件で交換すると合意しやすい', foundations: [] },
           { id: 9, title: '相手に花を持たせる', subtitle: '相手の面子を守ると関係が保てる', foundations: [] },
           { id: 10, title: '合意を文書化する', subtitle: '合意をまとめると行動が決まる', foundations: [] },
+          { id: 11, title: '譲れない条件を事前に決める', subtitle: '優先順位があると交渉が進む', foundations: ['T-004'] },
+          { id: 12, title: '合意後のフォローを計画する', subtitle: '実行まで設計すると信頼が続く', foundations: ['T-005'] },
         ],
       },
       {
@@ -287,6 +321,8 @@ export const techniquesData = [
           { id: 8, title: '困難な決断を下す', subtitle: '決断で方向性が定まる', foundations: ['B-003'] },
           { id: 9, title: 'チームの多様性を活かす', subtitle: '多様性を尊重すると力が引き出せる', foundations: [] },
           { id: 10, title: '自らを律する', subtitle: '自己管理で信頼が高まる', foundations: ['W-001'] },
+          { id: 11, title: '目標と役割を明文化する', subtitle: '明文化で迷いが減る', foundations: ['T-002'] },
+          { id: 12, title: '1on1で成長支援をする', subtitle: '対話で信頼と成長が進む', foundations: ['S-008'] },
         ],
       },
     ],
@@ -307,6 +343,8 @@ export const techniquesData = [
           { id: 8, title: '挫折しても再開する', subtitle: '失敗を糧に立ち上がれる', foundations: ['W-008'] },
           { id: 9, title: 'アイデンティティと紐づける', subtitle: '自己像と結びつけると続けやすい', foundations: [] },
           { id: 10, title: '仲間と一緒に取り組む', subtitle: '宣言すると行動を合わせやすい', foundations: ['B-005'] },
+          { id: 11, title: '進捗を可視化する', subtitle: '見える化で継続しやすい', foundations: ['B-001'] },
+          { id: 12, title: '挫折ポイントを先に潰す', subtitle: '障害を減らすと続けやすい', foundations: ['B-002'] },
         ],
       },
       {
@@ -322,6 +360,8 @@ export const techniquesData = [
           { id: 8, title: '没入状態を意識する', subtitle: '没入すると成果が伸びる', foundations: [] },
           { id: 9, title: '休憩を計画的に取る', subtitle: '計画的に休むと集中が続く', foundations: [] },
           { id: 10, title: '儀式で集中モードに入る', subtitle: '繰り返しで行動が自動化する', foundations: ['B-001'] },
+          { id: 11, title: '通知を遮断する', subtitle: '刺激を減らすと集中が続く', foundations: ['B-002'] },
+          { id: 12, title: '成果指標を明確にする', subtitle: 'ゴールが明確だと集中しやすい', foundations: ['B-008'] },
         ],
       },
       {
@@ -337,6 +377,8 @@ export const techniquesData = [
           { id: 8, title: '移動時間を活用する', subtitle: '短時間を積み上げて成果にする', foundations: [] },
           { id: 9, title: 'メールの処理時間を決める', subtitle: '締切があると仕事が進む', foundations: ['B-010'] },
           { id: 10, title: '完了リストを作る', subtitle: 'できたことを書くと前進を実感する', foundations: [] },
+          { id: 11, title: 'タスクの所要時間を見積もる', subtitle: '見積もりで計画が現実的になる', foundations: [] },
+          { id: 12, title: '一日の終わりに振り返る', subtitle: '振り返りで改善点が見える', foundations: ['B-001'] },
         ],
       },
       {
@@ -352,6 +394,8 @@ export const techniquesData = [
           { id: 8, title: '睡眠で記憶を定着させる', subtitle: '睡眠で記憶が定着する', foundations: [] },
           { id: 9, title: '好奇心を持って学ぶ', subtitle: '初心を意識すると学びが続く', foundations: ['W-003'] },
           { id: 10, title: 'フィードバックを求める', subtitle: '振り返りで改善点が見える', foundations: [] },
+          { id: 11, title: '学習目標と計画を立てる', subtitle: '計画があると迷わず進む', foundations: ['B-008'] },
+          { id: 12, title: '理解度をテストする', subtitle: '確認で弱点が明確になる', foundations: [] },
         ],
       },
     ],
