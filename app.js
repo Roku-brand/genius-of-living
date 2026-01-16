@@ -99,6 +99,54 @@ if (tabs.length && panels.length) {
 }
 
 const techniquesList = document.querySelector('#techniques-list');
+const techniqueDetailPanel = createElement('div', 'technique-detail-panel');
+techniqueDetailPanel.id = 'technique-detail-panel';
+techniqueDetailPanel.hidden = true;
+
+const showTechniqueDetail = (technique) => {
+  techniqueDetailPanel.innerHTML = '';
+  techniqueDetailPanel.hidden = false;
+
+  const backButton = createElement('button', 'technique-back-button', '← 一覧に戻る');
+  backButton.type = 'button';
+  backButton.addEventListener('click', () => {
+    techniqueDetailPanel.hidden = true;
+    techniquesList.hidden = false;
+  });
+
+  const header = createElement('div', 'technique-detail-header');
+  const titleEl = createElement('h3', 'technique-detail-title', `${technique.name}（${technique.details.length}）`);
+  header.appendChild(titleEl);
+
+  const grid = createElement('div', 'technique-detail-grid');
+
+  technique.details.forEach((detail) => {
+    const card = createElement('article', 'technique-detail-card');
+    const idBadge = createElement('span', 'technique-detail-id', String(detail.id));
+    const titleWrapper = createElement('div', 'technique-detail-content');
+    const titleText = createElement('h4', 'technique-detail-item-title', detail.title);
+    const subtitle = createElement('p', 'technique-detail-subtitle', `（${detail.subtitle}）`);
+    const foundationLabel = createElement('p', 'technique-detail-foundation-label', '判断基盤');
+    const foundationTags = createElement('div', 'technique-detail-foundations');
+    detail.foundations.forEach((f) => {
+      const tag = createElement('span', 'foundation-tag', f);
+      foundationTags.appendChild(tag);
+    });
+
+    titleWrapper.appendChild(titleText);
+    titleWrapper.appendChild(subtitle);
+    titleWrapper.appendChild(foundationLabel);
+    titleWrapper.appendChild(foundationTags);
+    card.appendChild(idBadge);
+    card.appendChild(titleWrapper);
+    grid.appendChild(card);
+  });
+
+  techniqueDetailPanel.appendChild(backButton);
+  techniqueDetailPanel.appendChild(header);
+  techniqueDetailPanel.appendChild(grid);
+  techniquesList.hidden = true;
+};
 
 if (isDataReady(techniquesData, techniquesList)) {
   techniquesData.forEach((category) => {
@@ -108,8 +156,10 @@ if (isDataReady(techniquesData, techniquesList)) {
 
     category.items.forEach((item) => {
       const listItem = createElement('li');
-      const button = createElement('button', 'technique-tag', item);
+      const buttonText = `${item.name}（${item.details.length}）`;
+      const button = createElement('button', 'technique-tag', buttonText);
       button.type = 'button';
+      button.addEventListener('click', () => showTechniqueDetail(item));
       listItem.appendChild(button);
       list.appendChild(listItem);
     });
@@ -118,6 +168,8 @@ if (isDataReady(techniquesData, techniquesList)) {
     row.appendChild(list);
     techniquesList.appendChild(row);
   });
+
+  techniquesList.parentElement.appendChild(techniqueDetailPanel);
 }
 
 const foundationTabList = document.querySelector('#foundation-tablist');
