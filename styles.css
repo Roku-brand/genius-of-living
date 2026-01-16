@@ -84,6 +84,11 @@ body {
   transition: all 0.2s ease;
 }
 
+.tab:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 .tab.is-active {
   background: var(--color-primary);
   color: #fff;
