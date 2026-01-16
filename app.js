@@ -243,13 +243,47 @@ const logoutButton = document.querySelector('#logout-button');
 const mypageTabs = Array.from(document.querySelectorAll('#mypage-tablist .subtab'));
 const mypagePanels = Array.from(document.querySelectorAll('.mypage-panel'));
 const LOGIN_STATE_KEY = 'shoseijutsu-login-state';
+const DEMO_CREDENTIALS = {
+  username: 'shoseijutsu',
+  password: 'OS2024',
+};
+const loginMessage = document.querySelector('#login-message');
+const loginStatus = document.querySelector('#mypage-status');
 
-const updateMyPageAuthState = (isLoggedIn) => {
+const setLoginMessage = (message, { isError = false } = {}) => {
+  if (!loginMessage) {
+    return;
+  }
+  loginMessage.textContent = message;
+  loginMessage.classList.toggle('is-error', isError);
+  loginMessage.classList.toggle('is-success', !isError && Boolean(message));
+};
+
+const setLoginFieldState = (isValid, field) => {
+  if (!field) {
+    return;
+  }
+  field.setAttribute('aria-invalid', String(!isValid));
+};
+
+const updateLoginStatus = (username) => {
+  if (!loginStatus) {
+    return;
+  }
+  if (username) {
+    loginStatus.textContent = `ログイン済み：${username} さんのマイページが有効です。`;
+  } else {
+    loginStatus.textContent = 'ログイン済み：あなたのマイページが有効です。';
+  }
+};
+
+const updateMyPageAuthState = (isLoggedIn, { username } = {}) => {
   if (!mypageAuth || !mypageContent) {
     return;
   }
   mypageAuth.hidden = isLoggedIn;
   mypageContent.hidden = !isLoggedIn;
+  updateLoginStatus(username);
 };
 
 if (mypageTabs.length && mypagePanels.length) {
@@ -264,19 +298,64 @@ if (mypageTabs.length && mypagePanels.length) {
 if (loginForm) {
   loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    localStorage.setItem(LOGIN_STATE_KEY, 'true');
-    updateMyPageAuthState(true);
+    const formData = new FormData(loginForm);
+    const username = String(formData.get('username') ?? '').trim();
+    const password = String(formData.get('password') ?? '').trim();
+    const usernameField = loginForm.querySelector('input[name="username"]');
+    const passwordField = loginForm.querySelector('input[name="password"]');
+
+    setLoginFieldState(Boolean(username), usernameField);
+    setLoginFieldState(Boolean(password), passwordField);
+
+    if (!username || !password) {
+      setLoginMessage('ユーザー名とパスワードを入力してください。', { isError: true });
+      return;
+    }
+
+    if (username !== DEMO_CREDENTIALS.username || password !== DEMO_CREDENTIALS.password) {
+      setLoginMessage('ログイン情報が一致しません。もう一度入力してください。', { isError: true });
+      return;
+    }
+
+    localStorage.setItem(
+      LOGIN_STATE_KEY,
+      JSON.stringify({ isLoggedIn: true, username }),
+    );
+    setLoginMessage('ログインに成功しました。', { isError: false });
+    updateMyPageAuthState(true, { username });
+    if (passwordField) {
+      passwordField.value = '';
+    }
   });
 }
 
 if (logoutButton) {
   logoutButton.addEventListener('click', () => {
     localStorage.removeItem(LOGIN_STATE_KEY);
+    setLoginMessage('');
     updateMyPageAuthState(false);
   });
 }
 
-updateMyPageAuthState(localStorage.getItem(LOGIN_STATE_KEY) === 'true');
+const storedLogin = localStorage.getItem(LOGIN_STATE_KEY);
+let isLoggedIn = false;
+let loggedInUser = '';
+
+if (storedLogin) {
+  try {
+    const parsed = JSON.parse(storedLogin);
+    if (typeof parsed === 'boolean') {
+      isLoggedIn = parsed;
+    } else {
+      isLoggedIn = Boolean(parsed?.isLoggedIn);
+      loggedInUser = parsed?.username ?? '';
+    }
+  } catch (error) {
+    localStorage.removeItem(LOGIN_STATE_KEY);
+  }
+}
+
+updateMyPageAuthState(isLoggedIn, { username: loggedInUser });
 
 // Foundation card detail modal
 const createFoundationDetailModal = () => {

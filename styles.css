@@ -11,6 +11,7 @@
   --color-primary-shadow: rgba(43, 92, 138, 0.35);
   --color-primary-border: rgba(43, 92, 138, 0.12);
   --color-primary-light: rgba(43, 92, 138, 0.1);
+  --color-accent: #d14c4c;
   --color-text: #1f1f1f;
   --color-text-secondary: #666;
   --color-text-tertiary: #999;
@@ -212,6 +213,35 @@ body {
   outline: none;
   border-color: var(--color-primary);
   box-shadow: 0 0 0 2px var(--color-primary-shadow);
+}
+
+.login-form__field input[aria-invalid='true'] {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(255, 102, 102, 0.2);
+}
+
+.login-form__note {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  background: var(--color-surface-muted);
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+.login-form__message {
+  font-size: 13px;
+  min-height: 18px;
+  color: var(--color-text-secondary);
+}
+
+.login-form__message.is-error {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.login-form__message.is-success {
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
 .mypage-header {
