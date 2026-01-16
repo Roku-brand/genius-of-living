@@ -1,3 +1,4 @@
+import { featuredTechniques } from './data/featured-techniques.js';
 import { techniquesData } from './data/techniques.js';
 import {
   foundationCategories,
@@ -53,6 +54,19 @@ const createElement = (tag, className, textContent) => {
 
 const isDataReady = (data, ...elements) =>
   elements.every(Boolean) && data && Array.isArray(data);
+
+const featuredTechniquesList = document.querySelector('#featured-techniques');
+
+if (isDataReady(featuredTechniques, featuredTechniquesList)) {
+  featuredTechniques.forEach((technique) => {
+    const card = createElement('article', 'card');
+    const title = createElement('h3', null, technique.title);
+    const summary = createElement('p', null, technique.summary);
+    card.appendChild(title);
+    card.appendChild(summary);
+    featuredTechniquesList.appendChild(card);
+  });
+}
 
 if (tabs.length && panels.length) {
   const activateTab = (tab, { updateHash = false } = {}) => {
