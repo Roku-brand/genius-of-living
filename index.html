@@ -60,19 +60,12 @@
       </div>
     </header>
 
-    <section class="hero">
-      <div class="hero__content">
-        <p class="hero__badge">サービス名</p>
-        <h2>処世術禄</h2>
-        <p class="hero__lead">
-          人生・仕事・対人関係の判断を、タイトル単位で一覧・参照・再利用できる知識体系に。
-          深い理論は思想基盤に集約し、処世術を「引き金となる言葉（判断ラベル）」として運用します。
-        </p>
-      </div>
-    </section>
-
     <main class="container">
       <section id="tab-top" class="panel is-active" role="tabpanel" aria-labelledby="tab-top-button">
+        <div class="tab-hero">
+          <h2 class="tab-hero__title">トップ</h2>
+          <p class="tab-hero__desc">人生・仕事・対人関係の判断を、タイトル単位で一覧・参照・再利用できる知識体系に。</p>
+        </div>
         <div class="panel__inner">
           <h2>処世術禄が目指すもの</h2>
           <div class="grid two">
@@ -105,25 +98,32 @@
       </section>
 
       <section id="tab-techniques" class="panel" role="tabpanel" aria-labelledby="tab-techniques-button" hidden>
+        <div class="tab-hero">
+          <h2 class="tab-hero__title">処世術一覧</h2>
+          <p class="tab-hero__desc">5つのカテゴリに分類された処世術を、タイトル単位で一覧化します。</p>
+        </div>
         <div class="panel__inner">
-          <h2>処世術一覧（判断ラベル）</h2>
-          <p class="section-lead">5つのカテゴリに分類された処世術を、タイトル単位で一覧化します。</p>
           <div id="techniques-list" class="techniques-list"></div>
         </div>
       </section>
 
       <section id="tab-foundation" class="panel" role="tabpanel" aria-labelledby="tab-foundation-button" hidden>
+        <div class="tab-hero">
+          <h2 class="tab-hero__title">思想基盤</h2>
+          <p class="tab-hero__desc">心理学・行動科学・先人の教えを辞書的に管理し、処世術の裏付けとして活用します。</p>
+        </div>
         <div class="panel__inner">
-          <h2>思想基盤</h2>
-          <p class="section-lead">心理学・行動科学・先人の教えを辞書的に管理し、処世術の裏付けとして活用します。</p>
           <div class="subtabs" id="foundation-tablist" role="tablist" aria-label="思想基盤カテゴリ"></div>
           <div id="foundation-tabpanels" class="foundation-panels"></div>
         </div>
       </section>
 
       <section id="tab-mypage" class="panel" role="tabpanel" aria-labelledby="tab-mypage-button" hidden>
+        <div class="tab-hero">
+          <h2 class="tab-hero__title">マイページ</h2>
+          <p class="tab-hero__desc">お気に入りの処世術や学習の進捗を管理し、パーソナライズされた体験を提供します。</p>
+        </div>
         <div class="panel__inner">
-          <h2>マイページ</h2>
           <div class="grid two">
             <article class="card">
               <h3>保存済み処世術</h3>

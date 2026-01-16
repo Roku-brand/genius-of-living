@@ -69,6 +69,8 @@ if (tabs.length && panels.length) {
       panel.toggleAttribute('hidden', !isActive);
     });
 
+    window.scrollTo(0, 0);
+
     if (updateHash) {
       window.location.hash = targetId;
     }
