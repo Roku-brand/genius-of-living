@@ -132,10 +132,23 @@ const showTechniqueDetail = (technique) => {
     const subtitle = createElement('p', 'technique-detail-subtitle', `（${detail.subtitle}）`);
     const foundationLabel = createElement('p', 'technique-detail-foundation-label', '判断基盤');
     const foundationTags = createElement('div', 'technique-detail-foundations');
-    detail.foundations.forEach((f) => {
-      const tag = createElement('span', 'foundation-tag', f);
-      foundationTags.appendChild(tag);
-    });
+
+    if (detail.foundations.length === 0) {
+      // Empty foundations - show placeholder
+      const emptyTag = createElement('span', 'foundation-tag foundation-tag--empty', '—');
+      foundationTags.appendChild(emptyTag);
+    } else {
+      detail.foundations.forEach((f) => {
+        const tag = createElement('button', 'foundation-tag foundation-tag--clickable', f);
+        tag.type = 'button';
+        tag.setAttribute('aria-label', `基盤 ${f} に移動`);
+        tag.addEventListener('click', (e) => {
+          e.stopPropagation();
+          navigateToFoundation(f);
+        });
+        foundationTags.appendChild(tag);
+      });
+    }
 
     titleWrapper.appendChild(titleText);
     titleWrapper.appendChild(subtitle);
@@ -150,6 +163,31 @@ const showTechniqueDetail = (technique) => {
   techniqueDetailPanel.appendChild(header);
   techniqueDetailPanel.appendChild(grid);
   techniquesList.hidden = true;
+};
+
+// Navigate to a foundation item by tagId
+const TAB_SWITCH_DELAY = 100;
+
+const navigateToFoundation = (tagId) => {
+  // Find the foundation item
+  const allItems = getAllFoundationItems();
+  const foundationItem = allItems.find((item) => item.tagId === tagId);
+
+  if (!foundationItem) {
+    console.warn(`Foundation item with tagId "${tagId}" not found.`);
+    return;
+  }
+
+  // Switch to foundation tab
+  const foundationTab = tabs.find((tab) => tab.getAttribute('aria-controls') === 'tab-foundation');
+  if (foundationTab) {
+    foundationTab.click();
+  }
+
+  // Open the foundation modal after a short delay to allow tab switch
+  setTimeout(() => {
+    openFoundationModal(foundationItem);
+  }, TAB_SWITCH_DELAY);
 };
 
 if (isDataReady(techniquesData, techniquesList)) {
