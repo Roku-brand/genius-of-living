@@ -182,11 +182,12 @@ const showTechniqueDetail = (technique) => {
 
   technique.details.forEach((detail) => {
     const card = createElement('article', 'technique-detail-card');
+    
     const idBadge = createElement('span', 'technique-detail-id', String(detail.id));
     const titleWrapper = createElement('div', 'technique-detail-content');
     const titleText = createElement('h4', 'technique-detail-item-title', detail.title);
     const subtitle = createElement('p', 'technique-detail-subtitle', `（${detail.subtitle}）`);
-    const foundationLabel = createElement('p', 'technique-detail-foundation-label', '判断基盤');
+    const foundationLabel = createElement('p', 'technique-detail-foundation-label', '思想基盤');
     const foundationTags = createElement('div', 'technique-detail-foundations');
 
     if (detail.foundations.length === 0) {
