@@ -253,9 +253,10 @@ if (isDataReady(techniquesData, techniquesList)) {
     const title = createElement('h3', 'technique-row__title', `≪${category.title}≫`);
     const list = createElement('ul', 'technique-buttons');
 
-    category.items.forEach((item) => {
+    category.items.forEach((item, index) => {
       const listItem = createElement('li');
-      const buttonText = `${item.name}（${item.details.length}）`;
+      const itemNumber = String(index + 1).padStart(2, '0');
+      const buttonText = `${itemNumber}. ${item.name}（${item.details.length}）`;
       const button = createElement('button', 'technique-tag', buttonText);
       button.type = 'button';
       button.addEventListener('click', () => showTechniqueDetail(item));
