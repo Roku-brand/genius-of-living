@@ -250,7 +250,7 @@ const navigateToFoundation = (tagId) => {
 if (isDataReady(techniquesData, techniquesList)) {
   techniquesData.forEach((category) => {
     const row = createElement('article', 'technique-row');
-    const title = createElement('h3', 'technique-row__title', category.title);
+    const title = createElement('h3', 'technique-row__title', `≪${category.title}≫`);
     const list = createElement('ul', 'technique-buttons');
 
     category.items.forEach((item) => {
