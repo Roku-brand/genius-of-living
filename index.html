@@ -67,81 +67,93 @@
     </header>
 
     <main class="container">
-      <section id="tab-top" class="panel is-active" role="tabpanel" aria-labelledby="tab-top-button">
-        <div class="tab-hero">
-          <h2 class="tab-hero__title">トップ</h2>
-          <p class="tab-hero__desc">
-            人生の判断と立ち回りにOSを。情報過多の時代に、本質だけを残す。社会科学と心理学、先人の経験則を束ね、情報の雑音を排する。AIによる膨大なデータ分析・構造化を通して、判断と立ち回りを再現可能な形に落とし込む。
-          </p>
-        </div>
-        <div class="panel__inner">
-          <h2>処世術禄が目指すもの</h2>
-          <div class="grid two">
-            <article class="card">
-              <h3>① 判断の再利用を可能に</h3>
-              <p>
-                人生術・思考術・対人術・スキル術・達成術を「判断ラベル」として整理し、日常の意思決定を高速化します。
-              </p>
-            </article>
-            <article class="card">
-              <h3>② 理論は思想基盤へ集約</h3>
-              <p>
-                心理学・行動科学・先人の経験則を辞書的に整理。必要なときに深掘りできる構造を作ります。
-              </p>
-            </article>
-            <article class="card">
-              <h3>③ 情報過多の終焉</h3>
-              <p>
-                断片的な知識を統合し、人生の処世術OSとして機能するフレームワークを提供します。
-              </p>
-            </article>
-            <article class="card">
-              <h3>④ 使い方のイメージ</h3>
-              <p>
-                迷いが生じた瞬間に「判断ラベル」を検索し、必要であれば思想基盤で裏付けを確認します。
-              </p>
-            </article>
-          </div>
-          <section class="section-block">
-            <h2>忘れてはいけない基本原則</h2>
-            <article class="card">
-              <ul class="label-list">
-                <li><span>語るな</span>可視化の抑制。</li>
-                <li><span>信じるな</span>万能化の抑制。</li>
-                <li><span>同一化するな</span>人格侵食の抑制。</li>
-              </ul>
-              <p class="section-lead">
-                語るな（可視化の抑制）／信じるな（万能化の抑制）／同一化するな（人格侵食の抑制）
-              </p>
-            </article>
-          </section>
-          <section class="section-block">
-            <h2>注目の処世術</h2>
-            <div id="featured-techniques" class="grid three"></div>
-          </section>
-          <section class="section-block">
-            <h2>デモUI（フォルダ／ファイル）</h2>
-            <div class="grid two demo-assets">
-              <article class="card demo-card">
-                <img
-                  class="demo-card__icon"
-                  src="assets/icons/demo-folder.png"
-                  alt="フォルダのデモアイコン"
-                />
-                <div class="demo-card__content">
-                  <h3>フォルダ</h3>
-                  <p>カテゴリ整理のためのデモ用プレースホルダーです。</p>
-                </div>
-              </article>
-              <article class="card demo-card">
-                <img class="demo-card__icon" src="assets/icons/demo-file.png" alt="ファイルのデモアイコン" />
-                <div class="demo-card__content">
-                  <h3>ファイル</h3>
-                  <p>処世術データの単位を示すデモアイコンです。</p>
-                </div>
-              </article>
+      <section id="tab-top" class="panel panel--top is-active" role="tabpanel" aria-labelledby="tab-top-button">
+        <div class="top-landing">
+          <div class="top-landing__inner">
+            <div class="top-landing__nav">
+              <div class="top-landing__links">
+                <a href="#policy">ポリシー</a>
+                <a href="#principles">基礎原則</a>
+                <a href="#techniques">処世術</a>
+              </div>
+              <button class="top-landing__cta" type="button">無料で試す</button>
             </div>
-          </section>
+
+            <div class="top-landing__hero">
+              <div class="top-landing__emblem" aria-hidden="true"></div>
+              <h2>人生の判断と立ち回りにOSを。</h2>
+              <p class="top-landing__tagline">情報過多の時代に、本質だけを紡ぐ。</p>
+              <p class="top-landing__copy">
+                社会科学と心理学、先人の経験則を束ね、情報の雑音を排する。AIによる膨大な分析と構造化で、
+                判断と立ち回りを再現可能な形に落とし込む。
+              </p>
+            </div>
+
+            <section class="top-landing__section" id="policy">
+              <h3>プロダクトポリシー</h3>
+              <div class="policy-grid">
+                <article class="policy-card">
+                  <span class="policy-card__icon" aria-hidden="true"></span>
+                  <p>人生術</p>
+                </article>
+                <article class="policy-card">
+                  <span class="policy-card__icon policy-card__icon--nodes" aria-hidden="true"></span>
+                  <p>思考術</p>
+                </article>
+                <article class="policy-card">
+                  <span class="policy-card__icon" aria-hidden="true"></span>
+                  <p>対人術</p>
+                </article>
+                <article class="policy-card">
+                  <span class="policy-card__icon policy-card__icon--pen" aria-hidden="true"></span>
+                  <p>スキル術</p>
+                </article>
+                <article class="policy-card">
+                  <span class="policy-card__icon" aria-hidden="true"></span>
+                  <p>達成術</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="top-landing__section top-landing__section--split" id="principles">
+              <article class="principle-card">
+                <h3>忘れてはいけない基本原則</h3>
+                <div class="principle-item">
+                  <span class="principle-item__number">01</span>
+                  <div>
+                    <p class="principle-item__title">主体性の育成</p>
+                    <p class="principle-item__desc">他者への委任を避け、判断の核を自分の内に宿す。</p>
+                  </div>
+                </div>
+                <div class="principle-item">
+                  <span class="principle-item__number">02</span>
+                  <div>
+                    <p class="principle-item__title">心配バイアスの排除</p>
+                    <p class="principle-item__desc">恐怖で選択肢を狭めず、行動の自由度を残す。</p>
+                  </div>
+                </div>
+                <button class="top-landing__button" type="button">もっと見る</button>
+              </article>
+              <article class="principle-card" id="techniques">
+                <h3>注目処世術</h3>
+                <div class="principle-item">
+                  <span class="principle-item__number">01</span>
+                  <div>
+                    <p class="principle-item__title">情報の貯留癖</p>
+                    <p class="principle-item__desc">蓄積のみに偏らず、必要な場面で使う訓練を行う。</p>
+                  </div>
+                </div>
+                <div class="principle-item">
+                  <span class="principle-item__number">02</span>
+                  <div>
+                    <p class="principle-item__title">判断力の検証トレーニング</p>
+                    <p class="principle-item__desc">自分の決断を記録し、精度を高める。</p>
+                  </div>
+                </div>
+                <button class="top-landing__button" type="button">もっと見る</button>
+              </article>
+            </section>
+          </div>
         </div>
       </section>
 
