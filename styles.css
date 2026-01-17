@@ -100,6 +100,11 @@ body::before {
   letter-spacing: 0.05em;
 }
 
+/* Enjii accent for "禄" character - limited use for philosophy symbol */
+.site-header__accent {
+  color: var(--color-enjii);
+}
+
 /* Menu button - clean design */
 .menu-button {
   border: 1px solid var(--color-border);
