@@ -241,9 +241,9 @@ const navigateToFoundation = (tagId) => {
     foundationTab.click();
   }
 
-  // Open the foundation modal after a short delay to allow tab switch
+  // Show the foundation detail panel after a short delay to allow tab switch
   setTimeout(() => {
-    openFoundationModal(foundationItem);
+    showFoundationDetail(foundationItem);
   }, TAB_SWITCH_DELAY);
 };
 
@@ -274,6 +274,11 @@ if (isDataReady(techniquesData, techniquesList)) {
 const foundationTabList = document.querySelector('#foundation-tablist');
 const foundationPanels = document.querySelector('#foundation-tabpanels');
 
+// Foundation detail panel for page-style navigation
+const foundationDetailPanel = createElement('div', 'foundation-detail-panel');
+foundationDetailPanel.id = 'foundation-detail-panel';
+foundationDetailPanel.hidden = true;
+
 const mypageTabs = Array.from(document.querySelectorAll('#mypage-tablist .subtab'));
 const mypagePanels = Array.from(document.querySelectorAll('.mypage-panel'));
 
@@ -285,6 +290,108 @@ if (mypageTabs.length && mypagePanels.length) {
     );
   });
 }
+
+// Show foundation detail in a page-style panel (like technique detail)
+const showFoundationDetail = (item) => {
+  foundationDetailPanel.innerHTML = '';
+  foundationDetailPanel.hidden = false;
+
+  const backButton = createElement('button', 'foundation-back-button', '← 一覧に戻る');
+  backButton.type = 'button';
+  backButton.addEventListener('click', () => {
+    foundationDetailPanel.hidden = true;
+    foundationPanels.hidden = false;
+    document.querySelector('#foundation-tablist').hidden = false;
+  });
+
+  // Header
+  const header = createElement('div', 'foundation-detail-header');
+  const tagIdBadge = createElement('span', 'foundation-card__tag-id', item.tagId);
+  const title = createElement('h3', 'foundation-detail-title', item.title);
+  const summary = createElement('p', 'foundation-detail-summary', item.summary);
+  header.appendChild(tagIdBadge);
+  header.appendChild(title);
+  header.appendChild(summary);
+
+  // Sections container
+  const sectionsContainer = createElement('div', 'foundation-detail-sections');
+
+  // Definition
+  const defSection = createDetailSection('定義', item.definition);
+  sectionsContainer.appendChild(defSection);
+
+  // Key Points
+  const keyPointsSection = createDetailListSection('要点', item.keyPoints);
+  sectionsContainer.appendChild(keyPointsSection);
+
+  // Pitfalls
+  const pitfallsSection = createDetailListSection('落とし穴', item.pitfalls);
+  sectionsContainer.appendChild(pitfallsSection);
+
+  // Strategies
+  const strategiesSection = createDetailListSection('戦略', item.strategies);
+  sectionsContainer.appendChild(strategiesSection);
+
+  // Application Conditions
+  const conditionsSection = createDetailListSection('適用条件', item.applicationConditions);
+  sectionsContainer.appendChild(conditionsSection);
+
+  // Lifehacks
+  const lifehacksSection = createElement('div', 'foundation-detail-section');
+  const lifehacksTitle = createElement('h4', 'foundation-detail-section-title', '活用処世術');
+  const lifehacksTags = createElement('div', 'foundation-detail-tags');
+  item.lifehacks.forEach((lifehack) => {
+    const tag = createElement('span', 'foundation-detail-lifehack-tag', lifehack);
+    lifehacksTags.appendChild(tag);
+  });
+  lifehacksSection.appendChild(lifehacksTitle);
+  lifehacksSection.appendChild(lifehacksTags);
+  sectionsContainer.appendChild(lifehacksSection);
+
+  // Tags
+  const tagsSection = createElement('div', 'foundation-detail-section');
+  const tagsTitle = createElement('h4', 'foundation-detail-section-title', 'タグ');
+  const tagsContainer = createElement('div', 'foundation-detail-tags');
+  item.tags.forEach((tag) => {
+    const tagEl = createElement('span', 'foundation-detail-tag', tag);
+    tagsContainer.appendChild(tagEl);
+  });
+  tagsSection.appendChild(tagsTitle);
+  tagsSection.appendChild(tagsContainer);
+  sectionsContainer.appendChild(tagsSection);
+
+  foundationDetailPanel.appendChild(backButton);
+  foundationDetailPanel.appendChild(header);
+  foundationDetailPanel.appendChild(sectionsContainer);
+
+  // Hide the tablist and panels, show detail
+  foundationPanels.hidden = true;
+  document.querySelector('#foundation-tablist').hidden = true;
+};
+
+// Helper to create a detail section with text
+const createDetailSection = (title, text) => {
+  const section = createElement('div', 'foundation-detail-section');
+  const sectionTitle = createElement('h4', 'foundation-detail-section-title', title);
+  const sectionText = createElement('p', 'foundation-detail-section-text', text);
+  section.appendChild(sectionTitle);
+  section.appendChild(sectionText);
+  return section;
+};
+
+// Helper to create a detail section with a list
+const createDetailListSection = (title, items) => {
+  const section = createElement('div', 'foundation-detail-section');
+  const sectionTitle = createElement('h4', 'foundation-detail-section-title', title);
+  const list = createElement('ul', 'foundation-detail-list');
+  items.forEach((item) => {
+    const li = createElement('li', null, item);
+    list.appendChild(li);
+  });
+  section.appendChild(sectionTitle);
+  section.appendChild(list);
+  return section;
+};
 
 // Foundation card detail modal
 const createFoundationDetailModal = () => {
@@ -413,7 +520,7 @@ const createModalListSection = (title, items) => {
 // Create a foundation card element
 const createFoundationCard = (item) => {
   const card = createElement('article', 'foundation-card');
-  card.addEventListener('click', () => openFoundationModal(item));
+  card.addEventListener('click', () => showFoundationDetail(item));
 
   const tagId = createElement('span', 'foundation-card__tag-id', item.tagId);
   const content = createElement('div', 'foundation-card__content');
@@ -548,6 +655,9 @@ if (foundationTabList && foundationPanels && foundationCategories.length > 0) {
     tabButton.addEventListener('click', () => setActiveFoundationTab(tabButton));
     addTabKeyboardNavigation(foundationTabs, tabButton, setActiveFoundationTab);
   });
+
+  // Append the foundation detail panel after the panels
+  foundationPanels.parentElement.appendChild(foundationDetailPanel);
 }
 
 // Close modal on Escape key

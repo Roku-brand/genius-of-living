@@ -817,6 +817,14 @@ body::before {
   gap: 16px;
 }
 
+.foundation-panels[hidden] {
+  display: none !important;
+}
+
+.subtabs[hidden] {
+  display: none !important;
+}
+
 .foundation-panel[hidden] {
   display: none;
 }
@@ -1367,5 +1375,139 @@ body::before {
 
   .foundation-cards-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Foundation Detail Panel - page-style navigation */
+.foundation-detail-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.foundation-detail-panel[hidden] {
+  display: none;
+}
+
+.foundation-back-button {
+  align-self: flex-start;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.foundation-back-button:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.foundation-back-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.foundation-detail-header {
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.foundation-detail-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.foundation-detail-summary {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.foundation-detail-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.foundation-detail-section {
+  padding: 18px;
+  background: var(--color-surface-muted);
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+}
+
+.foundation-detail-section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-tertiary);
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.foundation-detail-section-text {
+  font-size: 14px;
+  color: var(--color-text-body);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.foundation-detail-list {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.foundation-detail-list li {
+  font-size: 14px;
+  color: var(--color-text-body);
+  line-height: 1.7;
+}
+
+.foundation-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.foundation-detail-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.foundation-detail-lifehack-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+@media (max-width: 640px) {
+  .foundation-detail-title {
+    font-size: 18px;
+  }
+
+  .foundation-detail-section {
+    padding: 14px;
   }
 }
