@@ -182,11 +182,15 @@ const showTechniqueDetail = (technique) => {
 
   technique.details.forEach((detail) => {
     const card = createElement('article', 'technique-detail-card');
+    
+    // Role badge (役割バッジ) - positioned at top left of card
+    const roleBadge = createElement('span', 'technique-role-badge', '判断基盤');
+    
     const idBadge = createElement('span', 'technique-detail-id', String(detail.id));
     const titleWrapper = createElement('div', 'technique-detail-content');
     const titleText = createElement('h4', 'technique-detail-item-title', detail.title);
     const subtitle = createElement('p', 'technique-detail-subtitle', `（${detail.subtitle}）`);
-    const foundationLabel = createElement('p', 'technique-detail-foundation-label', '判断基盤');
+    const foundationLabel = createElement('p', 'technique-detail-foundation-label', '思想基盤');
     const foundationTags = createElement('div', 'technique-detail-foundations');
 
     if (detail.foundations.length === 0) {
@@ -206,6 +210,7 @@ const showTechniqueDetail = (technique) => {
       });
     }
 
+    titleWrapper.appendChild(roleBadge);
     titleWrapper.appendChild(titleText);
     titleWrapper.appendChild(subtitle);
     titleWrapper.appendChild(foundationLabel);
