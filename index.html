@@ -62,7 +62,6 @@
               マイページ
             </button>
           </nav>
-          <a class="tab tab--link" href="admin.html">管理者用ログイン</a>
         </div>
       </div>
     </header>
@@ -173,35 +172,9 @@
           <p class="tab-hero__desc">お気に入りの処世術や学習の進捗を管理し、パーソナライズされた体験を提供します。</p>
         </div>
         <div class="panel__inner">
-          <div class="mypage-auth" id="mypage-auth">
-            <article class="card login-card">
-              <h3>ログインしてマイページ機能を解放</h3>
-              <p>
-                「保存した処世術」「保存した思想基盤」「マイ処世術」はログイン後に利用できます。ユーザー名とパスワードを入力してください。
-              </p>
-              <form id="login-form" class="login-form">
-                <label class="login-form__field">
-                  <span>ユーザー名</span>
-                  <input type="text" name="username" placeholder="例：shoseijutsu" required />
-                </label>
-                <label class="login-form__field">
-                  <span>パスワード</span>
-                  <input type="password" name="password" placeholder="••••••••" required />
-                </label>
-                <p class="login-form__note">デモ用アカウント：ユーザー名「shoseijutsu」 / パスワード「OS2024」</p>
-                <p class="login-form__message" id="login-message" role="alert" aria-live="polite"></p>
-                <button type="submit" class="primary-button" id="login-submit">ログイン</button>
-              </form>
-            </article>
-          </div>
-
-          <div class="mypage-content" id="mypage-content" hidden>
+          <div class="mypage-content" id="mypage-content">
             <div class="mypage-header">
-              <div>
-                <p class="mypage-status" id="mypage-status">ログイン済み：あなたのマイページが有効です。</p>
-                <p class="mypage-desc">保存した情報や自分専用の処世術をタブで管理できます。</p>
-              </div>
-              <button type="button" class="secondary-button" id="logout-button">ログアウト</button>
+              <p class="mypage-desc">保存した情報や自分専用の処世術をタブで管理できます。</p>
             </div>
 
             <div class="subtabs" id="mypage-tablist" role="tablist" aria-label="マイページタブ">
