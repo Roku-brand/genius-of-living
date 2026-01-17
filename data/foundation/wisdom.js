@@ -8,7 +8,7 @@ export const wisdomData = {
   items: [
     {
       tagId: 'W-001',
-      title: '中庸',
+      title: 'バランス思考',
       summary: '極端を避け、長期視点での均衡を保つ哲学。',
       definition: '中庸とは、極端な立場を避け、適切なバランスと節度を保つこと。アリストテレスの徳倫理学における核心概念であり、東洋思想でも重視される普遍的な知恵。',
       keyPoints: [
@@ -37,7 +37,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-002',
-      title: '守破離',
+      title: '成長の三段階',
       summary: '型を守り、破り、独自化する成長の三段階。',
       definition: '守破離とは、茶道や武道に由来する成長の段階論。「守」で基本を忠実に学び、「破」で応用を試み、「離」で独自の境地に至る。',
       keyPoints: [
@@ -66,7 +66,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-003',
-      title: '初心忘るべからず',
+      title: 'ビギナーズマインド',
       summary: '始めた時の新鮮な気持ちと謙虚さを忘れないこと。',
       definition: '初心忘るべからずとは、世阿弥が説いた能楽の教え。初めて学んだ時の謙虚さ、真剣さ、好奇心を、熟達してからも忘れてはならないという戒め。',
       keyPoints: [
@@ -95,7 +95,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-004',
-      title: '禍福は糾える縄の如し',
+      title: '変化のサイクル',
       summary: '幸福と不幸は表裏一体で入れ替わるという教え。',
       definition: '禍福は糾える縄の如しとは、幸運と不運は交互にやってくるものであり、良いことの後には悪いことが、悪いことの後には良いことがあるという処世訓。',
       keyPoints: [
@@ -124,7 +124,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-005',
-      title: '急がば回れ',
+      title: '短期最適より長期最適',
       summary: '近道を急ぐより、確実な方法を選ぶ方が結局早い。',
       definition: '急がば回れとは、危険な近道を急ぐより、安全で確実な遠回りをした方が、結局は早く目的地に着くという教訓。堅実さの重要性を説く。',
       keyPoints: [
@@ -153,7 +153,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-006',
-      title: '人を見て法を説け',
+      title: '相手起点のコミュニケーション',
       summary: '相手の状況や理解力に応じて伝え方を変える教え。',
       definition: '人を見て法を説けとは、仏教に由来する教えで、聞き手の立場、能力、状況に応じて、教えの内容や伝え方を適切に変えるべきという知恵。',
       keyPoints: [
@@ -182,7 +182,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-007',
-      title: '温故知新',
+      title: '過去から未来を学ぶ',
       summary: '過去を学ぶことで新しい知見を得る態度。',
       definition: '温故知新とは、古いこと・過去のことをよく学び研究することで、新しい知識や見解を得るという孔子の教え。歴史や先人の知恵から学ぶ姿勢を説く。',
       keyPoints: [
@@ -211,7 +211,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-008',
-      title: '七転び八起き',
+      title: 'レジリエンスマインド',
       summary: '何度失敗しても諦めず立ち上がり続ける姿勢。',
       definition: '七転び八起きとは、何度失敗しても諦めず、その都度立ち上がって挑戦し続けるという精神。困難に対するレジリエンスと不屈の精神を表す。',
       keyPoints: [
@@ -240,7 +240,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-009',
-      title: '人の振り見て我が振り直せ',
+      title: '他者観察による自己省察',
       summary: '他者の行動を見て自分の行動を省みる姿勢。',
       definition: '人の振り見て我が振り直せとは、他人の良い行いは見習い、悪い行いは自分もしていないかと反省する材料にするという自己省察の教え。',
       keyPoints: [
@@ -269,7 +269,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-010',
-      title: '情けは人の為ならず',
+      title: 'ギブファースト',
       summary: '他者への親切は巡り巡って自分に返ってくる。',
       definition: '情けは人の為ならずとは、他者に対する思いやりや親切は、相手のためだけでなく、巡り巡って自分自身にも良い結果として返ってくるという教え。',
       keyPoints: [
@@ -298,7 +298,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-011',
-      title: '継続は力なり',
+      title: '積み重ねの複利効果',
       summary: '小さな積み重ねが大きな成果につながるという教え。',
       definition: '継続は力なりとは、日々の地道な努力を続けることで大きな力や成果が得られるという経験則。習慣の重要性を示す。',
       keyPoints: [
@@ -327,7 +327,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-012',
-      title: '失敗は成功の母',
+      title: '失敗学習サイクル',
       summary: '失敗から学ぶことで成功に近づくという教え。',
       definition: '失敗は成功の母とは、失敗が学びや改善の材料となり、最終的な成功を生み出すという経験則。試行錯誤を肯定する。',
       keyPoints: [
@@ -356,7 +356,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-013',
-      title: '石の上にも三年',
+      title: '成果の遅延効果',
       summary: '成果には時間がかかるため、忍耐強く続ける重要性。',
       definition: '石の上にも三年とは、冷たい石でも三年座れば温まるように、忍耐強く続ければ成果が出るという教え。',
       keyPoints: [
@@ -385,7 +385,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-014',
-      title: '三方良し',
+      title: 'マルチステークホルダー思考',
       summary: '売り手・買い手・世間の三者が良い関係になる考え方。',
       definition: '三方良しとは、売り手にとっても買い手にとっても社会にとっても良い状態を目指すという近江商人の理念。長期的信頼を生む。',
       keyPoints: [
@@ -414,7 +414,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-015',
-      title: '足るを知る',
+      title: '満足のポイント設計',
       summary: '満足と感謝を知り、欲望をコントロールする教え。',
       definition: '足るを知るとは、必要なものが既にあることに気づき、過度な欲望や比較から自由になるという思想。精神的な安定をもたらす。',
       keyPoints: [
@@ -443,7 +443,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-016',
-      title: '一期一会',
+      title: '一回性の意識',
       summary: '出会いは一度きりとして大切にする姿勢。',
       definition: '一期一会とは、今この瞬間の出会いや機会は二度と同じ形では訪れないと捉え、丁寧に向き合うという教え。',
       keyPoints: [
@@ -472,7 +472,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-017',
-      title: '他山の石',
+      title: '観察学習の姿勢',
       summary: '他人の失敗や成功から学び、自分の成長に活かす。',
       definition: '他山の石とは、他人の行動や出来事から教訓を得て、自分の成長に活かすという考え方。反面教師も含めた学びの姿勢。',
       keyPoints: [
@@ -501,7 +501,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-018',
-      title: '雨垂れ石を穿つ',
+      title: '小さな行動の積み重ね',
       summary: '小さな努力でも継続すれば大きな成果を生む。',
       definition: '雨垂れ石を穿つとは、雨だれのような小さな力でも、長く続けば石に穴を開けるという比喩。継続の力を表す。',
       keyPoints: [
@@ -530,7 +530,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-019',
-      title: '時は金なり',
+      title: '時間価値の最大化',
       summary: '時間は有限で価値が高いという教訓。',
       definition: '時は金なりとは、時間は取り戻せない貴重な資源であり、金銭以上の価値があるという教え。時間投資の重要性を示す。',
       keyPoints: [
@@ -559,7 +559,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-020',
-      title: '完璧より前進',
+      title: '完璧主義より完了主義',
       summary: '完璧を求めるより行動して前に進むことを重視する。',
       definition: '完璧より前進とは、完璧主義で動けなくなるよりも、小さくても前に進むことを優先する自己啓発的な教訓。',
       keyPoints: [
@@ -588,7 +588,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-021',
-      title: '早起きは三文の徳',
+      title: '朝時間の活用',
       summary: '朝の時間を活用することで得られる小さな利益。',
       definition: '早起きは三文の徳とは、早朝の静かな時間を有効に使うことで、小さくても確実な利益や余裕が得られるという教え。',
       keyPoints: [
@@ -617,7 +617,7 @@ export const wisdomData = {
     },
     {
       tagId: 'W-022',
-      title: '良薬口に苦し',
+      title: '成長フィードバックの受容',
       summary: '厳しい助言ほど成長に役立つという教え。',
       definition: '良薬口に苦しとは、苦い薬が体に良いように、耳の痛い助言や指摘が成長を促すという教訓。',
       keyPoints: [
