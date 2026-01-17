@@ -36,6 +36,14 @@ const resetPassphraseButton = document.getElementById("reset-passphrase");
 
 let logoutTimerId = null;
 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch((error) => {
+      console.warn("Service worker registration failed.", error);
+    });
+  });
+}
+
 const toHex = (buffer) =>
   Array.from(new Uint8Array(buffer))
     .map((byte) => byte.toString(16).padStart(2, "0"))
