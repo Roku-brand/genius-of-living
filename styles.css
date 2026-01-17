@@ -721,37 +721,26 @@ body::before {
   display: none !important;
 }
 
-/* Technique category row - with left vertical line for structure */
+/* Technique category row - minimal styling without frame */
 .technique-row {
   display: flex;
   flex-direction: column;
   gap: 12px;
   align-items: start;
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  box-shadow: 0 2px 8px var(--color-shadow-light);
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
   position: relative;
 }
 
-/* Left vertical line - structure indicator */
-.technique-row::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 16px;
-  bottom: 16px;
-  width: 3px;
-  background: var(--color-primary);
-  border-radius: 0 2px 2px 0;
-}
-
 .technique-row__title {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--color-text);
   font-weight: 600;
-  padding-left: 8px;
+  padding-left: 0;
+  letter-spacing: 0.05em;
 }
 
 .technique-buttons {
@@ -760,7 +749,7 @@ body::before {
   flex-direction: column;
   gap: 8px;
   width: 100%;
-  padding-left: 8px;
+  padding-left: 0;
 }
 
 .technique-tag {
