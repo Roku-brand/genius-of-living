@@ -21,6 +21,7 @@
   --color-shadow: rgba(0, 0, 0, 0.2);
   --color-shadow-light: rgba(0, 0, 0, 0.08);
   --layout-top-margin: 32px;
+  --mobile-nav-height: 72px;
   background: var(--color-background);
 }
 
@@ -169,6 +170,42 @@ body {
   background: var(--color-primary);
   color: #fff;
   box-shadow: 0 6px 14px var(--color-primary-shadow);
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.mobile-nav__item {
+  border: none;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 10px;
+  border-radius: 14px;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mobile-nav__item.is-active {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  font-weight: 600;
+}
+
+.mobile-nav__item:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.mobile-nav__icon {
+  width: 22px;
+  height: 22px;
+  display: block;
 }
 
 .panel {
@@ -344,6 +381,18 @@ body {
   color: #2a2a2a;
 }
 
+.demo-card {
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.demo-card__icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
 .primary-button,
 .secondary-button {
   border-radius: 999px;
@@ -503,6 +552,56 @@ body {
   padding: 24px 16px 32px;
   color: #6b7280;
   font-size: 13px;
+}
+
+@media (min-width: 901px) {
+  .menu-button {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    padding-bottom: calc(var(--mobile-nav-height) + env(safe-area-inset-bottom, 0px));
+  }
+
+  .site-header__inner {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .site-header__title {
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .site-header__actions {
+    justify-content: flex-end;
+  }
+
+  .site-header__actions .tabs {
+    display: none;
+  }
+
+  .tab--link {
+    font-size: 12px;
+    padding: 8px 12px;
+    border-radius: 999px;
+  }
+
+  .mobile-nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 8px 12px calc(env(safe-area-inset-bottom, 0px) + 10px);
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-primary-border);
+    box-shadow: 0 -10px 24px rgba(0, 0, 0, 0.08);
+    z-index: 200;
+  }
 }
 
 @media (max-width: 640px) {

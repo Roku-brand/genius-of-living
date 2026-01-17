@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>処世術禄 | 人生の処世術OS</title>
+    <meta name="theme-color" content="#2b5c8a" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="assets/icons/app-icon-192.svg" />
+    <link rel="apple-touch-icon" href="assets/icons/app-icon-192.svg" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -115,6 +119,29 @@
           <section class="section-block">
             <h2>注目の処世術</h2>
             <div id="featured-techniques" class="grid three"></div>
+          </section>
+          <section class="section-block">
+            <h2>デモUI（フォルダ／ファイル）</h2>
+            <div class="grid two demo-assets">
+              <article class="card demo-card">
+                <img
+                  class="demo-card__icon"
+                  src="assets/icons/demo-folder.svg"
+                  alt="フォルダのデモアイコン"
+                />
+                <div class="demo-card__content">
+                  <h3>フォルダ</h3>
+                  <p>カテゴリ整理のためのデモ用プレースホルダーです。</p>
+                </div>
+              </article>
+              <article class="card demo-card">
+                <img class="demo-card__icon" src="assets/icons/demo-file.svg" alt="ファイルのデモアイコン" />
+                <div class="demo-card__content">
+                  <h3>ファイル</h3>
+                  <p>処世術データの単位を示すデモアイコンです。</p>
+                </div>
+              </article>
+            </div>
           </section>
         </div>
       </section>
@@ -274,6 +301,25 @@
         </div>
       </section>
     </main>
+
+    <nav class="mobile-nav" aria-label="モバイルナビゲーション">
+      <button class="mobile-nav__item is-active" type="button" data-tab-target="tab-top" aria-pressed="true">
+        <img class="mobile-nav__icon" src="assets/icons/tab-home.svg" alt="" aria-hidden="true" />
+        <span class="mobile-nav__label">トップ</span>
+      </button>
+      <button class="mobile-nav__item" type="button" data-tab-target="tab-techniques" aria-pressed="false">
+        <img class="mobile-nav__icon" src="assets/icons/tab-techniques.svg" alt="" aria-hidden="true" />
+        <span class="mobile-nav__label">処世術</span>
+      </button>
+      <button class="mobile-nav__item" type="button" data-tab-target="tab-foundation" aria-pressed="false">
+        <img class="mobile-nav__icon" src="assets/icons/tab-foundation.svg" alt="" aria-hidden="true" />
+        <span class="mobile-nav__label">思想基盤</span>
+      </button>
+      <button class="mobile-nav__item" type="button" data-tab-target="tab-mypage" aria-pressed="false">
+        <img class="mobile-nav__icon" src="assets/icons/tab-mypage.svg" alt="" aria-hidden="true" />
+        <span class="mobile-nav__label">マイページ</span>
+      </button>
+    </nav>
 
     <footer class="footer">
       <p>処世術禄 — 人生の処世術OSを構築するためのナレッジベース。</p>

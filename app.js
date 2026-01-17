@@ -6,8 +6,17 @@ import {
   searchFoundationItems,
 } from './data/foundation/index.js';
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js').catch((error) => {
+      console.warn('Service worker registration failed.', error);
+    });
+  });
+}
+
 const tabs = Array.from(document.querySelectorAll('.tab'));
 const panels = Array.from(document.querySelectorAll('.panel'));
+const mobileNavItems = Array.from(document.querySelectorAll('.mobile-nav__item'));
 
 const addTabKeyboardNavigation = (tabElements, tab, onActivate) => {
   tab.addEventListener('keydown', (event) => {
@@ -74,6 +83,17 @@ const createElement = (tag, className, textContent) => {
 const isDataReady = (data, ...elements) =>
   elements.every(Boolean) && data && Array.isArray(data);
 
+const updateMobileNav = (targetId) => {
+  if (!mobileNavItems.length || !targetId) {
+    return;
+  }
+  mobileNavItems.forEach((item) => {
+    const isActive = item.dataset.tabTarget === targetId;
+    item.classList.toggle('is-active', isActive);
+    item.setAttribute('aria-pressed', String(isActive));
+  });
+};
+
 const featuredTechniquesList = document.querySelector('#featured-techniques');
 
 if (isDataReady(featuredTechniques, featuredTechniquesList)) {
@@ -91,6 +111,7 @@ if (tabs.length && panels.length) {
   const activateTab = (tab, { updateHash = false } = {}) => {
     setTabActiveState(tabs, panels, tab);
     const targetId = tab.getAttribute('aria-controls');
+    updateMobileNav(targetId);
 
     window.scrollTo(0, 0);
 
@@ -106,6 +127,18 @@ if (tabs.length && panels.length) {
     );
   });
 
+  if (mobileNavItems.length) {
+    mobileNavItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        const targetId = item.dataset.tabTarget;
+        const targetTab = tabs.find((tab) => tab.getAttribute('aria-controls') === targetId);
+        if (targetTab) {
+          activateTab(targetTab, { updateHash: true });
+        }
+      });
+    });
+  }
+
   const activateTabFromHash = () => {
     const hash = window.location.hash.replace('#', '');
     if (!hash) {
@@ -118,6 +151,10 @@ if (tabs.length && panels.length) {
   };
 
   activateTabFromHash();
+  const activeTab = tabs.find((item) => item.classList.contains('is-active'));
+  if (activeTab) {
+    updateMobileNav(activeTab.getAttribute('aria-controls'));
+  }
   window.addEventListener('hashchange', activateTabFromHash);
 }
 
