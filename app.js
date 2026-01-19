@@ -83,6 +83,17 @@ const createElement = (tag, className, textContent) => {
 const isDataReady = (data, ...elements) =>
   elements.every(Boolean) && data && Array.isArray(data);
 
+const categoryThemeMap = {
+  人生術: 'life',
+  思考術: 'thinking',
+  '対人術①': 'people-1',
+  '対人術②': 'people-2',
+  スキル術: 'skill',
+  達成術: 'achievement',
+};
+
+const getCategoryKey = (title) => categoryThemeMap[title] ?? 'default';
+
 const updateMobileNav = (targetId) => {
   if (!mobileNavItems.length || !targetId) {
     return;
@@ -163,9 +174,10 @@ const techniqueDetailPanel = createElement('div', 'technique-detail-panel');
 techniqueDetailPanel.id = 'technique-detail-panel';
 techniqueDetailPanel.hidden = true;
 
-const showTechniqueDetail = (technique) => {
+const showTechniqueDetail = (technique, categoryKey = 'default') => {
   techniqueDetailPanel.innerHTML = '';
   techniqueDetailPanel.hidden = false;
+  techniqueDetailPanel.dataset.category = categoryKey;
 
   const backButton = createElement('button', 'technique-back-button', '← 一覧に戻る');
   backButton.type = 'button';
@@ -182,6 +194,7 @@ const showTechniqueDetail = (technique) => {
 
   technique.details.forEach((detail) => {
     const card = createElement('article', 'technique-detail-card');
+    card.dataset.category = categoryKey;
     
     const idBadge = createElement('span', 'technique-detail-id', String(detail.id));
     const titleWrapper = createElement('div', 'technique-detail-content');
@@ -249,7 +262,9 @@ const navigateToFoundation = (tagId) => {
 
 if (isDataReady(techniquesData, techniquesList)) {
   techniquesData.forEach((category) => {
+    const categoryKey = getCategoryKey(category.title);
     const row = createElement('article', 'technique-row');
+    row.dataset.category = categoryKey;
     const title = createElement('h3', 'technique-row__title', `≪${category.title}≫`);
     const list = createElement('ul', 'technique-buttons');
 
@@ -259,7 +274,8 @@ if (isDataReady(techniquesData, techniquesList)) {
       const buttonText = `${itemNumber}. ${item.name}（${item.details.length}）`;
       const button = createElement('button', 'technique-tag', buttonText);
       button.type = 'button';
-      button.addEventListener('click', () => showTechniqueDetail(item));
+      button.dataset.category = categoryKey;
+      button.addEventListener('click', () => showTechniqueDetail(item, categoryKey));
       listItem.appendChild(button);
       list.appendChild(listItem);
     });
