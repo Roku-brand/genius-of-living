@@ -3,7 +3,24 @@ export const techniquesData = [
     title: '人生術',
     items: [
       {
-        name: '夢と挑戦の処世術',
+        name: '人生設計',
+        details: [
+          { id: 1, title: '理想の人生を可視化する', subtitle: '理想を描くと選択が明確になる', foundations: ['B-017'] },
+          { id: 2, title: '価値観を明確にする', subtitle: '価値観を言語化すると迷いが減る', foundations: ['C-013'] },
+          { id: 3, title: '長期目標を分解する', subtitle: '分解すると行動が具体化する', foundations: ['B-008', 'B-016'] },
+          { id: 4, title: '定期的に計画を見直す', subtitle: '短い周期で計画を更新する', foundations: ['T-014'] },
+          { id: 5, title: '複数のシナリオを想定する', subtitle: '複数想定で柔軟に動ける', foundations: ['T-020'] },
+          { id: 6, title: '資産形成を早期に始める', subtitle: '早期投資で成果が複利化する', foundations: ['T-010'] },
+          { id: 7, title: '健康を人生資本と捉える', subtitle: '限られた資源を重要度で配る', foundations: ['T-001'] },
+          { id: 8, title: '人間関係の棚卸しをする', subtitle: '関係を整理すると優先度が見える', foundations: ['T-001', 'S-023'] },
+          { id: 9, title: 'キャリアの選択肢を広げる', subtitle: '偶然を活かすと機会が広がる', foundations: ['T-006'] },
+          { id: 10, title: '終わりを意識して始める', subtitle: 'ゴールから逆に考えると迷わない', foundations: ['B-017'] },
+          { id: 11, title: 'ライフイベント年表を作る', subtitle: '時系列で整理すると優先度が見える', foundations: ['T-001', 'B-017'] },
+          { id: 12, title: '収入と支出を可視化する', subtitle: '資源を把握すると計画が現実的になる', foundations: ['T-001', 'T-017'] },
+        ],
+      },
+      {
+        name: '夢と挑戦',
         details: [
           { id: 1, title: '夢はスケールで決める', subtitle: '実現可能性ではなく、広がりの大きさで夢を選ぶ', foundations: ['C-007'] },
           { id: 2, title: '根拠のない自信を否定しない', subtitle: '行動の初期段階では自己効力感を優先する', foundations: ['C-012'] },
@@ -23,7 +40,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '後悔しない処世術',
+        name: '後悔回避',
         details: [
           { id: 1, title: '正しい生き方ではなく、納得できる生き方を選ぶ', subtitle: '', foundations: ['W-023'] },
           { id: 2, title: '失敗の多い人生より、何もない人生の方が空虚になる', subtitle: '', foundations: ['W-008', 'W-012'] },
@@ -35,24 +52,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '人生設計の処世術',
-        details: [
-          { id: 1, title: '理想の人生を可視化する', subtitle: '理想を描くと選択が明確になる', foundations: ['B-017'] },
-          { id: 2, title: '価値観を明確にする', subtitle: '価値観を言語化すると迷いが減る', foundations: ['C-013'] },
-          { id: 3, title: '長期目標を分解する', subtitle: '分解すると行動が具体化する', foundations: ['B-008', 'B-016'] },
-          { id: 4, title: '定期的に計画を見直す', subtitle: '短い周期で計画を更新する', foundations: ['T-014'] },
-          { id: 5, title: '複数のシナリオを想定する', subtitle: '複数想定で柔軟に動ける', foundations: ['T-020'] },
-          { id: 6, title: '資産形成を早期に始める', subtitle: '早期投資で成果が複利化する', foundations: ['T-010'] },
-          { id: 7, title: '健康を人生資本と捉える', subtitle: '限られた資源を重要度で配る', foundations: ['T-001'] },
-          { id: 8, title: '人間関係の棚卸しをする', subtitle: '関係を整理すると優先度が見える', foundations: ['T-001', 'S-023'] },
-          { id: 9, title: 'キャリアの選択肢を広げる', subtitle: '偶然を活かすと機会が広がる', foundations: ['T-006'] },
-          { id: 10, title: '終わりを意識して始める', subtitle: 'ゴールから逆に考えると迷わない', foundations: ['B-017'] },
-          { id: 11, title: 'ライフイベント年表を作る', subtitle: '時系列で整理すると優先度が見える', foundations: ['T-001', 'B-017'] },
-          { id: 12, title: '収入と支出を可視化する', subtitle: '資源を把握すると計画が現実的になる', foundations: ['T-001', 'T-017'] },
-        ],
-      },
-      {
-        name: '変化と不確実性の処世術',
+        name: '変化対応',
         details: [
           { id: 1, title: '変化を「例外」ではなく「前提」として捉える', subtitle: '', foundations: ['W-001'] },
           { id: 2, title: 'コントロール可能／不能を即座に切り分ける', subtitle: '', foundations: ['C-013'] },
@@ -69,7 +69,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '運・偶然との付き合い方の処世術',
+        name: '運と偶然',
         details: [
           { id: 1, title: '成果を実力と運に分解する', subtitle: '', foundations: ['C-013'] },
           { id: 2, title: '運が良かった成功ほど一般化しない', subtitle: '', foundations: ['C-001'] },
@@ -91,24 +91,7 @@ export const techniquesData = [
     title: '思考術',
     items: [
       {
-        name: 'メンタル耐性の処世術',
-        details: [
-          { id: 1, title: 'ストレスを成長の糧と見なす', subtitle: '成長と捉えると耐性が高まる', foundations: ['C-017', 'W-008'] },
-          { id: 2, title: '呼吸で自律神経を整える', subtitle: '呼吸を整えると落ち着く', foundations: ['B-025'] },
-          { id: 3, title: '思考と感情を分離する', subtitle: '感情を言語化すると落ち着く', foundations: ['C-002'] },
-          { id: 4, title: '逆境を乗り越えた経験を思い出す', subtitle: '成功経験が自信を強める', foundations: ['C-012'] },
-          { id: 5, title: '支援を求めることを恥と思わない', subtitle: '支援を使うと負担が減る', foundations: ['S-008'] },
-          { id: 6, title: '状況を俯瞰する', subtitle: '思考の偏りに気づくと判断が整う', foundations: ['C-001', 'C-013'] },
-          { id: 7, title: '最悪のケースを想定する', subtitle: '想定すると備えができる', foundations: ['C-006'] },
-          { id: 8, title: '回復の時間を確保する', subtitle: '休息で回復力が戻る', foundations: ['B-025'] },
-          { id: 9, title: '意味を見出す', subtitle: '意味を見つけると耐えられる', foundations: ['C-017'] },
-          { id: 10, title: '日常のルーティンを守る', subtitle: '繰り返しで行動が自動化する', foundations: ['B-001'] },
-          { id: 11, title: '睡眠と栄養を優先する', subtitle: '基盤を整えると回復力が上がる', foundations: ['T-001', 'B-025'] },
-          { id: 12, title: '支えになる人と定期的につながる', subtitle: '支援があると耐性が高まる', foundations: ['S-008', 'S-023'] },
-        ],
-      },
-      {
-        name: '自己肯定感の処世術',
+        name: '自己肯定感',
         details: [
           { id: 1, title: '自分の長所を書き出す', subtitle: '強みに気づくと自信が上がる', foundations: ['C-012'] },
           { id: 2, title: '他人と比較しない', subtitle: '比較を減らすと心が安定する', foundations: ['S-002', 'W-015'] },
@@ -125,7 +108,24 @@ export const techniquesData = [
         ],
       },
       {
-        name: '冷静さを保つ処世術',
+        name: 'メンタル耐性',
+        details: [
+          { id: 1, title: 'ストレスを成長の糧と見なす', subtitle: '成長と捉えると耐性が高まる', foundations: ['C-017', 'W-008'] },
+          { id: 2, title: '呼吸で自律神経を整える', subtitle: '呼吸を整えると落ち着く', foundations: ['B-025'] },
+          { id: 3, title: '思考と感情を分離する', subtitle: '感情を言語化すると落ち着く', foundations: ['C-002'] },
+          { id: 4, title: '逆境を乗り越えた経験を思い出す', subtitle: '成功経験が自信を強める', foundations: ['C-012'] },
+          { id: 5, title: '支援を求めることを恥と思わない', subtitle: '支援を使うと負担が減る', foundations: ['S-008'] },
+          { id: 6, title: '状況を俯瞰する', subtitle: '思考の偏りに気づくと判断が整う', foundations: ['C-001', 'C-013'] },
+          { id: 7, title: '最悪のケースを想定する', subtitle: '想定すると備えができる', foundations: ['C-006'] },
+          { id: 8, title: '回復の時間を確保する', subtitle: '休息で回復力が戻る', foundations: ['B-025'] },
+          { id: 9, title: '意味を見出す', subtitle: '意味を見つけると耐えられる', foundations: ['C-017'] },
+          { id: 10, title: '日常のルーティンを守る', subtitle: '繰り返しで行動が自動化する', foundations: ['B-001'] },
+          { id: 11, title: '睡眠と栄養を優先する', subtitle: '基盤を整えると回復力が上がる', foundations: ['T-001', 'B-025'] },
+          { id: 12, title: '支えになる人と定期的につながる', subtitle: '支援があると耐性が高まる', foundations: ['S-008', 'S-023'] },
+        ],
+      },
+      {
+        name: '冷静保持',
         details: [
           { id: 1, title: '反応する前に間を置く', subtitle: '間を取ると冷静に選べる', foundations: ['B-003'] },
           { id: 2, title: '深呼吸を3回する', subtitle: '呼吸リズムで緊張が落ち着く', foundations: ['B-025'] },
@@ -142,7 +142,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '思考の歪みを見抜く処世術',
+        name: '思考の歪み',
         details: [
           { id: 1, title: '感情と事実を切り離す', subtitle: '', foundations: ['C-002'] },
           { id: 2, title: '極端な一般化に気づく', subtitle: '', foundations: ['C-001'] },
@@ -159,7 +159,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '判断を止める処世術',
+        name: '判断停止',
         details: [
           { id: 1, title: '即断が必要な場面かを確認する', subtitle: '', foundations: ['C-013'] },
           { id: 2, title: '判断しないという選択肢を持つ', subtitle: '', foundations: ['W-001'] },
@@ -181,7 +181,7 @@ export const techniquesData = [
     title: '対人術①',
     items: [
       {
-        name: '人たらしの処世術',
+        name: '人たらし',
         details: [
           { id: 1, title: '相手の話を遮らない', subtitle: '最後まで聞くと信頼が増す', foundations: ['S-011'] },
           { id: 2, title: '評価せずに受け取る', subtitle: '否定しないと安心感が生まれる', foundations: ['S-011'] },
@@ -198,7 +198,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '第一印象の処世術',
+        name: '第一印象',
         details: [
           { id: 1, title: '笑顔で挨拶する', subtitle: '好意を示すと好意が返る', foundations: ['S-003'] },
           { id: 2, title: 'アイコンタクトを適度に保つ', subtitle: '相手に合わせると親近感が増す', foundations: ['S-007', 'S-026'] },
@@ -215,7 +215,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '信頼を獲得する処世術',
+        name: '信頼獲得',
         details: [
           { id: 1, title: '言行一致を貫く', subtitle: '言行一致で信頼が深まる', foundations: ['B-005', 'C-024'] },
           { id: 2, title: '約束は必ず守る', subtitle: '約束を守ると信頼が積み上がる', foundations: ['B-005', 'S-016'] },
@@ -232,7 +232,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '恋愛攻略の処世術（男→女）',
+        name: '恋愛戦略（男→女）',
         details: [
           { id: 1, title: '清潔感を最優先にする', subtitle: '一つの印象が全体評価に影響する', foundations: ['C-005', 'S-026'] },
           { id: 2, title: '自信を持って接する', subtitle: '自信が魅力として伝わる', foundations: ['S-004', 'C-012'] },
@@ -249,7 +249,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '恋愛攻略の処世術（女→男）',
+        name: '恋愛戦略（女→男）',
         details: [
           { id: 1, title: '笑顔と明るさを心がける', subtitle: '好意を示すと好意が返る', foundations: ['S-003'] },
           { id: 2, title: '相手を褒めて承認する', subtitle: '受けた好意に返したくなる', foundations: ['S-001', 'S-013'] },
@@ -271,7 +271,7 @@ export const techniquesData = [
     title: '対人術②',
     items: [
       {
-        name: '軽んじられない処世術',
+        name: '軽んじられない',
         details: [
           { id: 1, title: '堂々とした姿勢を取る', subtitle: '姿勢で自信が高まる', foundations: ['S-026'] },
           { id: 2, title: '語尾を明確にする', subtitle: '断定的な言い方で信頼が増す', foundations: ['S-026'] },
@@ -288,24 +288,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '集団の処世術',
-        details: [
-          { id: 1, title: 'グループの規範を理解する', subtitle: '周囲に合わせたくなる力を意識する', foundations: ['S-010', 'S-024'] },
-          { id: 2, title: 'キーパーソンを見極める', subtitle: '権威があると信頼されやすい', foundations: ['S-004'] },
-          { id: 3, title: '派閥に属さない', subtitle: '中立を保つと流されにくい', foundations: ['W-001', 'S-010'] },
-          { id: 4, title: '貢献で存在感を示す', subtitle: '受けた好意に返したくなる', foundations: ['S-001'] },
-          { id: 5, title: '情報を適切に共有する', subtitle: '情報差が交渉力を左右する', foundations: ['T-005', 'T-017'] },
-          { id: 6, title: '多数派に流されない', subtitle: '周囲に合わせたくなる力を意識する', foundations: ['S-010'] },
-          { id: 7, title: '調整役を買って出る', subtitle: '役割を分けると連携が進む', foundations: ['T-002', 'S-025'] },
-          { id: 8, title: '衝突を建設的に解消する', subtitle: '対立を整理すると協力に戻せる', foundations: ['S-020'] },
-          { id: 9, title: '集団の目標を共有する', subtitle: '報酬設計で行動が動く', foundations: ['T-003', 'S-017'] },
-          { id: 10, title: '多様性を尊重する', subtitle: '多様性で発想が広がる', foundations: ['T-008'] },
-          { id: 11, title: '会議の目的と役割を明確にする', subtitle: '役割が決まると連携が進む', foundations: ['T-002'] },
-          { id: 12, title: '合意事項を文書化する', subtitle: '見える化で協力が続く', foundations: ['T-005', 'T-017'] },
-        ],
-      },
-      {
-        name: '距離を取る処世術',
+        name: '距離調整',
         details: [
           { id: 1, title: '相手を変えようとしない', subtitle: '', foundations: ['S-020'] },
           { id: 2, title: '期待値を下げて関係を続ける', subtitle: '', foundations: ['S-018'] },
@@ -322,7 +305,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '断る・拒否する処世術',
+        name: '拒否・断り',
         details: [
           { id: 1, title: '断る理由を長く説明しない', subtitle: '', foundations: ['S-012'] },
           { id: 2, title: '即答せず保留を使う', subtitle: '', foundations: ['T-014'] },
@@ -339,7 +322,24 @@ export const techniquesData = [
         ],
       },
       {
-        name: '人利きの処世術',
+        name: '集団対応',
+        details: [
+          { id: 1, title: 'グループの規範を理解する', subtitle: '周囲に合わせたくなる力を意識する', foundations: ['S-010', 'S-024'] },
+          { id: 2, title: 'キーパーソンを見極める', subtitle: '権威があると信頼されやすい', foundations: ['S-004'] },
+          { id: 3, title: '派閥に属さない', subtitle: '中立を保つと流されにくい', foundations: ['W-001', 'S-010'] },
+          { id: 4, title: '貢献で存在感を示す', subtitle: '受けた好意に返したくなる', foundations: ['S-001'] },
+          { id: 5, title: '情報を適切に共有する', subtitle: '情報差が交渉力を左右する', foundations: ['T-005', 'T-017'] },
+          { id: 6, title: '多数派に流されない', subtitle: '周囲に合わせたくなる力を意識する', foundations: ['S-010'] },
+          { id: 7, title: '調整役を買って出る', subtitle: '役割を分けると連携が進む', foundations: ['T-002', 'S-025'] },
+          { id: 8, title: '衝突を建設的に解消する', subtitle: '対立を整理すると協力に戻せる', foundations: ['S-020'] },
+          { id: 9, title: '集団の目標を共有する', subtitle: '報酬設計で行動が動く', foundations: ['T-003', 'S-017'] },
+          { id: 10, title: '多様性を尊重する', subtitle: '多様性で発想が広がる', foundations: ['T-008'] },
+          { id: 11, title: '会議の目的と役割を明確にする', subtitle: '役割が決まると連携が進む', foundations: ['T-002'] },
+          { id: 12, title: '合意事項を文書化する', subtitle: '見える化で協力が続く', foundations: ['T-005', 'T-017'] },
+        ],
+      },
+      {
+        name: '人利き',
         details: [
           { id: 1, title: '第一印象だけで判断しない', subtitle: '', foundations: ['C-005'] },
           { id: 2, title: '言動より行動の繰り返しを見る', subtitle: '', foundations: ['B-001'] },
@@ -361,7 +361,7 @@ export const techniquesData = [
     title: 'スキル術',
     items: [
       {
-        name: '会話・雑談の処世術',
+        name: '会話・雑談',
         details: [
           { id: 1, title: 'オープンクエスチョンを使う', subtitle: '掘り下げ質問で会話が広がる', foundations: ['S-011'] },
           { id: 2, title: '相槌で相手を促す', subtitle: '相槌があると話しやすい', foundations: ['S-008', 'S-011'] },
@@ -378,7 +378,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '説得・言語化の処世術',
+        name: '言語化',
         details: [
           { id: 1, title: '結論から述べる', subtitle: '結論と理由で伝えると分かりやすい', foundations: ['C-025'] },
           { id: 2, title: '相手の利益を強調する', subtitle: '利益を示すと納得が進む', foundations: ['S-001', 'C-007'] },
@@ -395,24 +395,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '社会不安の処世術',
-        details: [
-          { id: 1, title: '不安の引き金を棚卸しする', subtitle: '状況・相手・評価軸を特定する', foundations: ['C-002'] },
-          { id: 2, title: '不安度を数値化して記録する', subtitle: '強度が分かると対処が選べる', foundations: ['C-002', 'B-021'] },
-          { id: 3, title: '回避行動を見える化する', subtitle: '逃避パターンを把握して減らす', foundations: ['C-013'] },
-          { id: 4, title: '小さな行動目標を決める', subtitle: '一歩の設計で負担を下げる', foundations: ['B-011'] },
-          { id: 5, title: '段階的な暴露プランを作る', subtitle: '怖さの階段を上がる設計にする', foundations: ['B-008'] },
-          { id: 6, title: '事前のシナリオを短く準備する', subtitle: '開始文と要点で迷いを減らす', foundations: ['B-008'] },
-          { id: 7, title: '身体の緊張を先にほぐす', subtitle: '呼吸と姿勢で生理反応を整える', foundations: ['S-026', 'B-025'] },
-          { id: 8, title: '認知の歪みを言語化する', subtitle: '「破滅予測」を可視化して修正する', foundations: ['C-001', 'C-017'] },
-          { id: 9, title: '安全行動を減らす実験をする', subtitle: '頼りすぎを減らし自信を回復する', foundations: ['C-012'] },
-          { id: 10, title: '失敗時のリカバリ手順を決める', subtitle: '備えがあると不安が落ち着く', foundations: ['C-006', 'B-008'] },
-          { id: 11, title: '終わった後に振り返る', subtitle: '事実と学びを分けて記録する', foundations: ['C-013', 'W-012'] },
-          { id: 12, title: '支援を求める窓口を決める', subtitle: '一人で抱えない導線を作る', foundations: ['S-008'] },
-        ],
-      },
-      {
-        name: '交渉の処世術',
+        name: '交渉',
         details: [
           { id: 1, title: 'BATNA（代替案）を持つ', subtitle: '代替案があると交渉に余裕が出る', foundations: ['T-004'] },
           { id: 2, title: '相手の利益を理解する', subtitle: '利益理解で合意しやすい', foundations: ['T-004', 'S-021'] },
@@ -429,7 +412,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: 'リーダーシップの処世術',
+        name: '統率',
         details: [
           { id: 1, title: 'ビジョンを語る', subtitle: '未来像を示すと人が動く', foundations: ['C-007', 'S-017'] },
           { id: 2, title: '率先垂範する', subtitle: '行動で示すと信頼される', foundations: ['W-009', 'B-005'] },
@@ -446,7 +429,24 @@ export const techniquesData = [
         ],
       },
       {
-        name: '学び直し・アップデートの処世術',
+        name: '社会不安',
+        details: [
+          { id: 1, title: '不安の引き金を棚卸しする', subtitle: '状況・相手・評価軸を特定する', foundations: ['C-002'] },
+          { id: 2, title: '不安度を数値化して記録する', subtitle: '強度が分かると対処が選べる', foundations: ['C-002', 'B-021'] },
+          { id: 3, title: '回避行動を見える化する', subtitle: '逃避パターンを把握して減らす', foundations: ['C-013'] },
+          { id: 4, title: '小さな行動目標を決める', subtitle: '一歩の設計で負担を下げる', foundations: ['B-011'] },
+          { id: 5, title: '段階的な暴露プランを作る', subtitle: '怖さの階段を上がる設計にする', foundations: ['B-008'] },
+          { id: 6, title: '事前のシナリオを短く準備する', subtitle: '開始文と要点で迷いを減らす', foundations: ['B-008'] },
+          { id: 7, title: '身体の緊張を先にほぐす', subtitle: '呼吸と姿勢で生理反応を整える', foundations: ['S-026', 'B-025'] },
+          { id: 8, title: '認知の歪みを言語化する', subtitle: '「破滅予測」を可視化して修正する', foundations: ['C-001', 'C-017'] },
+          { id: 9, title: '安全行動を減らす実験をする', subtitle: '頼りすぎを減らし自信を回復する', foundations: ['C-012'] },
+          { id: 10, title: '失敗時のリカバリ手順を決める', subtitle: '備えがあると不安が落ち着く', foundations: ['C-006', 'B-008'] },
+          { id: 11, title: '終わった後に振り返る', subtitle: '事実と学びを分けて記録する', foundations: ['C-013', 'W-012'] },
+          { id: 12, title: '支援を求める窓口を決める', subtitle: '一人で抱えない導線を作る', foundations: ['S-008'] },
+        ],
+      },
+      {
+        name: '学び直し',
         details: [
           { id: 1, title: '目的なき学習をやめる', subtitle: '', foundations: ['T-001'] },
           { id: 2, title: '使う前提で学ぶ', subtitle: '', foundations: ['B-008'] },
@@ -463,7 +463,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '評価される成果物の処世術',
+        name: '成果物',
         details: [
           { id: 1, title: '努力ではなく成果で語る', subtitle: '', foundations: ['T-005'] },
           { id: 2, title: '相手の評価軸を把握する', subtitle: '', foundations: ['T-003'] },
@@ -485,7 +485,7 @@ export const techniquesData = [
     title: '達成術',
     items: [
       {
-        name: '習慣設計の処世術',
+        name: '習慣設計',
         details: [
           { id: 1, title: 'トリガーを設定する', subtitle: '繰り返しで行動が自動化する', foundations: ['B-001', 'B-008'] },
           { id: 2, title: '小さく始める', subtitle: '繰り返しで行動が自動化する', foundations: ['B-001', 'B-011'] },
@@ -502,7 +502,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '集中力の処世術',
+        name: '集中力',
         details: [
           { id: 1, title: 'シングルタスクを徹底する', subtitle: '一つに集中すると質が上がる', foundations: ['C-020'] },
           { id: 2, title: '時間をブロックする', subtitle: '締切があると仕事が進む', foundations: ['B-010', 'B-018'] },
@@ -519,7 +519,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '時間管理の処世術',
+        name: '時間管理',
         details: [
           { id: 1, title: '重要×緊急マトリクスを使う', subtitle: '限られた資源を重要度で配る', foundations: ['T-001'] },
           { id: 2, title: '最重要タスクを朝に片付ける', subtitle: '判断が続くと質が落ちるため負荷を減らす', foundations: ['B-003', 'W-021'] },
@@ -536,7 +536,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '勉強の処世術',
+        name: '勉強',
         details: [
           { id: 1, title: '能動的に学ぶ', subtitle: '能動的に学ぶと理解が深まる', foundations: ['W-025'] },
           { id: 2, title: '思い出す練習をする', subtitle: '思い出す練習で記憶が強化される', foundations: ['W-002'] },
@@ -553,7 +553,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '途中で折れない処世術',
+        name: '折れない',
         details: [
           { id: 1, title: '完璧な継続を目指さない', subtitle: '', foundations: ['C-017'] },
           { id: 2, title: '中断前提で計画する', subtitle: '', foundations: ['T-014'] },
@@ -570,7 +570,7 @@ export const techniquesData = [
         ],
       },
       {
-        name: '失敗後の立て直しの処世術',
+        name: '立て直し',
         details: [
           { id: 1, title: '失敗を即座に意味づけしない', subtitle: '', foundations: ['C-017'] },
           { id: 2, title: '感情処理と分析を分ける', subtitle: '', foundations: ['C-002', 'C-013'] },
