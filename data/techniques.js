@@ -126,7 +126,7 @@ export const techniquesData = [
     ],
   },
   {
-    title: '対人術',
+    title: '対人術①',
     items: [
       {
         name: '人たらしの処世術',
@@ -163,23 +163,6 @@ export const techniquesData = [
         ],
       },
       {
-        name: '軽んじられない処世術',
-        details: [
-          { id: 1, title: '堂々とした姿勢を取る', subtitle: '姿勢で自信が高まる', foundations: ['S-026'] },
-          { id: 2, title: '語尾を明確にする', subtitle: '断定的な言い方で信頼が増す', foundations: ['S-026'] },
-          { id: 3, title: '沈黙を恐れない', subtitle: '沈黙が発言の重みを生む', foundations: ['S-011'] },
-          { id: 4, title: '境界線を明示する', subtitle: '境界を示すと尊重される', foundations: ['S-012'] },
-          { id: 5, title: '自分の意見を最初に述べる', subtitle: '最初の情報が判断基準になる', foundations: ['C-004'] },
-          { id: 6, title: 'ノーと言える勇気を持つ', subtitle: '主張と配慮を両立すると尊重される', foundations: ['S-012'] },
-          { id: 7, title: '専門性を示す', subtitle: '権威があると信頼されやすい', foundations: ['S-004'] },
-          { id: 8, title: '約束を守る', subtitle: '約束を守ると信頼が増す', foundations: ['B-005', 'S-016'] },
-          { id: 9, title: '感情的にならない', subtitle: '冷静さが信頼感を生む', foundations: ['C-002'] },
-          { id: 10, title: '実績で示す', subtitle: '実績が評価を裏付ける', foundations: ['T-005'] },
-          { id: 11, title: '成果基準を共有する', subtitle: '基準を示すと評価が明確になる', foundations: ['T-003', 'S-018'] },
-          { id: 12, title: '要求には代替案を添える', subtitle: '代替案があると尊重されやすい', foundations: ['T-004'] },
-        ],
-      },
-      {
         name: '信頼を獲得する処世術',
         details: [
           { id: 1, title: '言行一致を貫く', subtitle: '言行一致で信頼が深まる', foundations: ['B-005', 'C-024'] },
@@ -194,23 +177,6 @@ export const techniquesData = [
           { id: 10, title: '小さな約束から始める', subtitle: '小さな約束で信頼が育つ', foundations: ['B-005', 'S-016'] },
           { id: 11, title: '進捗をこまめに報告する', subtitle: '透明性が不安を減らす', foundations: ['T-005', 'T-017'] },
           { id: 12, title: '期待値を最初に調整する', subtitle: '期待のズレを減らすと信頼が続く', foundations: ['C-007', 'S-018'] },
-        ],
-      },
-      {
-        name: '集団の処世術',
-        details: [
-          { id: 1, title: 'グループの規範を理解する', subtitle: '周囲に合わせたくなる力を意識する', foundations: ['S-010', 'S-024'] },
-          { id: 2, title: 'キーパーソンを見極める', subtitle: '権威があると信頼されやすい', foundations: ['S-004'] },
-          { id: 3, title: '派閥に属さない', subtitle: '中立を保つと流されにくい', foundations: ['W-001', 'S-010'] },
-          { id: 4, title: '貢献で存在感を示す', subtitle: '受けた好意に返したくなる', foundations: ['S-001'] },
-          { id: 5, title: '情報を適切に共有する', subtitle: '情報差が交渉力を左右する', foundations: ['T-005', 'T-017'] },
-          { id: 6, title: '多数派に流されない', subtitle: '周囲に合わせたくなる力を意識する', foundations: ['S-010'] },
-          { id: 7, title: '調整役を買って出る', subtitle: '役割を分けると連携が進む', foundations: ['T-002', 'S-025'] },
-          { id: 8, title: '衝突を建設的に解消する', subtitle: '対立を整理すると協力に戻せる', foundations: ['S-020'] },
-          { id: 9, title: '集団の目標を共有する', subtitle: '報酬設計で行動が動く', foundations: ['T-003', 'S-017'] },
-          { id: 10, title: '多様性を尊重する', subtitle: '多様性で発想が広がる', foundations: ['T-008'] },
-          { id: 11, title: '会議の目的と役割を明確にする', subtitle: '役割が決まると連携が進む', foundations: ['T-002'] },
-          { id: 12, title: '合意事項を文書化する', subtitle: '見える化で協力が続く', foundations: ['T-005', 'T-017'] },
         ],
       },
       {
@@ -245,6 +211,45 @@ export const techniquesData = [
           { id: 10, title: '相手の価値観を理解する', subtitle: '理解が深まると距離が縮まる', foundations: ['S-011'] },
           { id: 11, title: '相手の努力を言葉で認める', subtitle: '承認が安心感につながる', foundations: ['S-001', 'S-013'] },
           { id: 12, title: '自分の境界線も明確にする', subtitle: '対等さが関係を保つ', foundations: ['S-012'] },
+        ],
+      },
+    ],
+  },
+  {
+    title: '対人術②',
+    items: [
+      {
+        name: '軽んじられない処世術',
+        details: [
+          { id: 1, title: '堂々とした姿勢を取る', subtitle: '姿勢で自信が高まる', foundations: ['S-026'] },
+          { id: 2, title: '語尾を明確にする', subtitle: '断定的な言い方で信頼が増す', foundations: ['S-026'] },
+          { id: 3, title: '沈黙を恐れない', subtitle: '沈黙が発言の重みを生む', foundations: ['S-011'] },
+          { id: 4, title: '境界線を明示する', subtitle: '境界を示すと尊重される', foundations: ['S-012'] },
+          { id: 5, title: '自分の意見を最初に述べる', subtitle: '最初の情報が判断基準になる', foundations: ['C-004'] },
+          { id: 6, title: 'ノーと言える勇気を持つ', subtitle: '主張と配慮を両立すると尊重される', foundations: ['S-012'] },
+          { id: 7, title: '専門性を示す', subtitle: '権威があると信頼されやすい', foundations: ['S-004'] },
+          { id: 8, title: '約束を守る', subtitle: '約束を守ると信頼が増す', foundations: ['B-005', 'S-016'] },
+          { id: 9, title: '感情的にならない', subtitle: '冷静さが信頼感を生む', foundations: ['C-002'] },
+          { id: 10, title: '実績で示す', subtitle: '実績が評価を裏付ける', foundations: ['T-005'] },
+          { id: 11, title: '成果基準を共有する', subtitle: '基準を示すと評価が明確になる', foundations: ['T-003', 'S-018'] },
+          { id: 12, title: '要求には代替案を添える', subtitle: '代替案があると尊重されやすい', foundations: ['T-004'] },
+        ],
+      },
+      {
+        name: '集団の処世術',
+        details: [
+          { id: 1, title: 'グループの規範を理解する', subtitle: '周囲に合わせたくなる力を意識する', foundations: ['S-010', 'S-024'] },
+          { id: 2, title: 'キーパーソンを見極める', subtitle: '権威があると信頼されやすい', foundations: ['S-004'] },
+          { id: 3, title: '派閥に属さない', subtitle: '中立を保つと流されにくい', foundations: ['W-001', 'S-010'] },
+          { id: 4, title: '貢献で存在感を示す', subtitle: '受けた好意に返したくなる', foundations: ['S-001'] },
+          { id: 5, title: '情報を適切に共有する', subtitle: '情報差が交渉力を左右する', foundations: ['T-005', 'T-017'] },
+          { id: 6, title: '多数派に流されない', subtitle: '周囲に合わせたくなる力を意識する', foundations: ['S-010'] },
+          { id: 7, title: '調整役を買って出る', subtitle: '役割を分けると連携が進む', foundations: ['T-002', 'S-025'] },
+          { id: 8, title: '衝突を建設的に解消する', subtitle: '対立を整理すると協力に戻せる', foundations: ['S-020'] },
+          { id: 9, title: '集団の目標を共有する', subtitle: '報酬設計で行動が動く', foundations: ['T-003', 'S-017'] },
+          { id: 10, title: '多様性を尊重する', subtitle: '多様性で発想が広がる', foundations: ['T-008'] },
+          { id: 11, title: '会議の目的と役割を明確にする', subtitle: '役割が決まると連携が進む', foundations: ['T-002'] },
+          { id: 12, title: '合意事項を文書化する', subtitle: '見える化で協力が続く', foundations: ['T-005', 'T-017'] },
         ],
       },
       {
