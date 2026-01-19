@@ -9,7 +9,7 @@ export const structureData = {
     {
       tagId: 'T-001',
       title: '262の法則',
-      summary: '262の法則',
+      summary: '組織や集団の成果が2:6:2に分布するという経験則。',
       definition: '',
       keyPoints: [],
       pitfalls: [],
@@ -21,7 +21,7 @@ export const structureData = {
     {
       tagId: 'T-002',
       title: 'パレートの法則（80:20）',
-      summary: 'パレートの法則（80:20）',
+      summary: '成果の大半が一部の要因から生まれるという法則。',
       definition: '',
       keyPoints: [],
       pitfalls: [],
@@ -33,7 +33,7 @@ export const structureData = {
     {
       tagId: 'T-003',
       title: '正規分布仮説',
-      summary: '正規分布仮説',
+      summary: '多くの特性が平均を中心に分布するという仮説。',
       definition: '',
       keyPoints: [],
       pitfalls: [],
@@ -45,7 +45,7 @@ export const structureData = {
     {
       tagId: 'T-004',
       title: 'ナッジ政策',
-      summary: 'ナッジ政策',
+      summary: '選択環境の設計で望ましい行動を促す政策。',
       definition: '',
       keyPoints: [],
       pitfalls: [],
