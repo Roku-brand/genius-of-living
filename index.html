@@ -55,11 +55,11 @@
               class="tab"
               role="tab"
               aria-selected="false"
-              aria-controls="tab-mypage"
-              id="tab-mypage-button"
+              aria-controls="tab-hub"
+              id="tab-hub-button"
               tabindex="-1"
             >
-              マイページ
+              処世術ハブ
             </button>
           </nav>
         </div>
@@ -207,110 +207,92 @@
         </div>
       </section>
 
-      <section id="tab-mypage" class="panel" role="tabpanel" aria-labelledby="tab-mypage-button" hidden>
+      <section id="tab-hub" class="panel" role="tabpanel" aria-labelledby="tab-hub-button" hidden>
         <div class="tab-hero">
-          <h2 class="tab-hero__title">マイページ</h2>
-          <p class="tab-hero__desc">お気に入りの処世術や学習の進捗を管理し、パーソナライズされた体験を提供します。</p>
+          <h2 class="tab-hero__title">処世術ハブ</h2>
+          <p class="tab-hero__desc">知恵が集まり、磨かれる公共空間。処世術群の閲覧・提案・議論を行います。</p>
         </div>
         <div class="panel__inner">
-          <div class="mypage-content" id="mypage-content">
-            <div class="mypage-header">
-              <p class="mypage-desc">保存した情報や自分専用の処世術をタブで管理できます。</p>
-            </div>
+          <div class="hub-content" id="hub-content">
 
-            <div class="subtabs" id="mypage-tablist" role="tablist" aria-label="マイページタブ">
-              <button
-                class="subtab is-active"
-                role="tab"
-                aria-selected="true"
-                aria-controls="mypage-panel-saved-techniques"
-                id="mypage-tab-saved-techniques"
-                tabindex="0"
-                type="button"
-              >
-                保存した処世術
-              </button>
-              <button
-                class="subtab"
-                role="tab"
-                aria-selected="false"
-                aria-controls="mypage-panel-saved-foundations"
-                id="mypage-tab-saved-foundations"
-                tabindex="-1"
-                type="button"
-              >
-                保存した思想基盤
-              </button>
-              <button
-                class="subtab"
-                role="tab"
-                aria-selected="false"
-                aria-controls="mypage-panel-my-techniques"
-                id="mypage-tab-my-techniques"
-                tabindex="-1"
-                type="button"
-              >
-                マイ処世術
-              </button>
-            </div>
-
-            <div class="mypage-panels">
-              <div
-                class="mypage-panel"
-                id="mypage-panel-saved-techniques"
-                role="tabpanel"
-                aria-labelledby="mypage-tab-saved-techniques"
-              >
-                <div class="grid two">
-                  <article class="card">
-                    <h3>判断ラベルの保存棚</h3>
-                    <p>よく使う処世術をピン留めし、判断の起点をすぐに呼び出せます。</p>
-                  </article>
-                  <article class="card">
-                    <h3>最近保存した処世術</h3>
-                    <p>直近で保存したラベルを時系列で確認し、再利用のリズムを整えます。</p>
-                  </article>
-                </div>
+            <!-- 処世術群一覧 -->
+            <section class="hub-section">
+              <h3 class="hub-section__title">処世術群一覧</h3>
+              <p class="hub-section__desc">テーマ単位で整理された処世術群を閲覧できます。</p>
+              <div class="grid three">
+                <article class="hub-card">
+                  <h4>友達作りの処世術</h4>
+                  <p>人間関係の初期構築に関する処世術群</p>
+                  <span class="hub-card__status hub-card__status--structured">体系化済み</span>
+                </article>
+                <article class="hub-card">
+                  <h4>職場で摩擦を生まない処世術</h4>
+                  <p>組織内での円滑な立ち回りに関する処世術群</p>
+                  <span class="hub-card__status hub-card__status--organizing">整理中</span>
+                </article>
+                <article class="hub-card">
+                  <h4>初対面で信頼を獲得する処世術</h4>
+                  <p>第一印象と信頼構築に関する処世術群</p>
+                  <span class="hub-card__status hub-card__status--reviewing">検討中</span>
+                </article>
               </div>
+            </section>
 
-              <div
-                class="mypage-panel"
-                id="mypage-panel-saved-foundations"
-                role="tabpanel"
-                aria-labelledby="mypage-tab-saved-foundations"
-                hidden
-              >
-                <div class="grid two">
-                  <article class="card">
-                    <h3>思想基盤のコレクション</h3>
-                    <p>気になった思想カードを分類し、処世術の裏付けとして活用します。</p>
-                  </article>
-                  <article class="card">
-                    <h3>参照頻度の高い基盤</h3>
-                    <p>繰り返し見直す理論を可視化し、学習の偏りを整えます。</p>
-                  </article>
-                </div>
+            <!-- 注目・活発な処世術群 -->
+            <section class="hub-section">
+              <h3 class="hub-section__title">注目・活発な処世術群</h3>
+              <p class="hub-section__desc">最近更新が多い、または議論が活発な処世術群です。</p>
+              <div class="grid two">
+                <article class="hub-card hub-card--featured">
+                  <span class="hub-card__label">注目</span>
+                  <h4>言いにくいことを通す前置き設計</h4>
+                  <p>「結論→配慮→提案」で角を立てずに要点を通す処世術群。議論が活発です。</p>
+                </article>
+                <article class="hub-card hub-card--featured">
+                  <span class="hub-card__label">活発</span>
+                  <h4>断るときの代替案提示</h4>
+                  <p>Yesの代わりに「別案・条件・期限」を提示する処世術群。評価が集まっています。</p>
+                </article>
               </div>
+            </section>
 
-              <div
-                class="mypage-panel"
-                id="mypage-panel-my-techniques"
-                role="tabpanel"
-                aria-labelledby="mypage-tab-my-techniques"
-                hidden
-              >
-                <div class="grid two">
-                  <article class="card">
-                    <h3>あなた専用の処世術</h3>
-                    <p>自身の経験から編み出した処世術を整理し、再現可能な形にします。</p>
-                  </article>
-                  <article class="card">
-                    <h3>共有準備エリア</h3>
-                    <p>公開前の下書きをここで整え、言語化の質を高めます。</p>
-                  </article>
-                </div>
+            <!-- 新規提案導線 -->
+            <section class="hub-section">
+              <h3 class="hub-section__title">新しい処世術群を提案する</h3>
+              <p class="hub-section__desc">処世術群の提案・議論・改善はGitHubを通じて行います。</p>
+              <div class="hub-actions">
+                <a href="https://github.com/Roku-brand/genius-of-living/discussions" class="hub-action-link" target="_blank" rel="noopener noreferrer">
+                  <span class="hub-action-link__icon">💬</span>
+                  <span class="hub-action-link__text">
+                    <strong>議論する</strong>
+                    <small>GitHub Discussions</small>
+                  </span>
+                </a>
+                <a href="https://github.com/Roku-brand/genius-of-living/issues/new" class="hub-action-link" target="_blank" rel="noopener noreferrer">
+                  <span class="hub-action-link__icon">📝</span>
+                  <span class="hub-action-link__text">
+                    <strong>改善提案</strong>
+                    <small>GitHub Issue</small>
+                  </span>
+                </a>
+                <a href="https://github.com/Roku-brand/genius-of-living/pulls" class="hub-action-link" target="_blank" rel="noopener noreferrer">
+                  <span class="hub-action-link__icon">🔧</span>
+                  <span class="hub-action-link__text">
+                    <strong>編集提案</strong>
+                    <small>GitHub Pull Request</small>
+                  </span>
+                </a>
               </div>
-            </div>
+            </section>
+
+            <!-- 思想的まとめ -->
+            <section class="hub-section hub-section--philosophy">
+              <blockquote class="hub-philosophy">
+                処世術ハブは「人が集まる場所」ではなく<strong>知恵が集まり、磨かれる場所</strong>である。<br>
+                人は通過点。残るのは処世術。私有しない。競わない。煽らない。
+              </blockquote>
+            </section>
+
           </div>
         </div>
       </section>
@@ -329,9 +311,9 @@
         <img class="mobile-nav__icon" src="assets/icons/tab-foundation.png" alt="" aria-hidden="true" />
         <span class="mobile-nav__label">思想基盤</span>
       </button>
-      <button class="mobile-nav__item" type="button" data-tab-target="tab-mypage" aria-pressed="false">
-        <img class="mobile-nav__icon" src="assets/icons/tab-mypage.png" alt="" aria-hidden="true" />
-        <span class="mobile-nav__label">マイページ</span>
+      <button class="mobile-nav__item" type="button" data-tab-target="tab-hub" aria-pressed="false">
+        <img class="mobile-nav__icon" src="assets/icons/tab-hub.png" alt="" aria-hidden="true" />
+        <span class="mobile-nav__label">ハブ</span>
       </button>
     </nav>
 

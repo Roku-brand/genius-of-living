@@ -296,17 +296,8 @@ const foundationDetailPanel = createElement('div', 'foundation-detail-panel');
 foundationDetailPanel.id = 'foundation-detail-panel';
 foundationDetailPanel.hidden = true;
 
-const mypageTabs = Array.from(document.querySelectorAll('#mypage-tablist .subtab'));
-const mypagePanels = Array.from(document.querySelectorAll('.mypage-panel'));
-
-if (mypageTabs.length && mypagePanels.length) {
-  mypageTabs.forEach((tab) => {
-    tab.addEventListener('click', () => setTabActiveState(mypageTabs, mypagePanels, tab));
-    addTabKeyboardNavigation(mypageTabs, tab, (currentTab) =>
-      setTabActiveState(mypageTabs, mypagePanels, currentTab),
-    );
-  });
-}
+// Hub section - no client-side tab management needed
+// GitHub links handle external navigation
 
 // Show foundation detail in a page-style panel (like technique detail)
 const showFoundationDetail = (item) => {
