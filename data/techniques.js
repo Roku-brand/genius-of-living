@@ -51,6 +51,14 @@ export const techniquesData = [
           { id: 12, title: '収入と支出を可視化する', subtitle: '資源を把握すると計画が現実的になる', foundations: ['T-001', 'T-017'] },
         ],
       },
+      {
+        name: '変化と不確実性の処世術',
+        details: [],
+      },
+      {
+        name: '運・偶然との付き合い方の処世術',
+        details: [],
+      },
     ],
   },
   {
@@ -106,6 +114,14 @@ export const techniquesData = [
           { id: 11, title: '判断を一晩寝かせる', subtitle: '時間を置くと感情が落ち着く', foundations: ['B-003'] },
           { id: 12, title: '情報を整理して優先度をつける', subtitle: '整理すると冷静に選べる', foundations: ['T-001', 'C-025'] },
         ],
+      },
+      {
+        name: '思考の歪みを見抜く処世術',
+        details: [],
+      },
+      {
+        name: '判断を止める処世術',
+        details: [],
       },
     ],
   },
@@ -231,6 +247,18 @@ export const techniquesData = [
           { id: 12, title: '自分の境界線も明確にする', subtitle: '対等さが関係を保つ', foundations: ['S-012'] },
         ],
       },
+      {
+        name: '距離を取る処世術',
+        details: [],
+      },
+      {
+        name: '断る・拒否する処世術',
+        details: [],
+      },
+      {
+        name: '人利きの処世術',
+        details: [],
+      },
     ],
   },
   {
@@ -321,6 +349,14 @@ export const techniquesData = [
           { id: 12, title: '1on1で成長支援をする', subtitle: '対話で信頼と成長が進む', foundations: ['S-008', 'S-011'] },
         ],
       },
+      {
+        name: '学び直し・アップデートの処世術',
+        details: [],
+      },
+      {
+        name: '評価される成果物の処世術',
+        details: [],
+      },
     ],
   },
   {
@@ -393,6 +429,14 @@ export const techniquesData = [
           { id: 11, title: '学習目標と計画を立てる', subtitle: '計画があると迷わず進む', foundations: ['B-008', 'B-017'] },
           { id: 12, title: '理解度をテストする', subtitle: '確認で弱点が明確になる', foundations: ['T-014'] },
         ],
+      },
+      {
+        name: '途中で折れない処世術',
+        details: [],
+      },
+      {
+        name: '失敗後の立て直しの処世術',
+        details: [],
       },
     ],
   },
