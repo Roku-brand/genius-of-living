@@ -74,7 +74,9 @@ const normalizeFoundationItem = (item, category) => {
 
 const normalizeCategory = (category) => ({
   ...category,
-  items: category.items.map((item) => normalizeFoundationItem(item, category)),
+  items: Array.isArray(category?.items)
+    ? category.items.map((item) => normalizeFoundationItem(item, category))
+    : [],
 });
 
 const cognitionData = normalizeCategory(rawCognitionData);
