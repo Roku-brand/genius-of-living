@@ -37,6 +37,9 @@
   /* Enjii/Maroon: Philosophy/Axis symbol (limited use) */
   --color-enjii: #8b3a3a;
   --color-enjii-light: rgba(139, 58, 58, 0.08);
+  /* Hub status colors */
+  --color-status-organizing: #8b7a3c;
+  --color-status-organizing-light: rgba(176, 152, 87, 0.12);
   --color-text: #1f1f1f;
   --color-text-secondary: #666;
   --color-text-tertiary: #999;
@@ -1738,8 +1741,8 @@ body::before {
 }
 
 .hub-card__status--organizing {
-  background: rgba(176, 152, 87, 0.12);
-  color: #8b7a3c;
+  background: var(--color-status-organizing-light);
+  color: var(--color-status-organizing);
 }
 
 .hub-card__status--structured {
