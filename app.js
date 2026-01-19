@@ -251,21 +251,53 @@ if (isDataReady(techniquesData, techniquesList)) {
   techniquesData.forEach((category) => {
     const row = createElement('article', 'technique-row');
     const title = createElement('h3', 'technique-row__title', `≪${category.title}≫`);
-    const list = createElement('ul', 'technique-buttons');
-
-    category.items.forEach((item, index) => {
-      const listItem = createElement('li');
-      const itemNumber = String(index + 1).padStart(2, '0');
-      const buttonText = `${itemNumber}. ${item.name}（${item.details.length}）`;
-      const button = createElement('button', 'technique-tag', buttonText);
-      button.type = 'button';
-      button.addEventListener('click', () => showTechniqueDetail(item));
-      listItem.appendChild(button);
-      list.appendChild(listItem);
-    });
-
     row.appendChild(title);
-    row.appendChild(list);
+
+    if (Array.isArray(category.groups) && category.groups.length) {
+      let runningIndex = 0;
+      category.groups.forEach((group) => {
+        const groupWrapper = createElement('div', 'technique-group');
+        const groupTitle = createElement('p', 'technique-group__title', group.name);
+        const groupDefinition = createElement('p', 'technique-group__definition', group.definition);
+        const list = createElement('ul', 'technique-buttons');
+
+        group.itemIndexes.forEach((itemIndex) => {
+          const item = category.items[itemIndex];
+          if (!item) {
+            return;
+          }
+          runningIndex += 1;
+          const listItem = createElement('li');
+          const itemNumber = String(runningIndex).padStart(2, '0');
+          const buttonText = `${itemNumber}. ${item.name}（${item.details.length}）`;
+          const button = createElement('button', 'technique-tag', buttonText);
+          button.type = 'button';
+          button.addEventListener('click', () => showTechniqueDetail(item));
+          listItem.appendChild(button);
+          list.appendChild(listItem);
+        });
+
+        groupWrapper.appendChild(groupTitle);
+        groupWrapper.appendChild(groupDefinition);
+        groupWrapper.appendChild(list);
+        row.appendChild(groupWrapper);
+      });
+    } else {
+      const list = createElement('ul', 'technique-buttons');
+
+      category.items.forEach((item, index) => {
+        const listItem = createElement('li');
+        const itemNumber = String(index + 1).padStart(2, '0');
+        const buttonText = `${itemNumber}. ${item.name}（${item.details.length}）`;
+        const button = createElement('button', 'technique-tag', buttonText);
+        button.type = 'button';
+        button.addEventListener('click', () => showTechniqueDetail(item));
+        listItem.appendChild(button);
+        list.appendChild(listItem);
+      });
+
+      row.appendChild(list);
+    }
     techniquesList.appendChild(row);
   });
 

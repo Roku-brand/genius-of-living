@@ -127,6 +127,18 @@ export const techniquesData = [
   },
   {
     title: '対人術',
+    groups: [
+      {
+        name: '対人術①：関係拡張系',
+        definition: '関係を拡張・開始・深化させる処世術群。',
+        itemIndexes: [0, 1, 3, 5, 6],
+      },
+      {
+        name: '対人術②：関係統制系',
+        definition: '関係を安定・統制・選別し、摩耗を防ぐ処世術群。',
+        itemIndexes: [2, 4, 7, 8, 9],
+      },
+    ],
     items: [
       {
         name: '人たらしの処世術',

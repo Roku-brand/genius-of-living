@@ -759,6 +759,26 @@ body::before {
   letter-spacing: 0.05em;
 }
 
+.technique-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.technique-group__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.technique-group__definition {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
 .technique-buttons {
   list-style: none;
   display: flex;
