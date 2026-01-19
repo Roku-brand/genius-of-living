@@ -20,6 +20,8 @@ const defaultLifehacksByCategory = {
 const fallbackLifehacks = ['人生設計の処世術', '信頼を獲得する処世術', '冷静さを保つ処世術'];
 
 const normalizeFoundationItem = (item, category) => {
+  const categoryId = category?.id;
+  const categoryTitle = category?.title ?? '思想基盤';
   const summary = hasText(item.summary) ? item.summary : item.title;
   const definition = hasText(item.definition)
     ? item.definition
@@ -54,8 +56,8 @@ const normalizeFoundationItem = (item, category) => {
       ];
   const lifehacks = hasItems(item.lifehacks)
     ? item.lifehacks
-    : defaultLifehacksByCategory[category.id] || fallbackLifehacks;
-  const tags = hasItems(item.tags) ? item.tags : [item.title, category.title];
+    : defaultLifehacksByCategory[categoryId] || fallbackLifehacks;
+  const tags = hasItems(item.tags) ? item.tags : [item.title, categoryTitle];
 
   return {
     ...item,
