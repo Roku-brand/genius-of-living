@@ -1,4 +1,4 @@
-const CACHE_NAME = 'shoseijutsu-cache-v2';
+const CACHE_NAME = 'shoseijutsu-cache-v3';
 const ASSETS = [
   './',
   './index.html',
@@ -13,7 +13,7 @@ const ASSETS = [
   './assets/icons/tab-home.png',
   './assets/icons/tab-techniques.png',
   './assets/icons/tab-foundation.png',
-  './assets/icons/tab-mypage.png',
+  './assets/icons/tab-hub.png',
   './assets/icons/demo-folder.png',
   './assets/icons/demo-file.png',
   './data/featured-techniques.js',
