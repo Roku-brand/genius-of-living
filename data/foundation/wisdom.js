@@ -369,6 +369,1942 @@ export const wisdomData = {
         '行動や判断を改善したいが、再現性の手がかりが足りないとき。',
         'チームや個人で共通理解を持ち、意思決定と価値観を揃えたい場面。',
       ],
-    }
+    },
+    {
+      tagId: 'W-015',
+      title: '自己決定理論（SDT）',
+    },
+    {
+      tagId: 'W-016',
+      title: '自己概念・アイデンティティ理論',
+    },
+    {
+      tagId: 'W-017',
+      title: 'ライフサイクル仮説',
+    },
+    {
+      tagId: 'W-018',
+      title: '恒常所得仮説',
+    },
+    {
+      tagId: 'W-019',
+      title: '健康資本',
+    },
+    {
+      tagId: 'W-020',
+      title: '探索-活用（Exploration-Exploitation）',
+    },
+    {
+      tagId: 'W-021',
+      title: '可能自己（Possible Selves）',
+    },
+    {
+      tagId: 'W-022',
+      title: 'メンタリング研究',
+    },
+    {
+      tagId: 'W-023',
+      title: '自己効力感（Self-Efficacy）',
+    },
+    {
+      tagId: 'W-024',
+      title: '楽観性（Optimism）',
+    },
+    {
+      tagId: 'W-025',
+      title: '評価懸念（Evaluation Apprehension）',
+    },
+    {
+      tagId: 'W-026',
+      title: '内発的動機づけ（SDT）',
+    },
+    {
+      tagId: 'W-027',
+      title: '意図-行動ギャップ',
+    },
+    {
+      tagId: 'W-028',
+      title: '学習志向（Learning Orientation）',
+    },
+    {
+      tagId: 'W-029',
+      title: '価値合理性（Value-Rationality）',
+    },
+    {
+      tagId: 'W-030',
+      title: '後悔理論（Regret Theory）',
+    },
+    {
+      tagId: 'W-031',
+      title: '実験思考（リーン／仮説検証）',
+    },
+    {
+      tagId: 'W-032',
+      title: '学習理論（試行錯誤）',
+    },
+    {
+      tagId: 'W-033',
+      title: 'アイデンティティ可塑性',
+    },
+    {
+      tagId: 'W-034',
+      title: 'ピボット（Pivot）',
+    },
+    {
+      tagId: 'W-035',
+      title: 'プロセス目標（Process Goals）',
+    },
+    {
+      tagId: 'W-036',
+      title: '内発的動機づけ',
+    },
+    {
+      tagId: 'W-037',
+      title: '探索期（Exploration Stage）',
+    },
+    {
+      tagId: 'W-038',
+      title: '休息と回復（Recovery）',
+    },
+    {
+      tagId: 'W-039',
+      title: '行動科学（小さな成功・強化）',
+    },
+    {
+      tagId: 'W-040',
+      title: 'プロセス志向（Process Orientation）',
+    },
+    {
+      tagId: 'W-041',
+      title: '学習志向',
+    },
+    {
+      tagId: 'W-042',
+      title: 'ゲーム理論（繰り返しゲーム）',
+    },
+    {
+      tagId: 'W-043',
+      title: '先延ばし研究',
+    },
+    {
+      tagId: 'W-044',
+      title: '社会的比較理論',
+    },
+    {
+      tagId: 'W-045',
+      title: '自己価値の条件づけ（Contingent Self-Worth）',
+    },
+    {
+      tagId: 'W-046',
+      title: '評価懸念',
+    },
+    {
+      tagId: 'W-047',
+      title: 'セレンディピティ研究',
+    },
+    {
+      tagId: 'W-048',
+      title: 'ウェルビーイング研究',
+    },
+    {
+      tagId: 'W-049',
+      title: '自伝的記憶研究',
+    },
+    {
+      tagId: 'W-050',
+      title: '自己物語（Narrative Identity）',
+    },
+    {
+      tagId: 'W-051',
+      title: 'セルフモニタリング',
+    },
+    {
+      tagId: 'W-052',
+      title: '経験消費研究（Experiential Consumption）',
+    },
+    {
+      tagId: 'W-053',
+      title: '適応理論（Adaptation）',
+    },
+    {
+      tagId: 'W-054',
+      title: 'ヒューリスティクス研究',
+    },
+    {
+      tagId: 'W-055',
+      title: 'リスク耐性（Financial Resilience）',
+    },
+    {
+      tagId: 'W-056',
+      title: 'ロバスト設計',
+    },
+    {
+      tagId: 'W-057',
+      title: '弱い紐帯の強さ',
+    },
+    {
+      tagId: 'W-058',
+      title: '注意資源（Attention）',
+    },
+    {
+      tagId: 'W-059',
+      title: 'アイデンティティ理論',
+    },
+    {
+      tagId: 'W-060',
+      title: '心理的安全性',
+    },
+    {
+      tagId: 'W-061',
+      title: '環境スキャニング',
+    },
+    {
+      tagId: 'W-062',
+      title: '状況認識（SA）',
+    },
+    {
+      tagId: 'W-063',
+      title: '機会構造（Opportunity Structure）',
+    },
+    {
+      tagId: 'W-064',
+      title: '探索-活用',
+    },
+    {
+      tagId: 'W-065',
+      title: '学習理論（エラーから学ぶ）',
+    },
+    {
+      tagId: 'W-066',
+      title: '自己正当化（認知的不協和）',
+    },
+    {
+      tagId: 'W-067',
+      title: '単純接触効果（Mere Exposure）',
+    },
+    {
+      tagId: 'W-068',
+      title: '信頼・誠実性（Integrity）研究',
+    },
+    {
+      tagId: 'W-069',
+      title: '社会的評価',
+    },
+    {
+      tagId: 'W-070',
+      title: '学習理論（強化・反復）',
+    },
+    {
+      tagId: 'W-071',
+      title: '行動科学（強化・報酬）',
+    },
+    {
+      tagId: 'W-072',
+      title: '拡張形成理論（Broaden-and-Build）',
+    },
+    {
+      tagId: 'W-073',
+      title: '反すう（Rumination）研究',
+    },
+    {
+      tagId: 'W-074',
+      title: '気分改善（運動心理）',
+    },
+    {
+      tagId: 'W-075',
+      title: '自己肯定の強化（Self-Affirmation）',
+    },
+    {
+      tagId: 'W-076',
+      title: '拡張形成理論',
+    },
+    {
+      tagId: 'W-077',
+      title: '自己概念理論',
+    },
+    {
+      tagId: 'W-078',
+      title: '向社会的行動研究',
+    },
+    {
+      tagId: 'W-079',
+      title: '自己価値（役割同一性）',
+    },
+    {
+      tagId: 'W-080',
+      title: '認知的分離（Defusion）',
+    },
+    {
+      tagId: 'W-081',
+      title: 'コミットメントと一貫性',
+    },
+    {
+      tagId: 'W-082',
+      title: '呼吸法（生理的調整）',
+    },
+    {
+      tagId: 'W-083',
+      title: '資源保存理論（COR）',
+    },
+    {
+      tagId: 'W-084',
+      title: '健康行動研究',
+    },
+    {
+      tagId: 'W-085',
+      title: 'エクスプレッシブ・ライティング',
+    },
+    {
+      tagId: 'W-086',
+      title: '適応的期待',
+    },
+    {
+      tagId: 'W-087',
+      title: 'タスク分割（Chunking）',
+    },
+    {
+      tagId: 'W-088',
+      title: '呼吸法',
+    },
+    {
+      tagId: 'W-089',
+      title: '身体化（Somatic）アプローチ',
+    },
+    {
+      tagId: 'W-090',
+      title: 'マインドフルネス',
+    },
+    {
+      tagId: 'W-091',
+      title: '衝動性研究',
+    },
+    {
+      tagId: 'W-092',
+      title: '生理的覚醒の時間経過',
+    },
+    {
+      tagId: 'W-093',
+      title: '目的合理性（Goal Alignment）',
+    },
+    {
+      tagId: 'W-094',
+      title: '弁証法的思考（DBT）',
+    },
+    {
+      tagId: 'W-095',
+      title: 'シナリオ思考',
+    },
+    {
+      tagId: 'W-096',
+      title: '抑うつの帰属スタイル',
+    },
+    {
+      tagId: 'W-097',
+      title: '代表性ヒューリスティクス',
+    },
+    {
+      tagId: 'W-098',
+      title: '固定的信念（Entity Beliefs）',
+    },
+    {
+      tagId: 'W-099',
+      title: '自我消耗（Ego Depletion）研究',
+    },
+    {
+      tagId: 'W-100',
+      title: '社会的認知（心の理論）',
+    },
+    {
+      tagId: 'W-101',
+      title: '固定観念（ステレオタイプ）研究',
+    },
+    {
+      tagId: 'W-102',
+      title: '確率的思考（ベイズ的更新）',
+    },
+    {
+      tagId: 'W-103',
+      title: '科学的方法（反証可能性）',
+    },
+    {
+      tagId: 'W-104',
+      title: 'ヒューリスティクス',
+    },
+    {
+      tagId: 'W-105',
+      title: '後悔最小化',
+    },
+    {
+      tagId: 'W-106',
+      title: '社会的浸透理論（自己開示）',
+    },
+    {
+      tagId: 'W-107',
+      title: '共感的理解（援助関係）',
+    },
+    {
+      tagId: 'W-108',
+      title: 'フット・イン・ザ・ドア',
+    },
+    {
+      tagId: 'W-109',
+      title: '一貫性の原理',
+    },
+    {
+      tagId: 'W-110',
+      title: '自己知覚理論',
+    },
+    {
+      tagId: 'W-111',
+      title: '沈黙の機能（対話理論）',
+    },
+    {
+      tagId: 'W-112',
+      title: '自己開示促進',
+    },
+    {
+      tagId: 'W-113',
+      title: '社会的交換理論',
+    },
+    {
+      tagId: 'W-114',
+      title: '利他行動と協力（ゲーム理論）',
+    },
+    {
+      tagId: 'W-115',
+      title: '期待管理（Expectancy management）',
+    },
+    {
+      tagId: 'W-116',
+      title: '期待違反理論',
+    },
+    {
+      tagId: 'W-117',
+      title: '評価の参照点（参照点依存）',
+    },
+    {
+      tagId: 'W-118',
+      title: '信頼の3要素（能力・誠実性・善意）',
+    },
+    {
+      tagId: 'W-119',
+      title: '機密保持と評判',
+    },
+    {
+      tagId: 'W-120',
+      title: 'レピュテーション管理',
+    },
+    {
+      tagId: 'W-121',
+      title: '関係資本の保全',
+    },
+    {
+      tagId: 'W-122',
+      title: '交換関係の安定化',
+    },
+    {
+      tagId: 'W-123',
+      title: '自己効力感（言語的説得）',
+    },
+    {
+      tagId: 'W-124',
+      title: '承認欲求と動機づけ',
+    },
+    {
+      tagId: 'W-125',
+      title: '自律性支援（自己決定理論）',
+    },
+    {
+      tagId: 'W-126',
+      title: '依頼の負担最小化（行動設計）',
+    },
+    {
+      tagId: 'W-127',
+      title: '好意の原理',
+    },
+    {
+      tagId: 'W-128',
+      title: '非言語行動と親近感',
+    },
+    {
+      tagId: 'W-129',
+      title: 'パワーポーズ論争を含む身体化認知',
+    },
+    {
+      tagId: 'W-130',
+      title: '非言語的地位シグナル',
+    },
+    {
+      tagId: 'W-131',
+      title: '情動伝達',
+    },
+    {
+      tagId: 'W-132',
+      title: '非言語儀礼（社会的儀式）',
+    },
+    {
+      tagId: 'W-133',
+      title: '身体接触と親近感（文化差含む）',
+    },
+    {
+      tagId: 'W-134',
+      title: '自己開示の相互性',
+    },
+    {
+      tagId: 'W-135',
+      title: '規範適合',
+    },
+    {
+      tagId: 'W-136',
+      title: '可用性ヒューリスティック（強い手がかり）',
+    },
+    {
+      tagId: 'W-137',
+      title: '対人負荷の低減',
+    },
+    {
+      tagId: 'W-138',
+      title: '非言語的信頼シグナル',
+    },
+    {
+      tagId: 'W-139',
+      title: '地位・自信の表示',
+    },
+    {
+      tagId: 'W-140',
+      title: '親近感形成',
+    },
+    {
+      tagId: 'W-141',
+      title: '誠実性シグナル',
+    },
+    {
+      tagId: 'W-142',
+      title: '信頼の反復ゲーム',
+    },
+    {
+      tagId: 'W-143',
+      title: '社会的浸透理論',
+    },
+    {
+      tagId: 'W-144',
+      title: '信頼の誠実性要因',
+    },
+    {
+      tagId: 'W-145',
+      title: '情報管理（境界調整）',
+    },
+    {
+      tagId: 'W-146',
+      title: '評判',
+    },
+    {
+      tagId: 'W-147',
+      title: '評判管理',
+    },
+    {
+      tagId: 'W-148',
+      title: 'ネガティビティ・バイアス回避',
+    },
+    {
+      tagId: 'W-149',
+      title: '集団規範（陰口のコスト）',
+    },
+    {
+      tagId: 'W-150',
+      title: '協力の進化（ゲーム理論）',
+    },
+    {
+      tagId: 'W-151',
+      title: '情報の非対称性の低減',
+    },
+    {
+      tagId: 'W-152',
+      title: '繰り返しゲーム',
+    },
+    {
+      tagId: 'W-153',
+      title: '信頼の漸進形成',
+    },
+    {
+      tagId: 'W-154',
+      title: 'フット・イン・ザ・ドア（小さなコミット）',
+    },
+    {
+      tagId: 'W-155',
+      title: '一貫性',
+    },
+    {
+      tagId: 'W-156',
+      title: '透明性と信頼',
+    },
+    {
+      tagId: 'W-157',
+      title: '期待管理',
+    },
+    {
+      tagId: 'W-158',
+      title: '参照点依存（満足は期待差）',
+    },
+    {
+      tagId: 'W-159',
+      title: 'リスクコミュニケーション',
+    },
+    {
+      tagId: 'W-160',
+      title: '協働の調整コスト低減',
+    },
+    {
+      tagId: 'W-161',
+      title: '関係資本の蓄積',
+    },
+    {
+      tagId: 'W-162',
+      title: '信頼の誠実性',
+    },
+    {
+      tagId: 'W-163',
+      title: 'ネガティブ情報の重要性（ネガティビティ・バイアス）',
+    },
+    {
+      tagId: 'W-164',
+      title: '危機コミュニケーション',
+    },
+    {
+      tagId: 'W-165',
+      title: '予測可能性と信頼',
+    },
+    {
+      tagId: 'W-166',
+      title: '差別知覚の回避',
+    },
+    {
+      tagId: 'W-167',
+      title: '自己効力感',
+    },
+    {
+      tagId: 'W-168',
+      title: '魅力の社会認知',
+    },
+    {
+      tagId: 'W-169',
+      title: '希少性・リアクタンス',
+    },
+    {
+      tagId: 'W-170',
+      title: '不確実性と魅力（文脈依存）',
+    },
+    {
+      tagId: 'W-171',
+      title: '境界線調整',
+    },
+    {
+      tagId: 'W-172',
+      title: 'コミットメントのシグナル',
+    },
+    {
+      tagId: 'W-173',
+      title: '応答性',
+    },
+    {
+      tagId: 'W-174',
+      title: 'リーダーシップ認知',
+    },
+    {
+      tagId: 'W-175',
+      title: '親密性（自己開示）',
+    },
+    {
+      tagId: 'W-176',
+      title: '同意と自律性尊重',
+    },
+    {
+      tagId: 'W-177',
+      title: '関係満足研究',
+    },
+    {
+      tagId: 'W-178',
+      title: '共感的理解',
+    },
+    {
+      tagId: 'W-179',
+      title: '関係適合（価値観一致）',
+    },
+    {
+      tagId: 'W-180',
+      title: 'リアクタンス理論',
+    },
+    {
+      tagId: 'W-181',
+      title: '自律性支援',
+    },
+    {
+      tagId: 'W-182',
+      title: '信憑性（過剰称賛の逆効果）',
+    },
+    {
+      tagId: 'W-183',
+      title: '自己開示の促進',
+    },
+    {
+      tagId: 'W-184',
+      title: '会話のターン設計',
+    },
+    {
+      tagId: 'W-185',
+      title: '嫌悪感情と回避（感情心理）',
+    },
+    {
+      tagId: 'W-186',
+      title: '第一印象形成',
+    },
+    {
+      tagId: 'W-187',
+      title: '身体的魅力研究',
+    },
+    {
+      tagId: 'W-188',
+      title: '自己開示（社会的浸透）',
+    },
+    {
+      tagId: 'W-189',
+      title: '脆弱性と信頼',
+    },
+    {
+      tagId: 'W-190',
+      title: '社会的比較（自己改善動機）',
+    },
+    {
+      tagId: 'W-191',
+      title: '自己決定理論（自律性）',
+    },
+    {
+      tagId: 'W-192',
+      title: '不確実性と関心（文脈依存）',
+    },
+    {
+      tagId: 'W-193',
+      title: '希少性',
+    },
+    {
+      tagId: 'W-194',
+      title: '関係適合',
+    },
+    {
+      tagId: 'W-195',
+      title: '段階的エスカレーション（自己開示）',
+    },
+    {
+      tagId: 'W-196',
+      title: '承認と地位欲求',
+    },
+    {
+      tagId: 'W-197',
+      title: '関係の同調（相互適応）',
+    },
+    {
+      tagId: 'W-198',
+      title: '摩擦コスト最小化',
+    },
+    {
+      tagId: 'W-199',
+      title: '葛藤の脱エスカレーション',
+    },
+    {
+      tagId: 'W-200',
+      title: '非暴力コミュニケーション',
+    },
+    {
+      tagId: 'W-201',
+      title: '確信度シグナル',
+    },
+    {
+      tagId: 'W-202',
+      title: '説得研究（明瞭性）',
+    },
+    {
+      tagId: 'W-203',
+      title: '交渉の沈黙効果',
+    },
+    {
+      tagId: 'W-204',
+      title: '心理的リアクタンス管理',
+    },
+    {
+      tagId: 'W-205',
+      title: '議題設定（フレーミング）',
+    },
+    {
+      tagId: 'W-206',
+      title: '権威の原理',
+    },
+    {
+      tagId: 'W-207',
+      title: 'ヒューリスティック処理',
+    },
+    {
+      tagId: 'W-208',
+      title: '評判形成',
+    },
+    {
+      tagId: 'W-209',
+      title: '交渉理論（統合型交渉）',
+    },
+    {
+      tagId: 'W-210',
+      title: 'BATNA思考',
+    },
+    {
+      tagId: 'W-211',
+      title: '問題解決アプローチ',
+    },
+    {
+      tagId: 'W-212',
+      title: '交渉理論',
+    },
+    {
+      tagId: 'W-213',
+      title: '条件付き協力（ゲーム理論）',
+    },
+    {
+      tagId: 'W-214',
+      title: '熟慮（遅延）による交渉優位',
+    },
+    {
+      tagId: 'W-215',
+      title: '意思決定疲れ回避',
+    },
+    {
+      tagId: 'W-216',
+      title: '脱エスカレーション',
+    },
+    {
+      tagId: 'W-217',
+      title: '境界線の暗黙提示',
+    },
+    {
+      tagId: 'W-218',
+      title: '行動形成（シェイピング）',
+    },
+    {
+      tagId: 'W-219',
+      title: '一貫性（境界線の学習）',
+    },
+    {
+      tagId: 'W-220',
+      title: '受容（ACT／来談者中心）',
+    },
+    {
+      tagId: 'W-221',
+      title: '統制の所在（コントロール可能性）',
+    },
+    {
+      tagId: 'W-222',
+      title: '参照点依存（満足＝期待差）',
+    },
+    {
+      tagId: 'W-223',
+      title: '刺激—飽和（接触頻度の最適化）',
+    },
+    {
+      tagId: 'W-224',
+      title: '情報管理（自己開示の調整）',
+    },
+    {
+      tagId: 'W-225',
+      title: 'リアクタンス回避',
+    },
+    {
+      tagId: 'W-226',
+      title: '感情労働の調整',
+    },
+    {
+      tagId: 'W-227',
+      title: '心理的距離理論',
+    },
+    {
+      tagId: 'W-228',
+      title: '自己決定理論（内発／外発）',
+    },
+    {
+      tagId: 'W-229',
+      title: '関係の自律性',
+    },
+    {
+      tagId: 'W-230',
+      title: '近接効果（接触）',
+    },
+    {
+      tagId: 'W-231',
+      title: '関係の開始儀礼',
+    },
+    {
+      tagId: 'W-232',
+      title: '対立回避（適応）',
+    },
+    {
+      tagId: 'W-233',
+      title: '相互適応',
+    },
+    {
+      tagId: 'W-234',
+      title: '接触頻度の最適化',
+    },
+    {
+      tagId: 'W-235',
+      title: '関係維持の再設計',
+    },
+    {
+      tagId: 'W-236',
+      title: '情報過多回避（説得抵抗）',
+    },
+    {
+      tagId: 'W-237',
+      title: '意思決定の遅延戦略',
+    },
+    {
+      tagId: 'W-238',
+      title: '交渉理論（熟慮）',
+    },
+    {
+      tagId: 'W-239',
+      title: '共依存の回避（概念として）',
+    },
+    {
+      tagId: 'W-240',
+      title: '交渉理論（統合型）',
+    },
+    {
+      tagId: 'W-241',
+      title: '習慣化（行動設計）',
+    },
+    {
+      tagId: 'W-242',
+      title: '行動形成（段階的練習）',
+    },
+    {
+      tagId: 'W-243',
+      title: '曝露（回避低減）',
+    },
+    {
+      tagId: 'W-244',
+      title: '依存と交渉力（BATNA）',
+    },
+    {
+      tagId: 'W-245',
+      title: '葛藤耐性',
+    },
+    {
+      tagId: 'W-246',
+      title: '自己正当化（適応的）',
+    },
+    {
+      tagId: 'W-247',
+      title: '説得抵抗の低減',
+    },
+    {
+      tagId: 'W-248',
+      title: '統合型交渉',
+    },
+    {
+      tagId: 'W-249',
+      title: '熟慮（遅延）',
+    },
+    {
+      tagId: 'W-250',
+      title: '交渉のペース支配',
+    },
+    {
+      tagId: 'W-251',
+      title: 'スクリプト化（認知負荷低減）',
+    },
+    {
+      tagId: 'W-252',
+      title: '集団社会化',
+    },
+    {
+      tagId: 'W-253',
+      title: '文化（サブカルチャー）理解',
+    },
+    {
+      tagId: 'W-254',
+      title: '社会ネットワーク分析（中心性）',
+    },
+    {
+      tagId: 'W-255',
+      title: '権力・影響力理論',
+    },
+    {
+      tagId: 'W-256',
+      title: '橋渡し（ブリッジングSC）',
+    },
+    {
+      tagId: 'W-257',
+      title: '情報の非対称性',
+    },
+    {
+      tagId: 'W-258',
+      title: '境界連結（Boundary spanning）',
+    },
+    {
+      tagId: 'W-259',
+      title: '統合型葛藤解決',
+    },
+    {
+      tagId: 'W-260',
+      title: '調整コスト最小化',
+    },
+    {
+      tagId: 'W-261',
+      title: '役割獲得（集団社会化）',
+    },
+    {
+      tagId: 'W-262',
+      title: '地位形成',
+    },
+    {
+      tagId: 'W-263',
+      title: '組織政治のリスク管理',
+    },
+    {
+      tagId: 'W-264',
+      title: '影響力（議題設定）',
+    },
+    {
+      tagId: 'W-265',
+      title: '協力の進化',
+    },
+    {
+      tagId: 'W-266',
+      title: '薄切り判断の限界',
+    },
+    {
+      tagId: 'W-267',
+      title: '行動一貫性',
+    },
+    {
+      tagId: 'W-268',
+      title: '特性推論（反復証拠）',
+    },
+    {
+      tagId: 'W-269',
+      title: '状況主義（人×状況）',
+    },
+    {
+      tagId: 'W-270',
+      title: '特性活性化理論',
+    },
+    {
+      tagId: 'W-271',
+      title: '能力の文脈依存',
+    },
+    {
+      tagId: 'W-272',
+      title: '誠実性の検査',
+    },
+    {
+      tagId: 'W-273',
+      title: 'ストレス反応モデル',
+    },
+    {
+      tagId: 'W-274',
+      title: '状況主義',
+    },
+    {
+      tagId: 'W-275',
+      title: '葛藤対応スタイル',
+    },
+    {
+      tagId: 'W-276',
+      title: '組織行動（支配・共感低下）',
+    },
+    {
+      tagId: 'W-277',
+      title: '利他性研究',
+    },
+    {
+      tagId: 'W-278',
+      title: '観察バイアス低減（ログ化）',
+    },
+    {
+      tagId: 'W-279',
+      title: '心の理論（ToM）',
+    },
+    {
+      tagId: 'W-280',
+      title: '合理的選択（利得推定）',
+    },
+    {
+      tagId: 'W-281',
+      title: '合理的選択理論',
+    },
+    {
+      tagId: 'W-282',
+      title: 'インセンティブ設計',
+    },
+    {
+      tagId: 'W-283',
+      title: '認知資源モデル',
+    },
+    {
+      tagId: 'W-284',
+      title: '自己防衛（帰属）',
+    },
+    {
+      tagId: 'W-285',
+      title: '自己愛傾向（概念として）',
+    },
+    {
+      tagId: 'W-286',
+      title: '自己評価維持モデル',
+    },
+    {
+      tagId: 'W-287',
+      title: '事前準備による認知負荷低減',
+    },
+    {
+      tagId: 'W-288',
+      title: '受容・応答性（responsiveness）',
+    },
+    {
+      tagId: 'W-289',
+      title: '会話のターン配分（会話分析）',
+    },
+    {
+      tagId: 'W-290',
+      title: '緊張緩和（情動調整）',
+    },
+    {
+      tagId: 'W-291',
+      title: '精緻化（elaboration）',
+    },
+    {
+      tagId: 'W-292',
+      title: '沈黙の機能（会話分析）',
+    },
+    {
+      tagId: 'W-293',
+      title: '会話のトピック管理',
+    },
+    {
+      tagId: 'W-294',
+      title: '確認反射（理解の可視化）',
+    },
+    {
+      tagId: 'W-295',
+      title: '弱い紐帯の強み',
+    },
+    {
+      tagId: 'W-296',
+      title: '会話のフレーミング',
+    },
+    {
+      tagId: 'W-297',
+      title: '尋問回避（ポライトネス）',
+    },
+    {
+      tagId: 'W-298',
+      title: '相互性の原理',
+    },
+    {
+      tagId: 'W-299',
+      title: 'プロセス志向（会話分析）',
+    },
+    {
+      tagId: 'W-300',
+      title: 'フレーミング効果',
+    },
+    {
+      tagId: 'W-301',
+      title: '価値提案（Value Proposition）',
+    },
+    {
+      tagId: 'W-302',
+      title: '選択過負荷（ジャム実験）',
+    },
+    {
+      tagId: 'W-303',
+      title: '予防接種理論（inoculation）',
+    },
+    {
+      tagId: 'W-304',
+      title: '想定反駁',
+    },
+    {
+      tagId: 'W-305',
+      title: '信頼性のシグナリング',
+    },
+    {
+      tagId: 'W-306',
+      title: '希少性の原理',
+    },
+    {
+      tagId: 'W-307',
+      title: 'チャンキング',
+    },
+    {
+      tagId: 'W-308',
+      title: '構造化による認知負荷低減',
+    },
+    {
+      tagId: 'W-309',
+      title: '形成的評価（フィードバック）',
+    },
+    {
+      tagId: 'W-310',
+      title: '足場かけ（scaffolding）',
+    },
+    {
+      tagId: 'W-311',
+      title: '注意の希少性',
+    },
+    {
+      tagId: 'W-312',
+      title: 'アブダクション',
+    },
+    {
+      tagId: 'W-313',
+      title: '概念形成と例示',
+    },
+    {
+      tagId: 'W-314',
+      title: 'フレーミング',
+    },
+    {
+      tagId: 'W-315',
+      title: 'スコープ管理',
+    },
+    {
+      tagId: 'W-316',
+      title: '情報過多回避',
+    },
+    {
+      tagId: 'W-317',
+      title: 'BATNA概念',
+    },
+    {
+      tagId: 'W-318',
+      title: '交渉力＝代替案',
+    },
+    {
+      tagId: 'W-319',
+      title: '利益ベース交渉（統合型）',
+    },
+    {
+      tagId: 'W-320',
+      title: '利害分析',
+    },
+    {
+      tagId: 'W-321',
+      title: '参照点依存',
+    },
+    {
+      tagId: 'W-322',
+      title: '交渉のフレーミング',
+    },
+    {
+      tagId: 'W-323',
+      title: '統合的交渉',
+    },
+    {
+      tagId: 'W-324',
+      title: '情報開示の非対称性',
+    },
+    {
+      tagId: 'W-325',
+      title: '譲歩パターン（交渉戦術）',
+    },
+    {
+      tagId: 'W-326',
+      title: '交渉における感情',
+    },
+    {
+      tagId: 'W-327',
+      title: 'ログローリング（論点交換）',
+    },
+    {
+      tagId: 'W-328',
+      title: '意思決定の制約明確化',
+    },
+    {
+      tagId: 'W-329',
+      title: '利益探索（interests）',
+    },
+    {
+      tagId: 'W-330',
+      title: '質問技法',
+    },
+    {
+      tagId: 'W-331',
+      title: '情報の非対称性解消',
+    },
+    {
+      tagId: 'W-332',
+      title: '交渉準備（concession planning）',
+    },
+    {
+      tagId: 'W-333',
+      title: '妥協点探索',
+    },
+    {
+      tagId: 'W-334',
+      title: '多属性交渉',
+    },
+    {
+      tagId: 'W-335',
+      title: '価値交換（logrolling）',
+    },
+    {
+      tagId: 'W-336',
+      title: '説明責任（accountability）',
+    },
+    {
+      tagId: 'W-337',
+      title: '紛争予防',
+    },
+    {
+      tagId: 'W-338',
+      title: 'BATNA',
+    },
+    {
+      tagId: 'W-339',
+      title: '交渉の下限（reservation value）',
+    },
+    {
+      tagId: 'W-340',
+      title: '感情と事実の分離（CBT的）',
+    },
+    {
+      tagId: 'W-341',
+      title: '問題解決',
+    },
+    {
+      tagId: 'W-342',
+      title: '変革型リーダーシップ',
+    },
+    {
+      tagId: 'W-343',
+      title: '目標の共有',
+    },
+    {
+      tagId: 'W-344',
+      title: 'リーダーの信頼性',
+    },
+    {
+      tagId: 'W-345',
+      title: '失敗からの学習',
+    },
+    {
+      tagId: 'W-346',
+      title: '責任の集中',
+    },
+    {
+      tagId: 'W-347',
+      title: '情報・意思決定の多様性研究',
+    },
+    {
+      tagId: 'W-348',
+      title: 'セルフリーダーシップ',
+    },
+    {
+      tagId: 'W-349',
+      title: '習慣化',
+    },
+    {
+      tagId: 'W-350',
+      title: '責任の明確化（RACI的）',
+    },
+    {
+      tagId: 'W-351',
+      title: '責任の明確化',
+    },
+    {
+      tagId: 'W-352',
+      title: '心理的報酬',
+    },
+    {
+      tagId: 'W-353',
+      title: '意思決定権限の明確化',
+    },
+    {
+      tagId: 'W-354',
+      title: '責任の所在',
+    },
+    {
+      tagId: 'W-355',
+      title: 'トリガー同定',
+    },
+    {
+      tagId: 'W-356',
+      title: '行動記録',
+    },
+    {
+      tagId: 'W-357',
+      title: '測定による行動変容',
+    },
+    {
+      tagId: 'W-358',
+      title: '安全行動モデル',
+    },
+    {
+      tagId: 'W-359',
+      title: '曝露療法',
+    },
+    {
+      tagId: 'W-360',
+      title: '段階づけ（階層表）',
+    },
+    {
+      tagId: 'W-361',
+      title: '消去学習',
+    },
+    {
+      tagId: 'W-362',
+      title: 'リハーサル',
+    },
+    {
+      tagId: 'W-363',
+      title: 'リラクセーション',
+    },
+    {
+      tagId: 'W-364',
+      title: '自律神経調整',
+    },
+    {
+      tagId: 'W-365',
+      title: '行動実験',
+    },
+    {
+      tagId: 'W-366',
+      title: '安全行動低減',
+    },
+    {
+      tagId: 'W-367',
+      title: '事前対処計画（coping planning）',
+    },
+    {
+      tagId: 'W-368',
+      title: 'ヘルプシーキング',
+    },
+    {
+      tagId: 'W-369',
+      title: '負荷分散',
+    },
+    {
+      tagId: 'W-370',
+      title: '受容とコミットメント（ACT）',
+    },
+    {
+      tagId: 'W-371',
+      title: '段階的曝露',
+    },
+    {
+      tagId: 'W-372',
+      title: '習熟（慣れ）',
+    },
+    {
+      tagId: 'W-373',
+      title: '評価懸念の低減',
+    },
+    {
+      tagId: 'W-374',
+      title: 'デリバレート・プラクティス',
+    },
+    {
+      tagId: 'W-375',
+      title: '失敗恐怖の低減',
+    },
+    {
+      tagId: 'W-376',
+      title: '学習投資のリターン',
+    },
+    {
+      tagId: 'W-377',
+      title: '環境適応',
+    },
+    {
+      tagId: 'W-378',
+      title: '学習の転移阻害回避',
+    },
+    {
+      tagId: 'W-379',
+      title: 'スモールステップ',
+    },
+    {
+      tagId: 'W-380',
+      title: '復習設計',
+    },
+    {
+      tagId: 'W-381',
+      title: 'モデリング（社会的学習）',
+    },
+    {
+      tagId: 'W-382',
+      title: '共同体参加',
+    },
+    {
+      tagId: 'W-383',
+      title: '社会的影響',
+    },
+    {
+      tagId: 'W-384',
+      title: '共同体（Lave & Wenger）',
+    },
+    {
+      tagId: 'W-385',
+      title: '弱い紐帯',
+    },
+    {
+      tagId: 'W-386',
+      title: 'バックキャスト',
+    },
+    {
+      tagId: 'W-387',
+      title: 'フット・イン・ザ・ドア（着手）',
+    },
+    {
+      tagId: 'W-388',
+      title: '迷いの削減',
+    },
+    {
+      tagId: 'W-389',
+      title: '継続設計',
+    },
+    {
+      tagId: 'W-390',
+      title: '継続の可視化',
+    },
+    {
+      tagId: 'W-391',
+      title: '成果シグナリング',
+    },
+    {
+      tagId: 'W-392',
+      title: '評価の診断性',
+    },
+    {
+      tagId: 'W-393',
+      title: '成果主義（評価理論）',
+    },
+    {
+      tagId: 'W-394',
+      title: '評価指標設計',
+    },
+    {
+      tagId: 'W-395',
+      title: 'ユーザビリティ原則',
+    },
+    {
+      tagId: 'W-396',
+      title: 'ポジショニング',
+    },
+    {
+      tagId: 'W-397',
+      title: '第一印象（薄切り判断）',
+    },
+    {
+      tagId: 'W-398',
+      title: 'ユーザー中心設計',
+    },
+    {
+      tagId: 'W-399',
+      title: 'コンテクスト分析',
+    },
+    {
+      tagId: 'W-400',
+      title: '形成的評価',
+    },
+    {
+      tagId: 'W-401',
+      title: '反復開発',
+    },
+    {
+      tagId: 'W-402',
+      title: '完璧主義回避',
+    },
+    {
+      tagId: 'W-403',
+      title: '外部フィードバック',
+    },
+    {
+      tagId: 'W-404',
+      title: '校正効果',
+    },
+    {
+      tagId: 'W-405',
+      title: '共同注意',
+    },
+    {
+      tagId: 'W-406',
+      title: '原因分析（KPT等）',
+    },
+    {
+      tagId: 'W-407',
+      title: '要件定義',
+    },
+    {
+      tagId: 'W-408',
+      title: '実験設計',
+    },
+    {
+      tagId: 'W-409',
+      title: '評価軸の固定',
+    },
+    {
+      tagId: 'W-410',
+      title: '品質基準設定',
+    },
+    {
+      tagId: 'W-411',
+      title: '品質保証（QA）',
+    },
+    {
+      tagId: 'W-412',
+      title: '最終検査の効果',
+    },
+    {
+      tagId: 'W-413',
+      title: '習慣ループ（手がかり）',
+    },
+    {
+      tagId: 'W-414',
+      title: '習慣化（自動化）',
+    },
+    {
+      tagId: 'W-415',
+      title: '行動経済学（継続）',
+    },
+    {
+      tagId: 'W-416',
+      title: '即時報酬',
+    },
+    {
+      tagId: 'W-417',
+      title: 'アイデンティティベース習慣',
+    },
+    {
+      tagId: 'W-418',
+      title: '社会的コミットメント',
+    },
+    {
+      tagId: 'W-419',
+      title: '相互監視（accountability）',
+    },
+    {
+      tagId: 'W-420',
+      title: '障害予測（coping planning）',
+    },
+    {
+      tagId: 'W-421',
+      title: '設計による摩擦低減',
+    },
+    {
+      tagId: 'W-422',
+      title: '手がかり固定',
+    },
+    {
+      tagId: 'W-423',
+      title: '開始コスト低減',
+    },
+    {
+      tagId: 'W-424',
+      title: '最小習慣（tiny habits）',
+    },
+    {
+      tagId: 'W-425',
+      title: '進捗フィードバック',
+    },
+    {
+      tagId: 'W-426',
+      title: '燃え尽き予防',
+    },
+    {
+      tagId: 'W-427',
+      title: '持続可能性',
+    },
+    {
+      tagId: 'W-428',
+      title: '再開計画（relapse prevention）',
+    },
+    {
+      tagId: 'W-429',
+      title: '遅延割引（対策）',
+    },
+    {
+      tagId: 'W-430',
+      title: '意思決定の外部化',
+    },
+    {
+      tagId: 'W-431',
+      title: '注意の保護',
+    },
+    {
+      tagId: 'W-432',
+      title: '報酬系（誘惑設計）',
+    },
+    {
+      tagId: 'W-433',
+      title: '注意散漫対策',
+    },
+    {
+      tagId: 'W-434',
+      title: '高認知資源帯の活用',
+    },
+    {
+      tagId: 'W-435',
+      title: '休憩設計',
+    },
+    {
+      tagId: 'W-436',
+      title: '技能×挑戦の最適化',
+    },
+    {
+      tagId: 'W-437',
+      title: '注意統制',
+    },
+    {
+      tagId: 'W-438',
+      title: '疲労回復理論',
+    },
+    {
+      tagId: 'W-439',
+      title: '注意捕捉（salience）',
+    },
+    {
+      tagId: 'W-440',
+      title: '評価指標（KPI）',
+    },
+    {
+      tagId: 'W-441',
+      title: '締切効果',
+    },
+    {
+      tagId: 'W-442',
+      title: '注意捕捉対策',
+    },
+    {
+      tagId: 'W-443',
+      title: '妨害の特定',
+    },
+    {
+      tagId: 'W-444',
+      title: '優先順位付け',
+    },
+    {
+      tagId: 'W-445',
+      title: 'キューイング的遅延耐性',
+    },
+    {
+      tagId: 'W-446',
+      title: '隙間時間活用（実行意図）',
+    },
+    {
+      tagId: 'W-447',
+      title: '強化理論（達成感）',
+    },
+    {
+      tagId: 'W-448',
+      title: '選択過負荷回避',
+    },
+    {
+      tagId: 'W-449',
+      title: 'バックワードプランニング',
+    },
+    {
+      tagId: 'W-450',
+      title: 'アクティブラーニング',
+    },
+    {
+      tagId: 'W-451',
+      title: '記憶検索',
+    },
+    {
+      tagId: 'W-452',
+      title: 'プロテジェ効果',
+    },
+    {
+      tagId: 'W-453',
+      title: '自己説明効果',
+    },
+    {
+      tagId: 'W-454',
+      title: '文脈変動効果',
+    },
+    {
+      tagId: 'W-455',
+      title: 'インターリービング',
+    },
+    {
+      tagId: 'W-456',
+      title: '行為化',
+    },
+    {
+      tagId: 'W-457',
+      title: '理解の構造化',
+    },
+    {
+      tagId: 'W-458',
+      title: '記憶固定化（睡眠）',
+    },
+    {
+      tagId: 'W-459',
+      title: '学習効率',
+    },
+    {
+      tagId: 'W-460',
+      title: '自己決定理論',
+    },
+    {
+      tagId: 'W-461',
+      title: 'バックワードプラン',
+    },
+    {
+      tagId: 'W-462',
+      title: '技能獲得',
+    },
+    {
+      tagId: 'W-463',
+      title: '評価と学習の一致',
+    },
+    {
+      tagId: 'W-464',
+      title: '問題解決学習',
+    },
+    {
+      tagId: 'W-465',
+      title: '弱点診断',
+    },
+    {
+      tagId: 'W-466',
+      title: 'エラーベース学習',
+    },
+    {
+      tagId: 'W-467',
+      title: '弱点補正',
+    },
+    {
+      tagId: 'W-468',
+      title: '文脈手がかり',
+    },
+    {
+      tagId: 'W-469',
+      title: '注意資源の保護',
+    },
+    {
+      tagId: 'W-470',
+      title: '完璧主義対策',
+    },
+    {
+      tagId: 'W-471',
+      title: 'リスク分散',
+    },
+    {
+      tagId: 'W-472',
+      title: '最小実行（MVE）',
+    },
+    {
+      tagId: 'W-473',
+      title: '社会的比較理論（対策）',
+    },
+    {
+      tagId: 'W-474',
+      title: '自己価値の分離',
+    },
+    {
+      tagId: 'W-475',
+      title: '原因分析',
+    },
+    {
+      tagId: 'W-476',
+      title: '学習ループ',
+    },
+    {
+      tagId: 'W-477',
+      title: '早期警戒指標',
+    },
+    {
+      tagId: 'W-478',
+      title: '自己決定理論（価値）',
+    },
+    {
+      tagId: 'W-479',
+      title: '目標再評価',
+    },
+    {
+      tagId: 'W-480',
+      title: 'アカウンタビリティ',
+    },
+    {
+      tagId: 'W-481',
+      title: 'サンクコスト回避',
+    },
+    {
+      tagId: 'W-482',
+      title: '情動焦点コーピング',
+    },
+    {
+      tagId: 'W-483',
+      title: '認知的デフュージョン',
+    },
+    {
+      tagId: 'W-484',
+      title: '状況把握（sensemaking）',
+    },
+    {
+      tagId: 'W-485',
+      title: '問題定義',
+    },
+    {
+      tagId: 'W-486',
+      title: '認知の校正',
+    },
+    {
+      tagId: 'W-487',
+      title: '再帰属',
+    },
+    {
+      tagId: 'W-488',
+      title: 'ストレス回復',
+    },
+    {
+      tagId: 'W-489',
+      title: 'コンテクスト変更',
+    },
+    {
+      tagId: 'W-490',
+      title: '社会的比較の低減',
+    },
+    {
+      tagId: 'W-491',
+      title: '情動処理の時間',
+    },
+    {
+      tagId: 'W-492',
+      title: '再評価の成熟',
+    },
+    {
+      tagId: 'W-493',
+      title: '証拠の蓄積（自己効力感）',
+    },
+    {
+      tagId: 'W-494',
+      title: '記録による強化',
+    },
+    {
+      tagId: 'W-495',
+      title: '生理基盤（睡眠）',
+    },
+    {
+      tagId: 'W-496',
+      title: '自己制御資源',
+    },
+    {
+      tagId: 'W-497',
+      title: 'コンテクスト更新',
+    },
+    {
+      tagId: 'W-498',
+      title: '再開摩擦の低減',
+    },
   ],
 };
