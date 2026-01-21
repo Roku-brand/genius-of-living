@@ -25,34 +25,34 @@ const normalizeFoundationItem = (item, category) => {
   const summary = hasText(item.summary) ? item.summary : item.title;
   const definition = hasText(item.definition)
     ? item.definition
-    : `${item.title}とは、${summary}を示す概念。`;
+    : `${item.title}とは、${summary}を軸に状況理解と意思決定の質を高めるための思想・枠組み。`;
   const keyPoints = hasItems(item.keyPoints)
     ? item.keyPoints
     : [
-        `${item.title}は「${summary}」という特徴を持つ`,
-        `${item.title}は判断や行動の方向づけに影響する`,
-        `状況や文脈で${item.title}の影響度は変化する`,
+        `${item.title}は「${summary}」という核となる考え方を持つ`,
+        `目的・制約・関係性を整理し、行動の優先順位を明確にする`,
+        `短期の成果だけでなく、継続的な改善や学習に目を向ける`,
       ];
   const pitfalls = hasItems(item.pitfalls)
     ? item.pitfalls
     : [
-        `${item.title}を過信すると他の視点を見落とす`,
-        `${summary}に引きずられて判断が偏る`,
-        '短期的な効果に偏ると長期的な損失につながる',
+        `${item.title}を万能視すると他の視点や文脈を軽視しやすい`,
+        `手法に引きずられて「本来の目的」を見失う`,
+        '測定しやすい指標だけに偏ると重要な質的要素が抜け落ちる',
       ];
   const strategies = hasItems(item.strategies)
     ? item.strategies
     : [
-        `${item.title}が働いている場面を言語化する`,
-        '反対の視点や基準を用意してバランスを取る',
-        '意思決定前に目的と判断基準を整理する',
+        `${item.title}が役立つ場面・役立たない場面を事前に切り分ける`,
+        '目的・制約・リスクを明文化し、実行前に合意形成する',
+        '定期的に振り返り、学びを次の行動に反映させる',
       ];
   const applicationConditions = hasItems(item.applicationConditions)
     ? item.applicationConditions
     : [
-        '意思決定や判断が難しい場面',
-        '思考の偏りを見直したい場面',
-        '行動やコミュニケーションを改善したい場面',
+        '判断材料が多く、優先順位付けに迷う場面',
+        '改善や学習を継続しながら成果を積み上げたい場面',
+        'チームや組織で共通の判断基準を持ちたい場面',
       ];
   const lifehacks = hasItems(item.lifehacks)
     ? item.lifehacks
