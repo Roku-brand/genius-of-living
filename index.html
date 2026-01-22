@@ -13,7 +13,13 @@
   <body>
     <header class="site-header">
       <div class="site-header__inner">
-        <button class="menu-button" type="button" aria-label="メニューを開く">
+        <button
+          class="menu-button"
+          type="button"
+          aria-label="メニューを開く"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
           <span class="menu-button__line"></span>
           <span class="menu-button__line"></span>
           <span class="menu-button__line"></span>
@@ -65,6 +71,10 @@
         </div>
       </div>
     </header>
+
+    <div id="mobile-menu" class="mobile-menu" hidden>
+      <button class="mobile-menu__overlay" type="button" aria-label="メニューを閉じる"></button>
+    </div>
 
     <main class="container">
       <section id="tab-top" class="panel panel--top is-active" role="tabpanel" aria-labelledby="tab-top-button">

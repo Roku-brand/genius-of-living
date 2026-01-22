@@ -18,6 +18,54 @@ if ('serviceWorker' in navigator) {
 const tabs = Array.from(document.querySelectorAll('.tab'));
 const panels = Array.from(document.querySelectorAll('.panel'));
 const mobileNavItems = Array.from(document.querySelectorAll('.mobile-nav__item'));
+const menuButton = document.querySelector('.menu-button');
+const mobileMenu = document.querySelector('#mobile-menu');
+const mobileMenuOverlay = document.querySelector('.mobile-menu__overlay');
+const mobileMenuMediaQuery = window.matchMedia('(max-width: 900px)');
+
+const openMobileMenu = () => {
+  if (!mobileMenu || !menuButton || !mobileMenuMediaQuery.matches) {
+    return;
+  }
+  document.body.classList.add('is-menu-open');
+  mobileMenu.hidden = false;
+  menuButton.setAttribute('aria-expanded', 'true');
+};
+
+const closeMobileMenu = () => {
+  if (!mobileMenu || !menuButton) {
+    return;
+  }
+  document.body.classList.remove('is-menu-open');
+  mobileMenu.hidden = true;
+  menuButton.setAttribute('aria-expanded', 'false');
+};
+
+const toggleMobileMenu = () => {
+  if (!mobileMenu || !menuButton) {
+    return;
+  }
+  if (document.body.classList.contains('is-menu-open')) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+};
+
+if (menuButton && mobileMenu && mobileMenuOverlay) {
+  menuButton.addEventListener('click', toggleMobileMenu);
+  mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && document.body.classList.contains('is-menu-open')) {
+      closeMobileMenu();
+    }
+  });
+  mobileMenuMediaQuery.addEventListener('change', () => {
+    if (!mobileMenuMediaQuery.matches) {
+      closeMobileMenu();
+    }
+  });
+}
 
 const addTabKeyboardNavigation = (tabElements, tab, onActivate) => {
   tab.addEventListener('keydown', (event) => {
@@ -126,6 +174,7 @@ if (tabs.length && panels.length) {
     updateMobileNav(targetId);
 
     window.scrollTo(0, 0);
+    closeMobileMenu();
 
     if (updateHash) {
       window.location.hash = targetId;
