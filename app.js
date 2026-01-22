@@ -1,5 +1,6 @@
 import { featuredTechniques } from './data/featured-techniques.js';
 import { techniquesData } from './data/techniques.js';
+import { hubTechniques } from './data/hub-techniques.js';
 import {
   foundationCategories,
   getAllFoundationItems,
@@ -290,14 +291,149 @@ if (isDataReady(techniquesData, techniquesList)) {
 
 const foundationTabList = document.querySelector('#foundation-tablist');
 const foundationPanels = document.querySelector('#foundation-tabpanels');
+const hubFolderList = document.querySelector('#hub-folder-list');
 
 // Foundation detail panel for page-style navigation
 const foundationDetailPanel = createElement('div', 'foundation-detail-panel');
 foundationDetailPanel.id = 'foundation-detail-panel';
 foundationDetailPanel.hidden = true;
 
-// Hub section - no client-side tab management needed
-// GitHub links handle external navigation
+const formatHubTimestamp = (date) =>
+  date.toLocaleDateString('ja-JP', { month: 'short', day: 'numeric' });
+
+const getHubScore = (item) =>
+  item.rating.up - item.rating.down + item.comments.length * 0.5;
+
+const createHubCommentCard = (comment) => {
+  const card = createElement('div', 'hub-comment');
+  const header = createElement('div', 'hub-comment__header');
+  const author = createElement('span', 'hub-comment__author', comment.author);
+  const timestamp = createElement('span', 'hub-comment__time', comment.timestamp);
+  const body = createElement('p', 'hub-comment__text', comment.text);
+
+  header.appendChild(author);
+  header.appendChild(timestamp);
+  card.appendChild(header);
+  card.appendChild(body);
+  return card;
+};
+
+const createHubFolderCard = (item, onUpdate) => {
+  const card = createElement('article', 'hub-folder');
+  const header = createElement('div', 'hub-folder__header');
+  const headerText = createElement('div', 'hub-folder__heading');
+  const category = createElement('p', 'hub-folder__category', item.category);
+  const title = createElement('h3', 'hub-folder__title', item.title);
+  const summary = createElement('p', 'hub-folder__summary', item.summary);
+
+  headerText.appendChild(category);
+  headerText.appendChild(title);
+  headerText.appendChild(summary);
+
+  const meta = createElement('div', 'hub-folder__meta');
+  const count = createElement('span', 'hub-folder__meta-item', `処世術 ${item.items.length}`);
+  const score = createElement('span', 'hub-folder__meta-item', `評価 ${getHubScore(item).toFixed(1)}`);
+  const comments = createElement('span', 'hub-folder__meta-item', `コメント ${item.comments.length}`);
+
+  meta.appendChild(count);
+  meta.appendChild(score);
+  meta.appendChild(comments);
+
+  header.appendChild(headerText);
+  header.appendChild(meta);
+
+  const itemList = createElement('ul', 'hub-folder__items');
+  item.items.forEach((itemTitle, index) => {
+    const listItem = createElement('li', 'hub-folder__item', `${String(index + 1).padStart(2, '0')}. ${itemTitle}`);
+    itemList.appendChild(listItem);
+  });
+
+  const actions = createElement('div', 'hub-folder__actions');
+  const ratingGroup = createElement('div', 'hub-rating');
+  const ratingLabel = createElement('span', 'hub-rating__label', '評価');
+  const upButton = createElement('button', 'hub-rating__button hub-rating__button--up', '👍 有用');
+  const downButton = createElement('button', 'hub-rating__button hub-rating__button--down', '👎 検討');
+  const ratingScore = createElement('span', 'hub-rating__score', `スコア ${getHubScore(item).toFixed(1)}`);
+
+  upButton.type = 'button';
+  downButton.type = 'button';
+
+  upButton.addEventListener('click', () => {
+    item.rating.up += 1;
+    onUpdate();
+  });
+
+  downButton.addEventListener('click', () => {
+    item.rating.down += 1;
+    onUpdate();
+  });
+
+  ratingGroup.appendChild(ratingLabel);
+  ratingGroup.appendChild(upButton);
+  ratingGroup.appendChild(downButton);
+  ratingGroup.appendChild(ratingScore);
+
+  const commentForm = createElement('form', 'hub-comment-form');
+  const commentLabel = createElement('label', 'hub-comment-form__label', 'コメント');
+  const commentInput = document.createElement('textarea');
+  commentInput.className = 'hub-comment-form__textarea';
+  commentInput.placeholder = 'この処世術の活用感や改善点を記入...';
+  commentInput.required = true;
+  const commentButton = createElement('button', 'hub-comment-form__button', '投稿');
+  commentButton.type = 'submit';
+
+  commentLabel.appendChild(commentInput);
+  commentForm.appendChild(commentLabel);
+  commentForm.appendChild(commentButton);
+
+  commentForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const text = commentInput.value.trim();
+    if (!text) {
+      return;
+    }
+    item.comments.unshift({
+      author: '匿名',
+      text,
+      timestamp: formatHubTimestamp(new Date()),
+    });
+    commentInput.value = '';
+    onUpdate();
+  });
+
+  actions.appendChild(ratingGroup);
+  actions.appendChild(commentForm);
+
+  const commentList = createElement('div', 'hub-comments');
+  item.comments.forEach((comment) => {
+    commentList.appendChild(createHubCommentCard(comment));
+  });
+
+  card.appendChild(header);
+  card.appendChild(itemList);
+  card.appendChild(actions);
+  card.appendChild(commentList);
+  return card;
+};
+
+const renderHubFolders = () => {
+  if (!hubFolderList || !isDataReady(hubTechniques, hubFolderList)) {
+    return;
+  }
+  hubFolderList.innerHTML = '';
+  const sorted = [...hubTechniques].sort((a, b) => {
+    const scoreDiff = getHubScore(b) - getHubScore(a);
+    if (scoreDiff !== 0) {
+      return scoreDiff;
+    }
+    return b.rating.up - a.rating.up;
+  });
+  sorted.forEach((item) => {
+    hubFolderList.appendChild(createHubFolderCard(item, renderHubFolders));
+  });
+};
+
+renderHubFolders();
 
 // Show foundation detail in a page-style panel (like technique detail)
 const showFoundationDetail = (item) => {
