@@ -224,17 +224,59 @@ const techniqueDetailPanel = createElement('div', 'technique-detail-panel');
 techniqueDetailPanel.id = 'technique-detail-panel';
 techniqueDetailPanel.hidden = true;
 
-const showTechniqueDetail = (technique, categoryKey = 'default') => {
+const techniqueOrder = [];
+
+const showTechniqueDetail = (technique, categoryKey = 'default', techniqueIndex = null) => {
   techniqueDetailPanel.innerHTML = '';
   techniqueDetailPanel.hidden = false;
   techniqueDetailPanel.dataset.category = categoryKey;
 
-  const backButton = createElement('button', 'technique-back-button', '← 一覧に戻る');
+  const nav = createElement('div', 'technique-detail-nav');
+  const backButton = createElement('button', 'technique-back-button', '一覧に戻る');
   backButton.type = 'button';
   backButton.addEventListener('click', () => {
     techniqueDetailPanel.hidden = true;
     techniquesList.hidden = false;
   });
+
+  const prevEntry =
+    typeof techniqueIndex === 'number' ? techniqueOrder[techniqueIndex - 1] : null;
+  const nextEntry =
+    typeof techniqueIndex === 'number' ? techniqueOrder[techniqueIndex + 1] : null;
+
+  const prevButton = createElement(
+    'button',
+    'technique-nav-button technique-nav-button--prev',
+    prevEntry ? `← ${prevEntry.item.name}` : '　',
+  );
+  prevButton.type = 'button';
+  if (!prevEntry) {
+    prevButton.disabled = true;
+    prevButton.classList.add('technique-nav-button--placeholder');
+  } else {
+    prevButton.addEventListener('click', () =>
+      showTechniqueDetail(prevEntry.item, prevEntry.categoryKey, techniqueIndex - 1),
+    );
+  }
+
+  const nextButton = createElement(
+    'button',
+    'technique-nav-button technique-nav-button--next',
+    nextEntry ? `${nextEntry.item.name} →` : '　',
+  );
+  nextButton.type = 'button';
+  if (!nextEntry) {
+    nextButton.disabled = true;
+    nextButton.classList.add('technique-nav-button--placeholder');
+  } else {
+    nextButton.addEventListener('click', () =>
+      showTechniqueDetail(nextEntry.item, nextEntry.categoryKey, techniqueIndex + 1),
+    );
+  }
+
+  nav.appendChild(prevButton);
+  nav.appendChild(backButton);
+  nav.appendChild(nextButton);
 
   const header = createElement('div', 'technique-detail-header');
   const titleEl = createElement('h3', 'technique-detail-title', `${technique.name}（${technique.details.length}）`);
@@ -279,7 +321,7 @@ const showTechniqueDetail = (technique, categoryKey = 'default') => {
     grid.appendChild(card);
   });
 
-  techniqueDetailPanel.appendChild(backButton);
+  techniqueDetailPanel.appendChild(nav);
   techniqueDetailPanel.appendChild(header);
   techniqueDetailPanel.appendChild(grid);
   techniquesList.hidden = true;
@@ -319,13 +361,15 @@ if (isDataReady(techniquesData, techniquesList)) {
     const list = createElement('ul', 'technique-buttons');
 
     category.items.forEach((item, index) => {
+      const techniqueIndex = techniqueOrder.length;
+      techniqueOrder.push({ item, categoryKey });
       const listItem = createElement('li');
       const itemNumber = String(index + 1).padStart(2, '0');
       const buttonText = `${itemNumber}. ${item.name}（${item.details.length}）`;
       const button = createElement('button', 'technique-tag', buttonText);
       button.type = 'button';
       button.dataset.category = categoryKey;
-      button.addEventListener('click', () => showTechniqueDetail(item, categoryKey));
+      button.addEventListener('click', () => showTechniqueDetail(item, categoryKey, techniqueIndex));
       listItem.appendChild(button);
       list.appendChild(listItem);
     });
