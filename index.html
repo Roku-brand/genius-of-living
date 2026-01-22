@@ -202,11 +202,113 @@
           <p class="tab-hero__desc">6つのカテゴリに分類された処世術を、タイトル単位で一覧化します。</p>
           <div class="tab-hero__actions">
             <button class="primary-button hub-post-button" type="button">処世術を投稿する</button>
-            <p class="tab-hero__note">投稿内容は処世術ハブに追加され、他の人と磨き合えます。</p>
           </div>
         </div>
         <div class="panel__inner">
-          <div id="techniques-list" class="techniques-list"></div>
+          <div class="subtabs" id="techniques-tablist" role="tablist" aria-label="処世術一覧タブ">
+            <button
+              class="subtab is-active"
+              id="techniques-tab-list"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="techniques-panel-list"
+              tabindex="0"
+            >
+              一覧
+            </button>
+            <button
+              class="subtab"
+              id="techniques-tab-index"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="techniques-panel-index"
+              tabindex="-1"
+            >
+              索引
+            </button>
+          </div>
+          <div class="techniques-panels" id="techniques-tabpanels">
+            <div
+              class="techniques-panel"
+              id="techniques-panel-list"
+              role="tabpanel"
+              aria-labelledby="techniques-tab-list"
+            >
+              <div id="techniques-list" class="techniques-list"></div>
+            </div>
+            <div
+              class="techniques-panel"
+              id="techniques-panel-index"
+              role="tabpanel"
+              aria-labelledby="techniques-tab-index"
+              hidden
+            >
+              <div class="techniques-index">
+                <div class="techniques-index__search">
+                  <label class="visually-hidden" for="techniques-index-search">タイトル検索</label>
+                  <input
+                    id="techniques-index-search"
+                    class="techniques-index__input"
+                    type="search"
+                    placeholder="例：第一印象、時間管理、折れない"
+                    aria-label="タイトル検索"
+                  />
+                </div>
+                <div class="techniques-index__filters">
+                  <div class="techniques-index__group">
+                    <p class="techniques-index__label">タグ</p>
+                    <div class="techniques-index__chips">
+                      <button class="chip is-active" type="button">会話</button>
+                      <button class="chip" type="button">恋愛</button>
+                      <button class="chip" type="button">仕事</button>
+                      <button class="chip" type="button">勉強</button>
+                    </div>
+                  </div>
+                  <div class="techniques-index__group">
+                    <p class="techniques-index__label">判断基盤</p>
+                    <div class="techniques-index__chips">
+                      <button class="chip" type="button">心理学</button>
+                      <button class="chip" type="button">行動科学</button>
+                      <button class="chip" type="button">実践知</button>
+                    </div>
+                  </div>
+                  <div class="techniques-index__group">
+                    <p class="techniques-index__label">難易度</p>
+                    <div class="techniques-index__chips">
+                      <button class="chip" type="button">入門</button>
+                      <button class="chip" type="button">標準</button>
+                      <button class="chip" type="button">上級</button>
+                    </div>
+                  </div>
+                  <div class="techniques-index__group">
+                    <p class="techniques-index__label">シーン</p>
+                    <div class="techniques-index__chips">
+                      <button class="chip" type="button">初対面</button>
+                      <button class="chip" type="button">交渉</button>
+                      <button class="chip" type="button">日常</button>
+                      <button class="chip" type="button">学習</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="techniques-index__sort">
+                  <p class="techniques-index__label">並び替え</p>
+                  <div class="techniques-index__sort-buttons">
+                    <button class="chip" type="button">人気</button>
+                    <button class="chip" type="button">新着</button>
+                    <button class="chip" type="button">おすすめ</button>
+                    <button class="chip is-active" type="button">体系順</button>
+                  </div>
+                </div>
+                <div class="techniques-index__placeholder">
+                  <p class="techniques-index__note">
+                    タイトル検索・タグ・判断基盤・難易度・シーンで絞り込む索引ビューです。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
