@@ -223,6 +223,8 @@ const techniquesList = document.querySelector('#techniques-list');
 const techniqueDetailPanel = createElement('div', 'technique-detail-panel');
 techniqueDetailPanel.id = 'technique-detail-panel';
 techniqueDetailPanel.hidden = true;
+const techniquesTabList = document.querySelector('#techniques-tablist');
+const techniquesTabPanels = document.querySelector('#techniques-tabpanels');
 
 const techniqueOrder = [];
 
@@ -380,6 +382,20 @@ if (isDataReady(techniquesData, techniquesList)) {
   });
 
   techniquesList.parentElement.appendChild(techniqueDetailPanel);
+}
+
+if (techniquesTabList && techniquesTabPanels) {
+  const techniqueTabs = Array.from(techniquesTabList.querySelectorAll('[role="tab"]'));
+  const techniquePanels = Array.from(techniquesTabPanels.querySelectorAll('[role="tabpanel"]'));
+
+  const setActiveTechniqueTab = (tab) => {
+    setTabActiveState(techniqueTabs, techniquePanels, tab);
+  };
+
+  techniqueTabs.forEach((tab) => {
+    tab.addEventListener('click', () => setActiveTechniqueTab(tab));
+    addTabKeyboardNavigation(techniqueTabs, tab, setActiveTechniqueTab);
+  });
 }
 
 const foundationTabList = document.querySelector('#foundation-tablist');
