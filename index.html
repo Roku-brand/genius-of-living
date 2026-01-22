@@ -210,89 +210,30 @@
       <section id="tab-hub" class="panel" role="tabpanel" aria-labelledby="tab-hub-button" hidden>
         <div class="tab-hero">
           <h2 class="tab-hero__title">処世術ハブ</h2>
-          <p class="tab-hero__desc">知恵が集まり、磨かれる公共空間。処世術群の閲覧・提案・議論を行います。</p>
+          <p class="tab-hero__desc">作成された処世術を共有し、評価とコメントで磨くオープンな保管庫です。</p>
         </div>
         <div class="panel__inner">
           <div class="hub-content" id="hub-content">
-
-            <!-- 処世術群一覧 -->
-            <section class="hub-section">
-              <h3 class="hub-section__title">処世術群一覧</h3>
-              <p class="hub-section__desc">テーマ単位で整理された処世術群を閲覧できます。</p>
-              <div class="grid three">
-                <article class="hub-card">
-                  <h4>友達作りの処世術</h4>
-                  <p>人間関係の初期構築に関する処世術群</p>
-                  <span class="hub-card__status hub-card__status--structured">体系化済み</span>
-                </article>
-                <article class="hub-card">
-                  <h4>職場で摩擦を生まない処世術</h4>
-                  <p>組織内での円滑な立ち回りに関する処世術群</p>
-                  <span class="hub-card__status hub-card__status--organizing">整理中</span>
-                </article>
-                <article class="hub-card">
-                  <h4>初対面で信頼を獲得する処世術</h4>
-                  <p>第一印象と信頼構築に関する処世術群</p>
-                  <span class="hub-card__status hub-card__status--reviewing">検討中</span>
-                </article>
+            <section class="hub-section hub-section--actions">
+              <div>
+                <h3 class="hub-section__title">作成された処世術</h3>
+                <p class="hub-section__desc">フォルダー単位で整理した処世術群を閲覧し、評価・コメントで磨きます。</p>
               </div>
+              <button class="primary-button hub-post-button" type="button">処世術を投稿する</button>
             </section>
 
-            <!-- 注目・活発な処世術群 -->
             <section class="hub-section">
-              <h3 class="hub-section__title">注目・活発な処世術群</h3>
-              <p class="hub-section__desc">最近更新が多い、または議論が活発な処世術群です。</p>
-              <div class="grid two">
-                <article class="hub-card hub-card--featured">
-                  <span class="hub-card__label">注目</span>
-                  <h4>言いにくいことを通す前置き設計</h4>
-                  <p>「結論→配慮→提案」で角を立てずに要点を通す処世術群。議論が活発です。</p>
-                </article>
-                <article class="hub-card hub-card--featured">
-                  <span class="hub-card__label">活発</span>
-                  <h4>断るときの代替案提示</h4>
-                  <p>Yesの代わりに「別案・条件・期限」を提示する処世術群。評価が集まっています。</p>
-                </article>
+              <div class="hub-sort">
+                <div>
+                  <h4 class="hub-sort__title">並び順</h4>
+                  <p class="hub-sort__desc">評価とコメントの熱量で自動並び替えしています。</p>
+                </div>
+                <div class="hub-sort__formula">
+                  <span>スコア = 👍 - 👎 + コメント数 × 0.5</span>
+                </div>
               </div>
+              <div id="hub-folder-list" class="hub-folder-list"></div>
             </section>
-
-            <!-- 新規提案導線 -->
-            <section class="hub-section">
-              <h3 class="hub-section__title">新しい処世術群を提案する</h3>
-              <p class="hub-section__desc">処世術群の提案・議論・改善はGitHubを通じて行います。</p>
-              <div class="hub-actions">
-                <a href="https://github.com/Roku-brand/genius-of-living/discussions" class="hub-action-link" target="_blank" rel="noopener noreferrer">
-                  <span class="hub-action-link__icon">💬</span>
-                  <span class="hub-action-link__text">
-                    <strong>議論する</strong>
-                    <small>GitHub Discussions</small>
-                  </span>
-                </a>
-                <a href="https://github.com/Roku-brand/genius-of-living/issues/new" class="hub-action-link" target="_blank" rel="noopener noreferrer">
-                  <span class="hub-action-link__icon">📝</span>
-                  <span class="hub-action-link__text">
-                    <strong>改善提案</strong>
-                    <small>GitHub Issue</small>
-                  </span>
-                </a>
-                <a href="https://github.com/Roku-brand/genius-of-living/pulls" class="hub-action-link" target="_blank" rel="noopener noreferrer">
-                  <span class="hub-action-link__icon">🔧</span>
-                  <span class="hub-action-link__text">
-                    <strong>編集提案</strong>
-                    <small>GitHub Pull Request</small>
-                  </span>
-                </a>
-              </div>
-            </section>
-
-            <!-- 思想的まとめ -->
-            <section class="hub-section hub-section--philosophy">
-              <blockquote class="hub-philosophy">
-                処世術ハブは「人が集まる場所」ではなく<strong>知恵が集まり、磨かれる場所</strong>である。<br>
-                人は通過点。残るのは処世術。私有しない。競わない。煽らない。
-              </blockquote>
-            </section>
-
           </div>
         </div>
       </section>
