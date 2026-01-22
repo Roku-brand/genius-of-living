@@ -385,7 +385,7 @@ if (isDataReady(techniquesData, techniquesList)) {
 const foundationTabList = document.querySelector('#foundation-tablist');
 const foundationPanels = document.querySelector('#foundation-tabpanels');
 const hubFolderList = document.querySelector('#hub-folder-list');
-const hubPostButton = document.querySelector('.hub-post-button');
+const hubPostButtons = Array.from(document.querySelectorAll('.hub-post-button'));
 
 // Foundation detail panel for page-style navigation
 const foundationDetailPanel = createElement('div', 'foundation-detail-panel');
@@ -542,9 +542,11 @@ const createHubPostModal = () => {
 
 const hubPostModal = createHubPostModal();
 
-if (hubPostButton) {
-  hubPostButton.addEventListener('click', () => {
-    hubPostModal.openModal();
+if (hubPostButtons.length) {
+  hubPostButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      hubPostModal.openModal();
+    });
   });
 }
 
