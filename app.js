@@ -341,6 +341,7 @@ if (isDataReady(techniquesData, techniquesList)) {
 const foundationTabList = document.querySelector('#foundation-tablist');
 const foundationPanels = document.querySelector('#foundation-tabpanels');
 const hubFolderList = document.querySelector('#hub-folder-list');
+const hubPostButton = document.querySelector('.hub-post-button');
 
 // Foundation detail panel for page-style navigation
 const foundationDetailPanel = createElement('div', 'foundation-detail-panel');
@@ -352,6 +353,156 @@ const formatHubTimestamp = (date) =>
 
 const getHubScore = (item) =>
   item.rating.up - item.rating.down + item.comments.length * 0.5;
+
+const createHubPostModal = () => {
+  const modal = createElement('div', 'hub-modal');
+  modal.hidden = true;
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-label', '処世術投稿フォーム');
+
+  const overlay = createElement('div', 'hub-modal__overlay');
+  const content = createElement('div', 'hub-modal__content');
+
+  const header = createElement('div', 'hub-modal__header');
+  const title = createElement('h3', 'hub-modal__title', '処世術を投稿する');
+  const description = createElement(
+    'p',
+    'hub-modal__desc',
+    'フォルダー単位で処世術をまとめて投稿できます。',
+  );
+  header.appendChild(title);
+  header.appendChild(description);
+
+  const form = createElement('form', 'hub-post-form');
+  const titleLabel = createElement('label', 'hub-post-form__label');
+  titleLabel.textContent = 'タイトル';
+  const titleInput = createElement('input', 'hub-post-form__input');
+  titleInput.type = 'text';
+  titleInput.name = 'title';
+  titleInput.placeholder = '例：ストレスを受け流す処世術';
+  titleInput.required = true;
+
+  const categoryLabel = createElement('label', 'hub-post-form__label');
+  categoryLabel.textContent = 'カテゴリ';
+  const categoryInput = createElement('input', 'hub-post-form__input');
+  categoryInput.type = 'text';
+  categoryInput.name = 'category';
+  categoryInput.placeholder = '例：思考術';
+  categoryInput.required = true;
+  categoryInput.setAttribute('list', 'hub-category-options');
+
+  const categoryDatalist = document.createElement('datalist');
+  categoryDatalist.id = 'hub-category-options';
+
+  const summaryLabel = createElement('label', 'hub-post-form__label');
+  summaryLabel.textContent = '概要';
+  const summaryInput = document.createElement('textarea');
+  summaryInput.className = 'hub-post-form__textarea';
+  summaryInput.name = 'summary';
+  summaryInput.placeholder = '処世術の狙いや背景を簡潔にまとめる';
+  summaryInput.required = true;
+
+  const itemsLabel = createElement('label', 'hub-post-form__label');
+  itemsLabel.textContent = '処世術リスト（1行につき1項目）';
+  const itemsInput = document.createElement('textarea');
+  itemsInput.className = 'hub-post-form__textarea';
+  itemsInput.name = 'items';
+  itemsInput.placeholder = '例：\n感情が動いたら5秒待つ\n状況を言語化して距離を取る';
+  itemsInput.required = true;
+
+  const formActions = createElement('div', 'hub-post-form__actions');
+  const cancelButton = createElement('button', 'hub-post-form__cancel', 'キャンセル');
+  cancelButton.type = 'button';
+  const submitButton = createElement('button', 'hub-post-form__submit', '投稿する');
+  submitButton.type = 'submit';
+  formActions.appendChild(cancelButton);
+  formActions.appendChild(submitButton);
+
+  titleLabel.appendChild(titleInput);
+  categoryLabel.appendChild(categoryInput);
+  summaryLabel.appendChild(summaryInput);
+  itemsLabel.appendChild(itemsInput);
+
+  form.appendChild(titleLabel);
+  form.appendChild(categoryLabel);
+  form.appendChild(categoryDatalist);
+  form.appendChild(summaryLabel);
+  form.appendChild(itemsLabel);
+  form.appendChild(formActions);
+
+  content.appendChild(header);
+  content.appendChild(form);
+  modal.appendChild(overlay);
+  modal.appendChild(content);
+  document.body.appendChild(modal);
+
+  const refreshCategoryOptions = () => {
+    categoryDatalist.innerHTML = '';
+    const uniqueCategories = Array.from(new Set(hubTechniques.map((item) => item.category))).sort();
+    uniqueCategories.forEach((category) => {
+      const option = document.createElement('option');
+      option.value = category;
+      categoryDatalist.appendChild(option);
+    });
+  };
+
+  const closeModal = () => {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  };
+
+  const openModal = () => {
+    refreshCategoryOptions();
+    form.reset();
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    titleInput.focus();
+  };
+
+  overlay.addEventListener('click', closeModal);
+  cancelButton.addEventListener('click', closeModal);
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const titleValue = titleInput.value.trim();
+    const categoryValue = categoryInput.value.trim();
+    const summaryValue = summaryInput.value.trim();
+    const itemsValue = itemsInput.value
+      .split('\n')
+      .map((line) => line.trim())
+      .filter(Boolean);
+
+    if (!titleValue || !categoryValue || !summaryValue || itemsValue.length === 0) {
+      return;
+    }
+
+    hubTechniques.unshift({
+      id: `hub-${Date.now()}`,
+      title: titleValue,
+      summary: summaryValue,
+      category: categoryValue,
+      items: itemsValue,
+      rating: { up: 0, down: 0 },
+      comments: [],
+      isExpanded: false,
+      areCommentsExpanded: false,
+    });
+
+    renderHubFolders();
+    closeModal();
+  });
+
+  return { modal, openModal, closeModal };
+};
+
+const hubPostModal = createHubPostModal();
+
+if (hubPostButton) {
+  hubPostButton.addEventListener('click', () => {
+    hubPostModal.openModal();
+  });
+}
 
 const createHubCommentCard = (comment) => {
   const card = createElement('div', 'hub-comment');
@@ -368,6 +519,8 @@ const createHubCommentCard = (comment) => {
 };
 
 const createHubFolderCard = (item, onUpdate) => {
+  const isExpanded = item.isExpanded ?? false;
+  const areCommentsExpanded = item.areCommentsExpanded ?? false;
   const card = createElement('article', 'hub-folder');
   const header = createElement('div', 'hub-folder__header');
   const headerText = createElement('div', 'hub-folder__heading');
@@ -390,6 +543,15 @@ const createHubFolderCard = (item, onUpdate) => {
 
   header.appendChild(headerText);
   header.appendChild(meta);
+
+  const controls = createElement('div', 'hub-folder__controls');
+  const toggleButton = createElement('button', 'hub-folder__toggle', isExpanded ? '詳細を隠す' : '詳細を表示');
+  toggleButton.type = 'button';
+  toggleButton.setAttribute('aria-expanded', String(isExpanded));
+  controls.appendChild(toggleButton);
+
+  const details = createElement('div', 'hub-folder__details');
+  details.hidden = !isExpanded;
 
   const itemList = createElement('ul', 'hub-folder__items');
   item.items.forEach((itemTitle, index) => {
@@ -446,6 +608,7 @@ const createHubFolderCard = (item, onUpdate) => {
       text,
       timestamp: formatHubTimestamp(new Date()),
     });
+    item.areCommentsExpanded = true;
     commentInput.value = '';
     onUpdate();
   });
@@ -453,15 +616,48 @@ const createHubFolderCard = (item, onUpdate) => {
   actions.appendChild(ratingGroup);
   actions.appendChild(commentForm);
 
+  const commentControls = createElement('div', 'hub-comments__header');
+  const commentTitle = createElement('span', 'hub-comments__title', `コメント一覧（${item.comments.length}）`);
+  const commentToggle = createElement(
+    'button',
+    'hub-comments__toggle',
+    areCommentsExpanded ? 'コメントを隠す' : 'コメントを表示',
+  );
+  commentToggle.type = 'button';
+  commentToggle.setAttribute('aria-expanded', String(areCommentsExpanded));
+  commentControls.appendChild(commentTitle);
+  commentControls.appendChild(commentToggle);
+
   const commentList = createElement('div', 'hub-comments');
+  commentList.hidden = !areCommentsExpanded;
   item.comments.forEach((comment) => {
     commentList.appendChild(createHubCommentCard(comment));
   });
 
   card.appendChild(header);
-  card.appendChild(itemList);
-  card.appendChild(actions);
-  card.appendChild(commentList);
+  card.appendChild(controls);
+  details.appendChild(itemList);
+  details.appendChild(actions);
+  details.appendChild(commentControls);
+  details.appendChild(commentList);
+  card.appendChild(details);
+
+  toggleButton.addEventListener('click', () => {
+    const nextState = !details.hidden;
+    details.hidden = nextState;
+    toggleButton.textContent = nextState ? '詳細を表示' : '詳細を隠す';
+    toggleButton.setAttribute('aria-expanded', String(!nextState));
+    item.isExpanded = !nextState;
+  });
+
+  commentToggle.addEventListener('click', () => {
+    const nextState = !commentList.hidden;
+    commentList.hidden = nextState;
+    commentToggle.textContent = nextState ? 'コメントを表示' : 'コメントを隠す';
+    commentToggle.setAttribute('aria-expanded', String(!nextState));
+    item.areCommentsExpanded = !nextState;
+  });
+
   return card;
 };
 
@@ -857,5 +1053,8 @@ if (foundationTabList && foundationPanels && foundationCategories.length > 0) {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && !foundationModal.hidden) {
     closeFoundationModal();
+  }
+  if (e.key === 'Escape' && !hubPostModal.modal.hidden) {
+    hubPostModal.closeModal();
   }
 });
