@@ -578,15 +578,18 @@ const createHubFolderCard = (item, onUpdate) => {
   const areCommentsExpanded = item.areCommentsExpanded ?? false;
   const card = createElement('article', 'hub-folder');
   const header = createElement('div', 'hub-folder__header');
-  const headerText = createElement('div', 'hub-folder__heading');
+  const titleButton = createElement('button', 'hub-folder__title-button', item.title);
+  titleButton.type = 'button';
+  titleButton.setAttribute('aria-expanded', String(isExpanded));
+
+  const details = createElement('div', 'hub-folder__details');
+  details.id = `hub-folder-details-${item.id}`;
+  details.hidden = !isExpanded;
+  titleButton.setAttribute('aria-controls', details.id);
+
+  const detailsHeader = createElement('div', 'hub-folder__details-header');
   const category = createElement('p', 'hub-folder__category', item.category);
-  const title = createElement('h3', 'hub-folder__title', item.title);
   const summary = createElement('p', 'hub-folder__summary', item.summary);
-
-  headerText.appendChild(category);
-  headerText.appendChild(title);
-  headerText.appendChild(summary);
-
   const meta = createElement('div', 'hub-folder__meta');
   const count = createElement('span', 'hub-folder__meta-item', `処世術 ${item.items.length}`);
   const score = createElement('span', 'hub-folder__meta-item', `評価 ${getHubScore(item).toFixed(1)}`);
@@ -596,17 +599,9 @@ const createHubFolderCard = (item, onUpdate) => {
   meta.appendChild(score);
   meta.appendChild(comments);
 
-  header.appendChild(headerText);
-  header.appendChild(meta);
-
-  const controls = createElement('div', 'hub-folder__controls');
-  const toggleButton = createElement('button', 'hub-folder__toggle', isExpanded ? '詳細を隠す' : '詳細を表示');
-  toggleButton.type = 'button';
-  toggleButton.setAttribute('aria-expanded', String(isExpanded));
-  controls.appendChild(toggleButton);
-
-  const details = createElement('div', 'hub-folder__details');
-  details.hidden = !isExpanded;
+  detailsHeader.appendChild(category);
+  detailsHeader.appendChild(summary);
+  detailsHeader.appendChild(meta);
 
   const itemList = createElement('ul', 'hub-folder__items');
   item.items.forEach((itemTitle, index) => {
@@ -690,18 +685,18 @@ const createHubFolderCard = (item, onUpdate) => {
   });
 
   card.appendChild(header);
-  card.appendChild(controls);
+  header.appendChild(titleButton);
+  details.appendChild(detailsHeader);
   details.appendChild(itemList);
   details.appendChild(actions);
   details.appendChild(commentControls);
   details.appendChild(commentList);
   card.appendChild(details);
 
-  toggleButton.addEventListener('click', () => {
+  titleButton.addEventListener('click', () => {
     const nextState = !details.hidden;
     details.hidden = nextState;
-    toggleButton.textContent = nextState ? '詳細を表示' : '詳細を隠す';
-    toggleButton.setAttribute('aria-expanded', String(!nextState));
+    titleButton.setAttribute('aria-expanded', String(!nextState));
     item.isExpanded = !nextState;
   });
 
