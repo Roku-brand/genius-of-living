@@ -540,13 +540,22 @@ const createHubPostModal = () => {
   return { modal, openModal, closeModal };
 };
 
-const hubPostModal = createHubPostModal();
+const hubPostModalEnabled = false;
+let hubPostModal = null;
 
-if (hubPostButtons.length) {
-  hubPostButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      hubPostModal.openModal();
+if (hubPostModalEnabled) {
+  hubPostModal = createHubPostModal();
+  if (hubPostButtons.length) {
+    hubPostButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        hubPostModal.openModal();
+      });
     });
+  }
+} else if (hubPostButtons.length) {
+  hubPostButtons.forEach((button) => {
+    button.hidden = true;
+    button.setAttribute('aria-hidden', 'true');
   });
 }
 
