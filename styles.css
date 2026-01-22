@@ -238,6 +238,20 @@ body::before {
   max-width: 600px;
 }
 
+.tab-hero__actions {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.tab-hero__note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
 .container {
   width: min(1320px, 100%);
   margin: var(--layout-top-margin) auto 0;
