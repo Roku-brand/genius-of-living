@@ -546,12 +546,6 @@ const foundationDetailPanel = createElement('div', 'foundation-detail-panel');
 foundationDetailPanel.id = 'foundation-detail-panel';
 foundationDetailPanel.hidden = true;
 
-const formatHubTimestamp = (date) =>
-  date.toLocaleDateString('ja-JP', { month: 'short', day: 'numeric' });
-
-const getHubScore = (item) =>
-  item.rating.up - item.rating.down + item.comments.length * 0.5;
-
 const createHubPostModal = () => {
   const modal = createElement('div', 'hub-modal');
   modal.hidden = true;
@@ -681,10 +675,7 @@ const createHubPostModal = () => {
       summary: summaryValue,
       category: categoryValue,
       items: itemsValue,
-      rating: { up: 0, down: 0 },
-      comments: [],
       isExpanded: false,
-      areCommentsExpanded: false,
     });
 
     renderHubFolders();
@@ -694,7 +685,7 @@ const createHubPostModal = () => {
   return { modal, openModal, closeModal };
 };
 
-const hubPostModalEnabled = false;
+const hubPostModalEnabled = true;
 let hubPostModal = null;
 
 if (hubPostModalEnabled) {
@@ -713,23 +704,8 @@ if (hubPostModalEnabled) {
   });
 }
 
-const createHubCommentCard = (comment) => {
-  const card = createElement('div', 'hub-comment');
-  const header = createElement('div', 'hub-comment__header');
-  const author = createElement('span', 'hub-comment__author', comment.author);
-  const timestamp = createElement('span', 'hub-comment__time', comment.timestamp);
-  const body = createElement('p', 'hub-comment__text', comment.text);
-
-  header.appendChild(author);
-  header.appendChild(timestamp);
-  card.appendChild(header);
-  card.appendChild(body);
-  return card;
-};
-
-const createHubFolderCard = (item, onUpdate) => {
+const createHubFolderCard = (item) => {
   const isExpanded = item.isExpanded ?? false;
-  const areCommentsExpanded = item.areCommentsExpanded ?? false;
   const card = createElement('article', 'hub-folder');
   const header = createElement('div', 'hub-folder__header');
   const titleButton = createElement('button', 'hub-folder__title-button', item.title);
@@ -746,12 +722,8 @@ const createHubFolderCard = (item, onUpdate) => {
   const summary = createElement('p', 'hub-folder__summary', item.summary);
   const meta = createElement('div', 'hub-folder__meta');
   const count = createElement('span', 'hub-folder__meta-item', `処世術 ${item.items.length}`);
-  const score = createElement('span', 'hub-folder__meta-item', `評価 ${getHubScore(item).toFixed(1)}`);
-  const comments = createElement('span', 'hub-folder__meta-item', `コメント ${item.comments.length}`);
 
   meta.appendChild(count);
-  meta.appendChild(score);
-  meta.appendChild(comments);
 
   detailsHeader.appendChild(category);
   detailsHeader.appendChild(summary);
@@ -763,88 +735,10 @@ const createHubFolderCard = (item, onUpdate) => {
     itemList.appendChild(listItem);
   });
 
-  const actions = createElement('div', 'hub-folder__actions');
-  const ratingGroup = createElement('div', 'hub-rating');
-  const ratingLabel = createElement('span', 'hub-rating__label', '評価');
-  const upButton = createElement('button', 'hub-rating__button hub-rating__button--up', '👍 有用');
-  const downButton = createElement('button', 'hub-rating__button hub-rating__button--down', '👎 検討');
-  const ratingScore = createElement('span', 'hub-rating__score', `スコア ${getHubScore(item).toFixed(1)}`);
-
-  upButton.type = 'button';
-  downButton.type = 'button';
-
-  upButton.addEventListener('click', () => {
-    item.rating.up += 1;
-    onUpdate();
-  });
-
-  downButton.addEventListener('click', () => {
-    item.rating.down += 1;
-    onUpdate();
-  });
-
-  ratingGroup.appendChild(ratingLabel);
-  ratingGroup.appendChild(upButton);
-  ratingGroup.appendChild(downButton);
-  ratingGroup.appendChild(ratingScore);
-
-  const commentForm = createElement('form', 'hub-comment-form');
-  const commentLabel = createElement('label', 'hub-comment-form__label', 'コメント');
-  const commentInput = document.createElement('textarea');
-  commentInput.className = 'hub-comment-form__textarea';
-  commentInput.placeholder = 'この処世術の活用感や改善点を記入...';
-  commentInput.required = true;
-  const commentButton = createElement('button', 'hub-comment-form__button', '投稿');
-  commentButton.type = 'submit';
-
-  commentLabel.appendChild(commentInput);
-  commentForm.appendChild(commentLabel);
-  commentForm.appendChild(commentButton);
-
-  commentForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const text = commentInput.value.trim();
-    if (!text) {
-      return;
-    }
-    item.comments.unshift({
-      author: '匿名',
-      text,
-      timestamp: formatHubTimestamp(new Date()),
-    });
-    item.areCommentsExpanded = true;
-    commentInput.value = '';
-    onUpdate();
-  });
-
-  actions.appendChild(ratingGroup);
-  actions.appendChild(commentForm);
-
-  const commentControls = createElement('div', 'hub-comments__header');
-  const commentTitle = createElement('span', 'hub-comments__title', `コメント一覧（${item.comments.length}）`);
-  const commentToggle = createElement(
-    'button',
-    'hub-comments__toggle',
-    areCommentsExpanded ? 'コメントを隠す' : 'コメントを表示',
-  );
-  commentToggle.type = 'button';
-  commentToggle.setAttribute('aria-expanded', String(areCommentsExpanded));
-  commentControls.appendChild(commentTitle);
-  commentControls.appendChild(commentToggle);
-
-  const commentList = createElement('div', 'hub-comments');
-  commentList.hidden = !areCommentsExpanded;
-  item.comments.forEach((comment) => {
-    commentList.appendChild(createHubCommentCard(comment));
-  });
-
   card.appendChild(header);
   header.appendChild(titleButton);
   details.appendChild(detailsHeader);
   details.appendChild(itemList);
-  details.appendChild(actions);
-  details.appendChild(commentControls);
-  details.appendChild(commentList);
   card.appendChild(details);
 
   titleButton.addEventListener('click', () => {
@@ -852,14 +746,6 @@ const createHubFolderCard = (item, onUpdate) => {
     details.hidden = nextState;
     titleButton.setAttribute('aria-expanded', String(!nextState));
     item.isExpanded = !nextState;
-  });
-
-  commentToggle.addEventListener('click', () => {
-    const nextState = !commentList.hidden;
-    commentList.hidden = nextState;
-    commentToggle.textContent = nextState ? 'コメントを表示' : 'コメントを隠す';
-    commentToggle.setAttribute('aria-expanded', String(!nextState));
-    item.areCommentsExpanded = !nextState;
   });
 
   return card;
@@ -870,15 +756,8 @@ const renderHubFolders = () => {
     return;
   }
   hubFolderList.innerHTML = '';
-  const sorted = [...hubTechniques].sort((a, b) => {
-    const scoreDiff = getHubScore(b) - getHubScore(a);
-    if (scoreDiff !== 0) {
-      return scoreDiff;
-    }
-    return b.rating.up - a.rating.up;
-  });
-  sorted.forEach((item) => {
-    hubFolderList.appendChild(createHubFolderCard(item, renderHubFolders));
+  hubTechniques.forEach((item) => {
+    hubFolderList.appendChild(createHubFolderCard(item));
   });
 };
 
