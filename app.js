@@ -143,6 +143,20 @@ const categoryThemeMap = {
 
 const getCategoryKey = (title) => categoryThemeMap[title] ?? 'default';
 
+const assignTechniqueCardIds = () => {
+  let counter = 1;
+  techniquesData.forEach((category) => {
+    category.items.forEach((item) => {
+      item.details.forEach((detail) => {
+        if (!detail.cardId) {
+          detail.cardId = `S-${String(counter).padStart(3, '0')}`;
+        }
+        counter += 1;
+      });
+    });
+  });
+};
+
 const updateMobileNav = (targetId) => {
   if (!mobileNavItems.length || !targetId) {
     return;
@@ -255,6 +269,8 @@ const getTechniqueTags = (detail, item, categoryKey, categoryTitle) => {
   return Array.from(tags);
 };
 
+assignTechniqueCardIds();
+
 const showTechniqueDetail = (technique, categoryKey = 'default', techniqueIndex = null) => {
   techniqueDetailPanel.innerHTML = '';
   techniqueDetailPanel.hidden = false;
@@ -314,10 +330,11 @@ const showTechniqueDetail = (technique, categoryKey = 'default', techniqueIndex 
   const grid = createElement('div', 'technique-detail-grid');
 
   technique.details.forEach((detail) => {
-    const card = createElement('article', 'technique-detail-card');
+    const card = createElement('a', 'technique-detail-card');
+    card.href = `techniques/${detail.cardId}/`;
     card.dataset.category = categoryKey;
-    
-    const idBadge = createElement('span', 'technique-detail-id', String(detail.id));
+
+    const idBadge = createElement('span', 'technique-detail-id', detail.cardId ?? String(detail.id));
     const titleWrapper = createElement('div', 'technique-detail-content');
     const titleText = createElement('h4', 'technique-detail-item-title', detail.title);
     const subtitle = createElement('p', 'technique-detail-subtitle', `（${detail.subtitle}）`);
@@ -334,6 +351,7 @@ const showTechniqueDetail = (technique, categoryKey = 'default', techniqueIndex 
         tag.type = 'button';
         tag.setAttribute('aria-label', `基盤 ${f} に移動`);
         tag.addEventListener('click', (e) => {
+          e.preventDefault();
           e.stopPropagation();
           navigateToFoundation(f, { technique, categoryKey, techniqueIndex });
         });
@@ -456,17 +474,8 @@ if (techniquesIndexSearchInput && techniquesIndexResults && techniquesIndexCount
     techniquesIndexEmpty.hidden = entries.length !== 0;
     entries.forEach((entry) => {
       const card = createElement('article', 'techniques-index__result');
-      const button = createElement('button', 'techniques-index__result-button');
-      button.type = 'button';
-      button.addEventListener('click', () => {
-        const listTabButton = document.querySelector('#techniques-tab-list');
-        if (listTabButton) {
-          listTabButton.click();
-        }
-        setTimeout(() => {
-          showTechniqueDetail(entry.technique, entry.categoryKey, entry.techniqueIndex);
-        }, 0);
-      });
+      const button = createElement('a', 'techniques-index__result-button');
+      button.href = `techniques/${entry.detail.cardId}/`;
 
       const title = createElement('h4', 'techniques-index__result-title', entry.detail.title);
       const subtitle = createElement(
