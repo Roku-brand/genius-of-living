@@ -122,6 +122,10 @@ body::before {
   filter: grayscale(100%) contrast(0.7);
 }
 
+body.is-techniques-index::before {
+  display: none;
+}
+
 /* Header: 64px height, sticky, pure white, no shadow, border bottom */
 .site-header {
   background: var(--color-surface);

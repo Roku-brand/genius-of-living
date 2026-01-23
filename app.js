@@ -143,6 +143,12 @@ const categoryThemeMap = {
 
 const getCategoryKey = (title) => categoryThemeMap[title] ?? 'default';
 
+const syncTechniquesIndexBackground = () => {
+  const indexTab = document.querySelector('#techniques-tab-index');
+  const isIndexActive = indexTab?.classList.contains('is-active');
+  document.body.classList.toggle('is-techniques-index', Boolean(isIndexActive));
+};
+
 const updateMobileNav = (targetId) => {
   if (!mobileNavItems.length || !targetId) {
     return;
@@ -172,6 +178,11 @@ if (tabs.length && panels.length) {
     setTabActiveState(tabs, panels, tab);
     const targetId = tab.getAttribute('aria-controls');
     updateMobileNav(targetId);
+    if (targetId !== 'tab-techniques') {
+      document.body.classList.remove('is-techniques-index');
+    } else {
+      syncTechniquesIndexBackground();
+    }
 
     window.scrollTo(0, 0);
     closeMobileMenu();
@@ -433,6 +444,7 @@ if (techniquesTabList && techniquesTabPanels) {
 
   const setActiveTechniqueTab = (tab) => {
     setTabActiveState(techniqueTabs, techniquePanels, tab);
+    syncTechniquesIndexBackground();
   };
 
   techniqueTabs.forEach((tab) => {
