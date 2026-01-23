@@ -2168,10 +2168,16 @@ body {
   width: min(640px, 92vw);
   max-height: 85vh;
   overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.hub-modal__content::-webkit-scrollbar {
+  display: none;
 }
 
 .hub-modal__header {
