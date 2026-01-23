@@ -227,6 +227,34 @@ const techniquesTabList = document.querySelector('#techniques-tablist');
 const techniquesTabPanels = document.querySelector('#techniques-tabpanels');
 
 const techniqueOrder = [];
+const techniqueIndexEntries = [];
+
+const techniqueTagKeywords = {
+  会話: ['会話', '対話', '聞く', '伝える', '質問', '話', '雑談', '説明', '説得', '交渉'],
+  恋愛: ['恋愛', 'デート', '異性', '好意', 'パートナー', '関係', '告白'],
+  仕事: ['仕事', '職場', '上司', '部下', '会議', '成果', '評価', '営業', 'キャリア'],
+  勉強: ['勉強', '学習', '学ぶ', '記憶', '習得', '読書', '理解'],
+};
+
+const techniqueCategoryTags = {
+  life: ['仕事'],
+  thinking: ['勉強'],
+  'people-1': ['会話'],
+  'people-2': ['会話', '恋愛'],
+  skill: ['仕事', '勉強'],
+  achievement: ['仕事'],
+};
+
+const getTechniqueTags = (detail, item, categoryKey, categoryTitle) => {
+  const tags = new Set(techniqueCategoryTags[categoryKey] ?? []);
+  const text = `${categoryTitle} ${item.name} ${detail.title} ${detail.subtitle}`.toLowerCase();
+  Object.entries(techniqueTagKeywords).forEach(([tag, keywords]) => {
+    if (keywords.some((keyword) => text.includes(keyword))) {
+      tags.add(tag);
+    }
+  });
+  return Array.from(tags);
+};
 
 const showTechniqueDetail = (technique, categoryKey = 'default', techniqueIndex = null) => {
   techniqueDetailPanel.innerHTML = '';
@@ -374,6 +402,18 @@ if (isDataReady(techniquesData, techniquesList)) {
       button.addEventListener('click', () => showTechniqueDetail(item, categoryKey, techniqueIndex));
       listItem.appendChild(button);
       list.appendChild(listItem);
+
+      item.details.forEach((detail) => {
+        techniqueIndexEntries.push({
+          detail,
+          technique: item,
+          categoryKey,
+          categoryTitle: category.title,
+          techniqueIndex,
+          tags: getTechniqueTags(detail, item, categoryKey, category.title),
+          searchText: `${category.title} ${item.name} ${detail.title} ${detail.subtitle}`.toLowerCase(),
+        });
+      });
     });
 
     row.appendChild(title);
@@ -396,6 +436,102 @@ if (techniquesTabList && techniquesTabPanels) {
     tab.addEventListener('click', () => setActiveTechniqueTab(tab));
     addTabKeyboardNavigation(techniqueTabs, tab, setActiveTechniqueTab);
   });
+}
+
+const techniquesIndexSearchInput = document.querySelector('#techniques-index-search');
+const techniquesIndexResults = document.querySelector('#techniques-index-results');
+const techniquesIndexCount = document.querySelector('#techniques-index-count');
+const techniquesIndexEmpty = document.querySelector('#techniques-index-empty');
+const techniquesIndexTagChips = Array.from(
+  document.querySelectorAll('.techniques-index__chips--tags .chip'),
+);
+
+if (techniquesIndexSearchInput && techniquesIndexResults && techniquesIndexCount && techniquesIndexEmpty) {
+  const selectedTags = new Set();
+
+  const renderTechniquesIndexResults = (entries) => {
+    techniquesIndexResults.innerHTML = '';
+    techniquesIndexEmpty.hidden = entries.length !== 0;
+    entries.forEach((entry) => {
+      const card = createElement('article', 'techniques-index__result');
+      const button = createElement('button', 'techniques-index__result-button');
+      button.type = 'button';
+      button.addEventListener('click', () => {
+        const listTabButton = document.querySelector('#techniques-tab-list');
+        if (listTabButton) {
+          listTabButton.click();
+        }
+        setTimeout(() => {
+          showTechniqueDetail(entry.technique, entry.categoryKey, entry.techniqueIndex);
+        }, 0);
+      });
+
+      const title = createElement('h4', 'techniques-index__result-title', entry.detail.title);
+      const subtitle = createElement(
+        'p',
+        'techniques-index__result-subtitle',
+        `（${entry.detail.subtitle}）`,
+      );
+      const meta = createElement('div', 'techniques-index__result-meta');
+      meta.appendChild(createElement('span', null, `カテゴリ: ${entry.categoryTitle}`));
+      meta.appendChild(createElement('span', null, `系統: ${entry.technique.name}`));
+
+      const tags = createElement('div', 'techniques-index__result-tags');
+      if (entry.tags.length === 0) {
+        tags.appendChild(createElement('span', 'techniques-index__result-tag', 'タグなし'));
+      } else {
+        entry.tags.forEach((tag) => {
+          tags.appendChild(createElement('span', 'techniques-index__result-tag', tag));
+        });
+      }
+
+      button.appendChild(title);
+      button.appendChild(subtitle);
+      button.appendChild(meta);
+      card.appendChild(button);
+      card.appendChild(tags);
+      techniquesIndexResults.appendChild(card);
+    });
+  };
+
+  const updateTechniquesIndex = () => {
+    const query = techniquesIndexSearchInput.value.trim().toLowerCase();
+    const activeTags = Array.from(selectedTags);
+    const filtered = techniqueIndexEntries.filter((entry) => {
+      const matchesQuery = !query || entry.searchText.includes(query);
+      const matchesTags =
+        activeTags.length === 0 || activeTags.every((tag) => entry.tags.includes(tag));
+      return matchesQuery && matchesTags;
+    });
+
+    renderTechniquesIndexResults(filtered);
+    if (query || activeTags.length > 0) {
+      techniquesIndexCount.textContent = `${filtered.length} 件見つかりました`;
+    } else {
+      techniquesIndexCount.textContent = `全 ${filtered.length} 件`;
+    }
+  };
+
+  techniquesIndexSearchInput.addEventListener('input', updateTechniquesIndex);
+
+  techniquesIndexTagChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const tag = chip.dataset.tag;
+      if (!tag) {
+        return;
+      }
+      if (selectedTags.has(tag)) {
+        selectedTags.delete(tag);
+        chip.classList.remove('is-active');
+      } else {
+        selectedTags.add(tag);
+        chip.classList.add('is-active');
+      }
+      updateTechniquesIndex();
+    });
+  });
+
+  updateTechniquesIndex();
 }
 
 const foundationTabList = document.querySelector('#foundation-tablist');
