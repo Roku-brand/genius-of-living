@@ -336,7 +336,7 @@ const showTechniqueDetail = (technique, categoryKey = 'default', techniqueIndex 
         tag.setAttribute('aria-label', `基盤 ${f} に移動`);
         tag.addEventListener('click', (e) => {
           e.stopPropagation();
-          navigateToFoundation(f);
+          navigateToFoundation(f, { technique, categoryKey, techniqueIndex });
         });
         foundationTags.appendChild(tag);
       });
@@ -360,7 +360,7 @@ const showTechniqueDetail = (technique, categoryKey = 'default', techniqueIndex 
 // Navigate to a foundation item by tagId
 const TAB_SWITCH_DELAY = 100;
 
-const navigateToFoundation = (tagId) => {
+const navigateToFoundation = (tagId, returnTo = null) => {
   // Find the foundation item
   const allItems = getAllFoundationItems();
   const foundationItem = allItems.find((item) => item.tagId === tagId);
@@ -378,7 +378,10 @@ const navigateToFoundation = (tagId) => {
 
   // Show the foundation detail panel after a short delay to allow tab switch
   setTimeout(() => {
-    showFoundationDetail(foundationItem);
+    showFoundationDetail(foundationItem, {
+      origin: returnTo ? 'technique' : 'foundation',
+      returnTo,
+    });
   }, TAB_SWITCH_DELAY);
 };
 
@@ -883,16 +886,32 @@ const renderHubFolders = () => {
 renderHubFolders();
 
 // Show foundation detail in a page-style panel (like technique detail)
-const showFoundationDetail = (item) => {
+const showFoundationDetail = (item, { origin = 'foundation', returnTo = null } = {}) => {
   foundationDetailPanel.innerHTML = '';
   foundationDetailPanel.hidden = false;
 
-  const backButton = createElement('button', 'foundation-back-button', '← 一覧に戻る');
+  const backLabel = origin === 'technique' ? '← 処世術に戻る' : '← 一覧に戻る';
+  const backButton = createElement('button', 'foundation-back-button', backLabel);
   backButton.type = 'button';
   backButton.addEventListener('click', () => {
-    foundationDetailPanel.hidden = true;
-    foundationPanels.hidden = false;
-    document.querySelector('#foundation-tablist').hidden = false;
+    if (origin === 'technique' && returnTo) {
+      foundationDetailPanel.hidden = true;
+      foundationPanels.hidden = false;
+      document.querySelector('#foundation-tablist').hidden = false;
+      const techniqueTab = tabs.find(
+        (tab) => tab.getAttribute('aria-controls') === 'tab-techniques',
+      );
+      if (techniqueTab) {
+        techniqueTab.click();
+      }
+      setTimeout(() => {
+        showTechniqueDetail(returnTo.technique, returnTo.categoryKey, returnTo.techniqueIndex);
+      }, 0);
+    } else {
+      foundationDetailPanel.hidden = true;
+      foundationPanels.hidden = false;
+      document.querySelector('#foundation-tablist').hidden = false;
+    }
   });
 
   // Header
