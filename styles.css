@@ -142,6 +142,7 @@ body {
   color: var(--color-primary);
   text-align: center;
   letter-spacing: 0.05em;
+  text-decoration: none;
 }
 
 /* Enjii accent for "禄" character - limited use for philosophy symbol */
@@ -433,6 +434,7 @@ body {
   box-shadow: none;
 }
 
+.top-landing__hero h1,
 .top-landing__hero h2 {
   font-size: clamp(24px, 3.5vw, 32px);
   letter-spacing: 0.06em;
@@ -459,6 +461,7 @@ body {
   gap: 28px;
 }
 
+.top-landing__section h2,
 .top-landing__section h3 {
   text-align: center;
   font-size: 16px;
@@ -632,6 +635,7 @@ body {
   gap: 20px;
 }
 
+.principle-card h2,
 .principle-card h3 {
   text-align: left;
   letter-spacing: 0.05em;
@@ -1226,6 +1230,81 @@ body {
 
 .card dd {
   margin-left: 0;
+}
+
+.page {
+  padding-top: 32px;
+  padding-bottom: 48px;
+}
+
+.page-article {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.page-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.page-hero__eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+}
+
+.page-hero__lead {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--color-text-secondary);
+}
+
+.page-section {
+  display: grid;
+  gap: 12px;
+}
+
+.page-section h2 {
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+}
+
+.page-section h3 {
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+}
+
+.page-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.page-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.page-link-list a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.page-note {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
 }
 
 .footer {

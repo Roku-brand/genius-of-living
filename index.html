@@ -3,31 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>処世術禄 | 人生の処世術OS</title>
+    <title>処世術を体系化する | 処世術禄</title>
     <meta
       name="description"
-      content="人生の判断と立ち回りにOSを。処世術と思想基盤を統合するナレッジベース。"
+      content="処世術を体系化し、判断と立ち回りを迷わせないための知見を整理するナレッジベース。人生術・対人術・思考術を横断して学び直す拠点。"
     />
     <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="https://example.com/" />
-    <meta property="og:title" content="処世術禄 | 人生の処世術OS" />
+    <link rel="canonical" href="https://roku-brand.github.io/genius-of-living/" />
+    <meta property="og:title" content="処世術を体系化する | 処世術禄" />
     <meta
       property="og:description"
-      content="人生の判断と立ち回りにOSを。処世術と思想基盤を統合するナレッジベース。"
+      content="処世術を体系化し、判断と立ち回りを迷わせないための知見を整理するナレッジベース。人生術・対人術・思考術を横断して学び直す拠点。"
     />
-    <meta property="og:url" content="https://example.com/" />
+    <meta property="og:url" content="https://roku-brand.github.io/genius-of-living/" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://example.com/assets/icons/app-icon-512.png" />
+    <meta
+      property="og:image"
+      content="https://roku-brand.github.io/genius-of-living/assets/icons/app-icon-512.png"
+    />
     <meta name="theme-color" content="#2b5c8a" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "処世術禄 | 人生の処世術OS",
-        "url": "https://example.com/",
-        "description": "人生の判断と立ち回りにOSを。処世術と思想基盤を統合するナレッジベース。",
-        "inLanguage": "ja-JP"
-      }
+    <script type="module">
+      import { applySeo, BASE_URL, createBreadcrumbJsonLd, createWebSiteJsonLd } from './seo.js';
+
+      const title = '処世術を体系化する | 処世術禄';
+      const description =
+        '処世術を体系化し、判断と立ち回りを迷わせないための知見を整理するナレッジベース。人生術・対人術・思考術を横断して学び直す拠点。';
+
+      applySeo({
+        title,
+        description,
+        path: '/',
+        type: 'website',
+        jsonLd: [
+          createWebSiteJsonLd({
+            name: title,
+            description,
+            url: `${BASE_URL}/`,
+          }),
+          createBreadcrumbJsonLd([
+            { name: '処世術禄', path: '/' },
+          ]),
+        ],
+      });
     </script>
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="assets/icons/app-icon-192.png" />
@@ -48,7 +65,7 @@
           <span class="menu-button__line"></span>
           <span class="menu-button__line"></span>
         </button>
-        <h1 class="site-header__title">処世術<span class="site-header__accent">禄</span></h1>
+        <p class="site-header__title">処世術<span class="site-header__accent">禄</span></p>
         <div class="site-header__actions">
           <nav class="tabs" role="tablist" aria-label="主要タブ">
             <button
@@ -101,50 +118,61 @@
     </div>
 
     <main class="container">
+      <nav class="visually-hidden" aria-label="パンくず">
+        <ol>
+          <li><a href="./">処世術禄</a></li>
+        </ol>
+      </nav>
       <section id="tab-top" class="panel panel--top is-active" role="tabpanel" aria-labelledby="tab-top-button">
         <div class="top-landing">
           <div class="top-landing__inner">
             <div class="top-landing__hero">
               <div class="top-landing__emblem" aria-hidden="true"></div>
-              <h2>人生の判断と立ち回りにOSを。</h2>
+              <h1>処世術を体系化する</h1>
               <p class="top-landing__tagline">情報過多の時代に、本質だけを紡ぐ。</p>
+              <p class="top-landing__copy">
+                処世術を体系化し、日常の判断を迷わせないための知見を集めた拠点です。処世術を実践へ落とす視点と原則を提示し、人生の立ち回りを静かに整えます。対人・思考・行動を横断して学び直す導線として、丁寧に機能します。
+              </p>
               <p class="top-landing__copy">
                 社会科学と心理学、先人の経験則を束ね、情報の雑音を排する。AIによる膨大な分析と構造化で、
                 判断と立ち回りを再現可能な形に落とし込む。
               </p>
+              <p class="top-landing__copy">
+                まずは<a href="shoseijutsu/">処世術ハブ</a>で全体像を確認し、<a href="principles/">忘れてはいけない処世術の原則</a>から基盤を固めてください。
+              </p>
             </div>
 
             <section class="top-landing__section" id="policy">
-              <h3>構成要素</h3>
+              <h2>構成要素</h2>
               <div class="policy-grid">
                 <article class="policy-card" data-category="life">
                   <span class="policy-card__icon" aria-hidden="true"></span>
-                  <p class="policy-card__title">人生術</p>
+                  <h3 class="policy-card__title">人生術</h3>
                   <p class="policy-card__subtitle">迷わない人生の歩み方</p>
                 </article>
                 <article class="policy-card" data-category="thinking">
                   <span class="policy-card__icon policy-card__icon--nodes" aria-hidden="true"></span>
-                  <p class="policy-card__title">思考術</p>
+                  <h3 class="policy-card__title">思考術</h3>
                   <p class="policy-card__subtitle">自己制御のための思考法</p>
                 </article>
                 <article class="policy-card" data-category="people-1">
                   <span class="policy-card__icon" aria-hidden="true"></span>
-                  <p class="policy-card__title">対人術①</p>
+                  <h3 class="policy-card__title">対人術①</h3>
                   <p class="policy-card__subtitle">人たらしと第一印象の型</p>
                 </article>
                 <article class="policy-card" data-category="people-2">
                   <span class="policy-card__icon" aria-hidden="true"></span>
-                  <p class="policy-card__title">対人術②</p>
+                  <h3 class="policy-card__title">対人術②</h3>
                   <p class="policy-card__subtitle">距離感と集団の立ち回り</p>
                 </article>
                 <article class="policy-card" data-category="skill">
                   <span class="policy-card__icon policy-card__icon--pen" aria-hidden="true"></span>
-                  <p class="policy-card__title">スキル術</p>
+                  <h3 class="policy-card__title">スキル術</h3>
                   <p class="policy-card__subtitle">活躍につながる能力会得</p>
                 </article>
                 <article class="policy-card" data-category="achievement">
                   <span class="policy-card__icon" aria-hidden="true"></span>
-                  <p class="policy-card__title">達成術</p>
+                  <h3 class="policy-card__title">達成術</h3>
                   <p class="policy-card__subtitle">結果につなげる実行設計</p>
                 </article>
               </div>
@@ -152,39 +180,39 @@
 
             <section class="top-landing__section top-landing__section--split" id="principles">
               <article class="principle-card">
-                <h3>忘れてはいけない処世術の原則</h3>
+                <h2>忘れてはいけない処世術の原則</h2>
                 <div class="principle-item">
                   <span class="principle-item__number">01</span>
                   <div>
-                    <p class="principle-item__title">処世術は好かれない（メタ発言抑制）</p>
+                    <h3 class="principle-item__title">処世術は好かれない（メタ発言抑制）</h3>
                     <p class="principle-item__desc">処世術は“使うもの”であって、“語るもの”ではない。</p>
                   </div>
                 </div>
                 <div class="principle-item">
                   <span class="principle-item__number">02</span>
                   <div>
-                    <p class="principle-item__title">処世術は万能ではない（コンテクスト依存性）</p>
+                    <h3 class="principle-item__title">処世術は万能ではない（コンテクスト依存性）</h3>
                     <p class="principle-item__desc">同じ戦術でも人・場・力関係・時間軸が変われば結果は反転する。</p>
                   </div>
                 </div>
                 <div class="principle-item">
                   <span class="principle-item__number">03</span>
                   <div>
-                    <p class="principle-item__title">処世術は人格の代替ではない（行動分離原則）</p>
+                    <h3 class="principle-item__title">処世術は人格の代替ではない（行動分離原則）</h3>
                     <p class="principle-item__desc">処世術は人格を作るものではない。人格を守るための道具である。</p>
                   </div>
                 </div>
                 <div class="principle-item">
                   <span class="principle-item__number">04</span>
                   <div>
-                    <p class="principle-item__title">処世術は知識ではない（実践優先）</p>
+                    <h3 class="principle-item__title">処世術は知識ではない（実践優先）</h3>
                     <p class="principle-item__desc">知っているだけでは意味がない。現場で使えて初めて“術”になる。</p>
                   </div>
                 </div>
                 <div class="principle-item">
                   <span class="principle-item__number">05</span>
                   <div>
-                    <p class="principle-item__title">処世術は目的ではない（手段従属）</p>
+                    <h3 class="principle-item__title">処世術は目的ではない（手段従属）</h3>
                     <p class="principle-item__desc">処世術は手段であって目的ではない。目的がないと空回りする。</p>
                   </div>
                 </div>
@@ -193,39 +221,39 @@
                 </p>
               </article>
               <article class="principle-card" id="techniques">
-                <h3>注目処世術</h3>
+                <h2>注目処世術</h2>
                 <div class="principle-item">
                   <span class="principle-item__number">01</span>
                   <div>
-                    <p class="principle-item__title">言いにくいことを通す前置き設計</p>
+                    <h3 class="principle-item__title">言いにくいことを通す前置き設計</h3>
                     <p class="principle-item__desc">「結論→配慮→提案」で角を立てずに要点を通す。</p>
                   </div>
                 </div>
                 <div class="principle-item">
                   <span class="principle-item__number">02</span>
                   <div>
-                    <p class="principle-item__title">初動3分の着火ルール</p>
+                    <h3 class="principle-item__title">初動3分の着火ルール</h3>
                     <p class="principle-item__desc">行動の最小単位だけ着手し、勢いを作る。</p>
                   </div>
                 </div>
                 <div class="principle-item">
                   <span class="principle-item__number">03</span>
                   <div>
-                    <p class="principle-item__title">断るときの代替案提示</p>
+                    <h3 class="principle-item__title">断るときの代替案提示</h3>
                     <p class="principle-item__desc">Yesの代わりに「別案・条件・期限」を提示する。</p>
                   </div>
                 </div>
                 <div class="principle-item">
                   <span class="principle-item__number">04</span>
                   <div>
-                    <p class="principle-item__title">意思決定の負債可視化</p>
+                    <h3 class="principle-item__title">意思決定の負債可視化</h3>
                     <p class="principle-item__desc">迷いを「コスト・期待値・期限」に分解して整理する。</p>
                   </div>
                 </div>
                 <div class="principle-item">
                   <span class="principle-item__number">05</span>
                   <div>
-                    <p class="principle-item__title">信頼の積み上げログ</p>
+                    <h3 class="principle-item__title">信頼の積み上げログ</h3>
                     <p class="principle-item__desc">小さな約束を守った履歴を残し、再現性を高める。</p>
                   </div>
                 </div>
