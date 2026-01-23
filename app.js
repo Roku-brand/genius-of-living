@@ -369,6 +369,11 @@ const navigateToFoundation = (tagId, returnTo = null) => {
     return;
   }
 
+  if (foundationItem.pageUrl) {
+    window.location.href = foundationItem.pageUrl;
+    return;
+  }
+
   // Switch to foundation tab
   const foundationTab = tabs.find((tab) => tab.getAttribute('aria-controls') === 'tab-foundation');
   if (foundationTab) {
@@ -848,8 +853,13 @@ const createModalListSection = (title, items) => {
 
 // Create a foundation card element
 const createFoundationCard = (item) => {
-  const card = createElement('article', 'foundation-card');
-  card.addEventListener('click', () => showFoundationDetail(item));
+  const cardTag = item.pageUrl ? 'a' : 'article';
+  const card = createElement(cardTag, 'foundation-card');
+  if (item.pageUrl) {
+    card.href = item.pageUrl;
+  } else {
+    card.addEventListener('click', () => showFoundationDetail(item));
+  }
 
   const tagId = createElement('span', 'foundation-card__tag-id', item.tagId);
   const content = createElement('div', 'foundation-card__content');
