@@ -2155,10 +2155,12 @@ body {
   position: absolute;
   inset: 0;
   background: var(--color-overlay);
+  z-index: 0;
 }
 
 .hub-modal__content {
   position: relative;
+  z-index: 1;
   background: var(--color-surface);
   border-radius: 16px;
   border: 1px solid var(--color-border);
