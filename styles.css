@@ -1320,6 +1320,7 @@ body {
 .page-link-list a {
   color: var(--color-primary);
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .page-note {
@@ -1771,6 +1772,7 @@ body {
   flex-direction: column;
   gap: 6px;
   flex: 1;
+  min-width: 0;
 }
 
 .foundation-card__title {
@@ -1779,6 +1781,7 @@ body {
   color: var(--color-text);
   line-height: 1.5;
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .foundation-card__summary {
@@ -1786,6 +1789,7 @@ body {
   color: var(--color-text-secondary);
   line-height: 1.6;
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 /* Foundation Modal - clean, reference-like design */
@@ -2169,6 +2173,9 @@ body {
   padding: 0;
   cursor: pointer;
   transition: color 0.2s ease;
+  text-decoration: none;
+  display: block;
+  overflow-wrap: anywhere;
 }
 
 .hub-folder__title-button:hover {
@@ -2201,6 +2208,7 @@ body {
   color: var(--color-text-secondary);
   line-height: 1.7;
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .hub-folder__meta {
@@ -2236,6 +2244,7 @@ body {
   font-size: 13px;
   font-weight: 600;
   color: var(--color-text);
+  overflow-wrap: anywhere;
 }
 
 .hub-folder__details {
