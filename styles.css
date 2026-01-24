@@ -373,7 +373,7 @@ body {
   position: relative;
   color: var(--color-text);
   background: transparent;
-  padding: 16px 16px 64px;
+  padding: 0 16px 56px;
   overflow: hidden;
 }
 
@@ -393,30 +393,7 @@ body {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 56px;
-}
-
-.top-landing__hero {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 16px 0 32px;
-}
-
-.top-landing__hero h1,
-.top-landing__hero h2 {
-  font-size: clamp(24px, 3.5vw, 32px);
-  letter-spacing: 0.06em;
-  color: var(--color-text);
-  font-weight: 700;
-}
-
-.top-landing__tagline {
-  font-size: 14px;
-  color: var(--color-text-secondary);
-  letter-spacing: 0.15em;
+  gap: 40px;
 }
 
 .top-landing__copy {
