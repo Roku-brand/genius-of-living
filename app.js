@@ -174,6 +174,34 @@ const categoryThemeMap = {
 
 const getCategoryKey = (title) => categoryThemeMap[title] ?? 'default';
 
+const categorySlugMap = {
+  人生術: 'life',
+  思考術: 'thinking',
+  '対人術①': 'people-1',
+  '対人術②': 'people-2',
+  スキル術: 'skill',
+  達成術: 'achievement',
+};
+
+const groupSlugOverrides = {
+  人生設計: 'life-design',
+  夢と挑戦: 'dream-challenge',
+  後悔回避: 'regret-avoidance',
+  変化対応: 'change-adaptation',
+  運と偶然: 'luck-chance',
+};
+
+const getGroupSlug = (group, categoryTitle, index) => {
+  if (group.slug) {
+    return group.slug;
+  }
+  if (groupSlugOverrides[group.name]) {
+    return groupSlugOverrides[group.name];
+  }
+  const categorySlug = categorySlugMap[categoryTitle] ?? 'group';
+  return `${categorySlug}-${String(index + 1).padStart(2, '0')}`;
+};
+
 const updateMobileNav = (targetId) => {
   if (!mobileNavItems.length || !targetId) {
     return;
@@ -342,6 +370,14 @@ const showTechniqueDetail = (technique, categoryKey = 'default', techniqueIndex 
   const titleEl = createElement('h3', 'technique-detail-title', `${technique.name}（${technique.details.length}）`);
   header.appendChild(titleEl);
 
+  const groupSlug = typeof techniqueIndex === 'number' ? techniqueOrder[techniqueIndex]?.slug : null;
+  if (groupSlug) {
+    const detailLink = createElement('a', 'technique-detail-link', '詳細ページを開く');
+    detailLink.href = `shoseijutsu/${groupSlug}/`;
+    detailLink.setAttribute('aria-label', `${technique.name}の詳細ページを開く`);
+    header.appendChild(detailLink);
+  }
+
   const grid = createElement('div', 'technique-detail-grid');
 
   technique.details.forEach((detail) => {
@@ -430,7 +466,13 @@ if (isDataReady(techniquesData, techniquesList)) {
 
     category.items.forEach((item, index) => {
       const techniqueIndex = techniqueOrder.length;
-      techniqueOrder.push({ item, categoryKey });
+      const groupSlug = getGroupSlug(item, category.title, index);
+      techniqueOrder.push({
+        item,
+        categoryKey,
+        categoryTitle: category.title,
+        slug: groupSlug,
+      });
       const listItem = createElement('li');
       const itemNumber = String(index + 1).padStart(2, '0');
       const buttonText = `${itemNumber}. ${item.name}（${item.details.length}）`;
@@ -438,7 +480,15 @@ if (isDataReady(techniquesData, techniquesList)) {
       button.type = 'button';
       button.dataset.category = categoryKey;
       button.addEventListener('click', () => showTechniqueDetail(item, categoryKey, techniqueIndex));
-      listItem.appendChild(button);
+
+      const link = createElement('a', 'technique-tag-link', '詳細URL');
+      link.href = `shoseijutsu/${groupSlug}/`;
+      link.setAttribute('aria-label', `${item.name}の詳細ページを開く`);
+
+      const rowWrapper = createElement('div', 'technique-tag-row');
+      rowWrapper.appendChild(button);
+      rowWrapper.appendChild(link);
+      listItem.appendChild(rowWrapper);
       list.appendChild(listItem);
 
       item.details.forEach((detail) => {

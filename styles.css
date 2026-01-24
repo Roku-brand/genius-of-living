@@ -872,6 +872,16 @@ body {
   padding-left: 0;
 }
 
+.technique-tag-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.technique-tag-row .technique-tag {
+  flex: 1;
+}
+
 .technique-tag {
   border: 1px solid var(--category-color-border, var(--color-border));
   background: var(--color-surface);
@@ -892,6 +902,30 @@ body {
 }
 
 .technique-tag:focus-visible {
+  outline: 2px solid var(--category-color, var(--color-primary));
+  outline-offset: 2px;
+}
+
+.technique-tag-link {
+  border: 1px solid var(--category-color-border, var(--color-border));
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.technique-tag-link:hover {
+  background: var(--category-color-light, var(--color-primary-light));
+  color: var(--category-color, var(--color-primary));
+  border-color: var(--category-color, var(--color-primary));
+}
+
+.technique-tag-link:focus-visible {
   outline: 2px solid var(--category-color, var(--color-primary));
   outline-offset: 2px;
 }
@@ -1488,6 +1522,9 @@ body {
 
 .technique-detail-header {
   margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .technique-detail-title {
@@ -1498,6 +1535,30 @@ body {
 
 .technique-detail-panel[data-category] .technique-detail-title {
   color: var(--category-color, var(--color-text));
+}
+
+.technique-detail-link {
+  align-self: flex-start;
+  border: 1px solid var(--category-color-border, var(--color-border));
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.technique-detail-link:hover {
+  background: var(--category-color-light, var(--color-primary-light));
+  color: var(--category-color, var(--color-primary));
+  border-color: var(--category-color, var(--color-primary));
+}
+
+.technique-detail-link:focus-visible {
+  outline: 2px solid var(--category-color, var(--color-primary));
+  outline-offset: 2px;
 }
 
 .technique-detail-grid {
