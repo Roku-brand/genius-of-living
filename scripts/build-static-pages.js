@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { techniquesData } from '../data/techniques.js';
-import { wisdomData } from '../data/foundation/index.js';
+import { foundationCategories, getAllFoundationItems } from '../data/foundation/index.js';
 
 const BASE_URL = 'https://roku-brand.github.io/genius-of-living';
 const SITE_NAME = '処世術禄';
@@ -276,9 +276,9 @@ ${renderFooter()}
 </html>`;
 };
 
-const renderWisdomIndex = (wisdomItems) => {
+const renderWisdomIndex = (categories) => {
   const description =
-    '処世術の背景にある思想カードを一覧化し、経験則・原則・概念を辞書的に確認できるページ。';
+    '認知・感情、行動・意思決定、対人・影響、構造・制度などの思想カードを一覧化し、背景となる原理を横断して確認できるページ。';
   const relativeRoot = '../';
   const head = buildHead({
     title: '思想カード一覧',
@@ -288,17 +288,35 @@ const renderWisdomIndex = (wisdomItems) => {
     relativeRoot,
   });
 
-  const cards = wisdomItems
-    .map((item) => {
-      return `          <a class="foundation-card" href="./${item.tagId}/">
+  const categoryLinks = categories
+    .map((category) => `<li><a href="./${category.id}/">${category.title}</a></li>`)
+    .join('\n');
+
+  const sections = categories
+    .map((category) => {
+      const cards = category.items
+        .map((item) => {
+          return `          <a class="foundation-card" href="./${item.tagId}/">
             <span class="foundation-card__tag-id">${item.tagId}</span>
             <div class="foundation-card__content">
               <h3 class="foundation-card__title">${item.title}</h3>
               <p class="foundation-card__summary">${item.summary}</p>
             </div>
           </a>`;
+        })
+        .join('\n');
+
+      return `        <section class="page-section">
+          <div class="page-section__header">
+            <h2>${category.title}</h2>
+            <a class="page-section__link" href="./${category.id}/">一覧を見る</a>
+          </div>
+          <div class="foundation-cards-grid">
+${cards}
+          </div>
+        </section>`;
     })
-    .join('\n');
+    .join('\n\n');
 
   return `<!DOCTYPE html>
 <html lang="ja">
@@ -326,7 +344,73 @@ ${renderHeader({ relativeRoot, active: 'wisdom' })}
         </header>
 
         <section class="page-section">
-          <h2>思想カード一覧</h2>
+          <h2>思想カードのカテゴリ</h2>
+          <ul class="page-link-list">
+${categoryLinks}
+          </ul>
+        </section>
+
+${sections}
+      </article>
+    </main>
+
+${renderFooter()}
+  </body>
+</html>`;
+};
+
+const renderWisdomCategory = (category) => {
+  const description = `${category.title}の思想カードを一覧化し、処世術の背景にある原理をまとめたページ。`;
+  const relativeRoot = '../../';
+  const head = buildHead({
+    title: category.title,
+    description,
+    canonicalPath: `/wisdom/${category.id}/`,
+    ogType: 'website',
+    relativeRoot,
+  });
+
+  const cards = category.items
+    .map((item) => {
+      return `          <a class="foundation-card" href="../${item.tagId}/">
+            <span class="foundation-card__tag-id">${item.tagId}</span>
+            <div class="foundation-card__content">
+              <h3 class="foundation-card__title">${item.title}</h3>
+              <p class="foundation-card__summary">${item.summary}</p>
+            </div>
+          </a>`;
+    })
+    .join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="ja">
+  <head>
+${head}
+  </head>
+  <body>
+${renderHeader({ relativeRoot, active: 'wisdom' })}
+
+    <main class="container page">
+      <nav class="visually-hidden" aria-label="パンくず">
+        <ol>
+          <li><a href="${relativeRoot}">処世術禄</a></li>
+          <li><a href="${relativeRoot}wisdom/">思想カード</a></li>
+          <li><a href="./">${category.title}</a></li>
+        </ol>
+      </nav>
+
+      <article class="page-article">
+        <a class="foundation-back-button" href="${relativeRoot}wisdom/">← 思想カード一覧へ</a>
+        <header class="page-hero">
+          <p class="page-hero__eyebrow">思想カード</p>
+          <h1>${category.title}</h1>
+          <p class="page-hero__lead">
+            ${category.title}の思想カードを一覧で確認できます。気になるカードを開いて定義や要点を把握しましょう。
+          </p>
+        </header>
+
+        <section class="page-section">
+          <h2>${category.title}の思想カード</h2>
           <div class="foundation-cards-grid">
 ${cards}
           </div>
@@ -461,22 +545,25 @@ const buildPages = async () => {
     }),
   );
 
-  const normalizedWisdomItems = wisdomData.items.map((item) => ({
-    ...item,
-    summary: item.summary || item.title,
-    definition: item.definition || item.summary || item.title,
-    keyPoints: item.keyPoints || [],
-    pitfalls: item.pitfalls || [],
-    strategies: item.strategies || [],
-    applicationConditions: item.applicationConditions || [],
-    lifehacks: item.lifehacks || [],
-    tags: item.tags || [],
-  }));
+  const normalizedCategories = foundationCategories;
+  const normalizedWisdomItems = getAllFoundationItems();
 
   await fs.writeFile(
     path.join(wisdomDir, 'index.html'),
-    renderWisdomIndex(normalizedWisdomItems),
+    renderWisdomIndex(normalizedCategories),
     'utf8',
+  );
+
+  await Promise.all(
+    normalizedCategories.map(async (category) => {
+      const categoryDir = path.join(wisdomDir, category.id);
+      await ensureDir(categoryDir);
+      await fs.writeFile(
+        path.join(categoryDir, 'index.html'),
+        renderWisdomCategory(category),
+        'utf8',
+      );
+    }),
   );
 
   await Promise.all(
@@ -492,6 +579,7 @@ const buildPages = async () => {
     `${BASE_URL}/shoseijutsu/`,
     ...groups.map((group) => `${BASE_URL}/shoseijutsu/${group.slug}/`),
     `${BASE_URL}/wisdom/`,
+    ...normalizedCategories.map((category) => `${BASE_URL}/wisdom/${category.id}/`),
     ...normalizedWisdomItems.map((item) => `${BASE_URL}/wisdom/${item.tagId}/`),
     `${BASE_URL}/principles/`,
   ];
