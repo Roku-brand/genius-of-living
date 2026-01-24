@@ -369,14 +369,6 @@ const showTechniqueDetail = (technique, categoryKey = 'default', techniqueIndex 
   const titleEl = createElement('h3', 'technique-detail-title', `${technique.name}（${technique.details.length}）`);
   header.appendChild(titleEl);
 
-  const groupSlug = typeof techniqueIndex === 'number' ? techniqueOrder[techniqueIndex]?.slug : null;
-  if (groupSlug) {
-    const detailLink = createElement('a', 'technique-detail-link', '詳細ページを開く');
-    detailLink.href = `shoseijutsu/${groupSlug}/`;
-    detailLink.setAttribute('aria-label', `${technique.name}の詳細ページを開く`);
-    header.appendChild(detailLink);
-  }
-
   const grid = createElement('div', 'technique-detail-grid');
 
   technique.details.forEach((detail) => {
@@ -435,11 +427,6 @@ const navigateToFoundation = (tagId, returnTo = null) => {
     return;
   }
 
-  if (foundationItem.pageUrl) {
-    window.location.href = foundationItem.pageUrl;
-    return;
-  }
-
   // Switch to foundation tab
   const foundationTab = tabs.find((tab) => tab.getAttribute('aria-controls') === 'tab-foundation');
   if (foundationTab) {
@@ -475,10 +462,13 @@ if (isDataReady(techniquesData, techniquesList)) {
       const listItem = createElement('li');
       const itemNumber = String(index + 1).padStart(2, '0');
       const buttonText = `${itemNumber}. ${item.name}（${item.details.length}）`;
-      const link = createElement('a', 'technique-tag', buttonText);
-      link.href = `shoseijutsu/${groupSlug}/`;
+      const link = createElement('button', 'technique-tag', buttonText);
+      link.type = 'button';
       link.dataset.category = categoryKey;
-      link.setAttribute('aria-label', `${item.name}の詳細ページを開く`);
+      link.setAttribute('aria-label', `${item.name}の詳細を開く`);
+      link.addEventListener('click', () => {
+        showTechniqueDetail(item, categoryKey, techniqueIndex);
+      });
 
       listItem.appendChild(link);
       list.appendChild(listItem);
@@ -865,13 +855,8 @@ const createModalListSection = (title, items) => {
 
 // Create a foundation card element
 const createFoundationCard = (item) => {
-  const cardTag = item.pageUrl ? 'a' : 'article';
-  const card = createElement(cardTag, 'foundation-card');
-  if (item.pageUrl) {
-    card.href = item.pageUrl;
-  } else {
-    card.addEventListener('click', () => showFoundationDetail(item));
-  }
+  const card = createElement('article', 'foundation-card');
+  card.addEventListener('click', () => showFoundationDetail(item));
 
   const tagId = createElement('span', 'foundation-card__tag-id', item.tagId);
   const content = createElement('div', 'foundation-card__content');
