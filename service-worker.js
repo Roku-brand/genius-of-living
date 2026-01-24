@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v2024-11-05';
+const CACHE_VERSION = 'v2024-11-08';
 const CACHE_NAME = `shoseijutsu-cache-${CACHE_VERSION}`;
 const ASSETS = [
   './styles.css',

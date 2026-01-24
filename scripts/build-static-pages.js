@@ -85,9 +85,8 @@ const renderHeader = ({ relativeRoot, active }) => {
         <div class="site-header__actions">
           <nav class="tabs" aria-label="主要リンク">
             <a class="tab${isActive('top')}" href="${relativeRoot}">トップ</a>
-            <a class="tab${isActive('techniques')}" href="${relativeRoot}#tab-techniques">処世術一覧</a>
-            <a class="tab${isActive('foundation')}" href="${relativeRoot}#tab-foundation">思想基盤</a>
-            <a class="tab${isActive('hub')}" href="${relativeRoot}#tab-hub">処世術ハブ</a>
+            <a class="tab${isActive('techniques')}" href="${relativeRoot}shoseijutsu/">処世術一覧</a>
+            <a class="tab${isActive('foundation')}" href="${relativeRoot}wisdom/">思想基盤</a>
           </nav>
         </div>
       </div>
@@ -190,8 +189,8 @@ ${cards}
         <section class="page-section">
           <h2>次に読むべきページ</h2>
           <ul class="page-link-list">
+            <li><a href="${relativeRoot}">トップへ戻る</a></li>
             <li><a href="${relativeRoot}wisdom/">思想カード一覧を読む</a></li>
-            <li><a href="${relativeRoot}principles/">処世術の原則を読む</a></li>
           </ul>
         </section>
       </article>
@@ -586,7 +585,6 @@ const buildPages = async () => {
     `${BASE_URL}/wisdom/`,
     ...normalizedCategories.map((category) => `${BASE_URL}/wisdom/${category.id}/`),
     ...normalizedWisdomItems.map((item) => `${BASE_URL}/wisdom/${item.tagId}/`),
-    `${BASE_URL}/principles/`,
   ];
 
   await fs.writeFile(

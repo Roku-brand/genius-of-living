@@ -55,47 +55,10 @@
     <header class="site-header">
       <div class="site-header__inner">
         <a class="site-header__title" href="./">処世術<span class="site-header__accent">禄</span></a>
-        <nav class="tabs" role="tablist" aria-label="ページ内タブ">
-          <button
-            class="tab tab--panel is-active"
-            role="tab"
-            aria-selected="true"
-            aria-controls="tab-top"
-            id="tab-top-button"
-            tabindex="0"
-          >
-            トップ
-          </button>
-          <button
-            class="tab tab--panel"
-            role="tab"
-            aria-selected="false"
-            aria-controls="tab-techniques"
-            id="tab-techniques-button"
-            tabindex="-1"
-          >
-            処世術一覧
-          </button>
-          <button
-            class="tab tab--panel"
-            role="tab"
-            aria-selected="false"
-            aria-controls="tab-foundation"
-            id="tab-foundation-button"
-            tabindex="-1"
-          >
-            思想基盤
-          </button>
-          <button
-            class="tab tab--panel"
-            role="tab"
-            aria-selected="false"
-            aria-controls="tab-hub"
-            id="tab-hub-button"
-            tabindex="-1"
-          >
-            処世術ハブ
-          </button>
+        <nav class="tabs" aria-label="主要リンク">
+          <a class="tab is-active" href="./">トップ</a>
+          <a class="tab" href="shoseijutsu/">処世術一覧</a>
+          <a class="tab" href="wisdom/">思想基盤</a>
         </nav>
       </div>
     </header>
@@ -106,7 +69,7 @@
           <li><a href="./">処世術禄</a></li>
         </ol>
       </nav>
-      <section id="tab-top" class="panel panel--top is-active" role="tabpanel" aria-labelledby="tab-top-button">
+      <section class="panel panel--top">
         <div class="top-landing">
           <div class="top-landing__inner">
             <div class="top-landing__hero">
@@ -247,137 +210,7 @@
           </div>
         </div>
       </section>
-
-      <section id="tab-techniques" class="panel" role="tabpanel" aria-labelledby="tab-techniques-button" hidden>
-        <div class="tab-hero">
-          <h2 class="tab-hero__title">処世術一覧</h2>
-          <p class="tab-hero__desc">6つのカテゴリに分類された処世術を、タイトル単位で一覧化します。</p>
-        </div>
-        <div class="panel__inner">
-          <div class="subtabs" id="techniques-tablist" role="tablist" aria-label="処世術一覧タブ">
-            <button
-              class="subtab is-active"
-              id="techniques-tab-list"
-              type="button"
-              role="tab"
-              aria-selected="true"
-              aria-controls="techniques-panel-list"
-              tabindex="0"
-            >
-              一覧
-            </button>
-            <button
-              class="subtab"
-              id="techniques-tab-index"
-              type="button"
-              role="tab"
-              aria-selected="false"
-              aria-controls="techniques-panel-index"
-              tabindex="-1"
-            >
-              索引
-            </button>
-          </div>
-          <div class="techniques-panels" id="techniques-tabpanels">
-            <div
-              class="techniques-panel"
-              id="techniques-panel-list"
-              role="tabpanel"
-              aria-labelledby="techniques-tab-list"
-            >
-              <div id="techniques-list" class="techniques-list"></div>
-            </div>
-            <div
-              class="techniques-panel"
-              id="techniques-panel-index"
-              role="tabpanel"
-              aria-labelledby="techniques-tab-index"
-              hidden
-            >
-              <div class="techniques-index">
-                <div class="techniques-index__search">
-                  <label class="visually-hidden" for="techniques-index-search">タイトル検索</label>
-                  <input
-                    id="techniques-index-search"
-                    class="techniques-index__input"
-                    type="search"
-                    placeholder="例：第一印象、時間管理、折れない"
-                    aria-label="タイトル検索"
-                  />
-                </div>
-                <div class="techniques-index__filters">
-                  <div class="techniques-index__group">
-                    <p class="techniques-index__label">タグ</p>
-                    <div class="techniques-index__chips techniques-index__chips--tags">
-                      <button class="chip" type="button" data-tag="会話">会話</button>
-                      <button class="chip" type="button" data-tag="恋愛">恋愛</button>
-                      <button class="chip" type="button" data-tag="仕事">仕事</button>
-                      <button class="chip" type="button" data-tag="勉強">勉強</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="techniques-index__summary">
-                  <p class="techniques-index__count" id="techniques-index-count">全 0 件</p>
-                  <p class="techniques-index__note">検索バーとタグ検索のみ対応しています。</p>
-                </div>
-                <div class="techniques-index__results" id="techniques-index-results"></div>
-                <p class="techniques-index__empty" id="techniques-index-empty" hidden>
-                  該当する処世術が見つかりませんでした。
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="tab-foundation" class="panel" role="tabpanel" aria-labelledby="tab-foundation-button" hidden>
-        <div class="tab-hero">
-          <h2 class="tab-hero__title">思想基盤</h2>
-          <p class="tab-hero__desc">心理学・行動科学・先人の教えを辞書的に管理し、処世術の裏付けとして活用します。</p>
-        </div>
-        <div class="panel__inner">
-          <div class="subtabs" id="foundation-tablist" role="tablist" aria-label="思想基盤カテゴリ"></div>
-          <div id="foundation-tabpanels" class="foundation-panels"></div>
-        </div>
-      </section>
-
-      <section id="tab-hub" class="panel" role="tabpanel" aria-labelledby="tab-hub-button" hidden>
-        <div class="tab-hero">
-          <h2 class="tab-hero__title">処世術ハブ</h2>
-          <p class="tab-hero__desc">作成された処世術を一覧で確認できる保管庫です。</p>
-        </div>
-        <div class="panel__inner">
-          <div class="hub-content" id="hub-content">
-            <section class="hub-section">
-              <div>
-                <h3 class="hub-section__title">処世術一覧表示</h3>
-                <p class="hub-section__desc">登録された処世術フォルダーを一覧で確認できます。</p>
-              </div>
-              <div id="hub-folder-list" class="hub-folder-list"></div>
-            </section>
-          </div>
-        </div>
-      </section>
     </main>
-
-    <nav class="mobile-nav" aria-label="モバイルナビゲーション">
-      <button class="mobile-nav__item is-active" type="button" data-tab-target="tab-top" aria-pressed="true">
-        <img class="mobile-nav__icon" src="assets/icons/tab-home.png" alt="" aria-hidden="true" />
-        <span class="mobile-nav__label">トップ</span>
-      </button>
-      <button class="mobile-nav__item" type="button" data-tab-target="tab-techniques" aria-pressed="false">
-        <img class="mobile-nav__icon" src="assets/icons/tab-techniques.png" alt="" aria-hidden="true" />
-        <span class="mobile-nav__label">処世術</span>
-      </button>
-      <button class="mobile-nav__item" type="button" data-tab-target="tab-foundation" aria-pressed="false">
-        <img class="mobile-nav__icon" src="assets/icons/tab-foundation.png" alt="" aria-hidden="true" />
-        <span class="mobile-nav__label">思想基盤</span>
-      </button>
-      <button class="mobile-nav__item" type="button" data-tab-target="tab-hub" aria-pressed="false">
-        <img class="mobile-nav__icon" src="assets/icons/tab-hub.png" alt="" aria-hidden="true" />
-        <span class="mobile-nav__label">ハブ</span>
-      </button>
-    </nav>
 
     <footer class="footer">
       <p>処世術禄 — 人生の処世術OSを構築するためのナレッジベース。</p>
