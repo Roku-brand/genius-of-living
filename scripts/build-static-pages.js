@@ -85,9 +85,9 @@ const renderHeader = ({ relativeRoot, active }) => {
         <div class="site-header__actions">
           <nav class="tabs" aria-label="主要リンク">
             <a class="tab${isActive('top')}" href="${relativeRoot}">トップ</a>
-            <a class="tab${isActive('shoseijutsu')}" href="${relativeRoot}shoseijutsu/">処世術（まとまり）</a>
-            <a class="tab${isActive('wisdom')}" href="${relativeRoot}wisdom/">思想カード</a>
-            <a class="tab${isActive('principles')}" href="${relativeRoot}principles/">処世術の原則</a>
+            <a class="tab${isActive('techniques')}" href="${relativeRoot}#tab-techniques">処世術一覧</a>
+            <a class="tab${isActive('foundation')}" href="${relativeRoot}#tab-foundation">思想基盤</a>
+            <a class="tab${isActive('hub')}" href="${relativeRoot}#tab-hub">処世術ハブ</a>
           </nav>
         </div>
       </div>
@@ -161,7 +161,7 @@ const renderShoseijutsuIndex = (groups) => {
 ${head}
   </head>
   <body>
-${renderHeader({ relativeRoot, active: 'shoseijutsu' })}
+${renderHeader({ relativeRoot, active: 'techniques' })}
 
     <main class="container page">
       <nav class="visually-hidden" aria-label="パンくず">
@@ -246,7 +246,7 @@ const renderShoseijutsuGroup = (group) => {
 ${head}
   </head>
   <body>
-${renderHeader({ relativeRoot, active: 'shoseijutsu' })}
+${renderHeader({ relativeRoot, active: 'techniques' })}
 
     <main class="container page">
       <nav class="visually-hidden" aria-label="パンくず">
@@ -329,7 +329,7 @@ ${cards}
 ${head}
   </head>
   <body>
-${renderHeader({ relativeRoot, active: 'wisdom' })}
+${renderHeader({ relativeRoot, active: 'foundation' })}
 
     <main class="container page">
       <nav class="visually-hidden" aria-label="パンくず">
@@ -393,7 +393,7 @@ const renderWisdomCategory = (category) => {
 ${head}
   </head>
   <body>
-${renderHeader({ relativeRoot, active: 'wisdom' })}
+${renderHeader({ relativeRoot, active: 'foundation' })}
 
     <main class="container page">
       <nav class="visually-hidden" aria-label="パンくず">
@@ -457,7 +457,7 @@ const renderWisdomDetail = (item) => {
 ${head}
   </head>
   <body>
-${renderHeader({ relativeRoot, active: 'wisdom' })}
+${renderHeader({ relativeRoot, active: 'foundation' })}
 
     <main class="container page">
       <nav class="visually-hidden" aria-label="パンくず">
