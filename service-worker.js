@@ -1,12 +1,8 @@
-const CACHE_VERSION = 'v2024-10-09';
+const CACHE_VERSION = 'v2024-11-05';
 const CACHE_NAME = `shoseijutsu-cache-${CACHE_VERSION}`;
 const ASSETS = [
-  './',
-  './index.html',
-  './404.html',
   './styles.css',
   './app.js',
-  './admin.html',
   './admin.css',
   './admin.js',
   './manifest.webmanifest',
@@ -61,21 +57,35 @@ self.addEventListener('fetch', (event) => {
     event.request.mode === 'navigate' ||
     event.request.destination === 'document' ||
     acceptHeader.includes('text/html');
+  const isScriptOrStyle =
+    event.request.destination === 'script' || event.request.destination === 'style';
 
   if (isHtmlRequest) {
     event.respondWith(
       (async () => {
         try {
+          return await fetch(event.request, { cache: 'no-store' });
+        } catch (error) {
+          return Response.error();
+        }
+      })(),
+    );
+    return;
+  }
+
+  if (isScriptOrStyle) {
+    event.respondWith(
+      (async () => {
+        const cache = await caches.open(CACHE_NAME);
+        try {
           const response = await fetch(event.request, { cache: 'no-store' });
-          if (response && response.status === 200) {
-            const cache = await caches.open(CACHE_NAME);
+          if (response && response.status === 200 && response.type !== 'opaque') {
             cache.put(event.request, response.clone());
           }
           return response;
         } catch (error) {
-          const cache = await caches.open(CACHE_NAME);
-          const cached = await cache.match(event.request);
-          return cached || cache.match('./index.html');
+          const cachedResponse = await cache.match(event.request);
+          return cachedResponse || Response.error();
         }
       })(),
     );

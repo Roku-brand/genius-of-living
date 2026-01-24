@@ -33,6 +33,11 @@ const ensureDir = async (dir) => {
   await fs.mkdir(dir, { recursive: true });
 };
 
+const resetDir = async (dir) => {
+  await fs.rm(dir, { recursive: true, force: true });
+  await ensureDir(dir);
+};
+
 const stripHtml = (text) => (text || '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 
 const truncate = (text, length = 120) => {
@@ -528,8 +533,8 @@ const buildPages = async () => {
   const shoseijutsuDir = path.join(ROOT_DIR, 'shoseijutsu');
   const wisdomDir = path.join(ROOT_DIR, 'wisdom');
 
-  await ensureDir(shoseijutsuDir);
-  await ensureDir(wisdomDir);
+  await resetDir(shoseijutsuDir);
+  await resetDir(wisdomDir);
 
   await fs.writeFile(
     path.join(shoseijutsuDir, 'index.html'),
