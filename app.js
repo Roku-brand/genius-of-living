@@ -46,7 +46,7 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-const tabs = Array.from(document.querySelectorAll('.tab'));
+const tabs = Array.from(document.querySelectorAll('.tab--panel'));
 const panels = Array.from(document.querySelectorAll('.panel'));
 const mobileNavItems = Array.from(document.querySelectorAll('.mobile-nav__item'));
 const menuButton = document.querySelector('.menu-button');
