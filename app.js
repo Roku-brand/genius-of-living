@@ -9,9 +9,40 @@ import {
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./service-worker.js').catch((error) => {
-      console.warn('Service worker registration failed.', error);
-    });
+    navigator.serviceWorker
+      .register('./service-worker.js', { updateViaCache: 'none' })
+      .then((registration) => {
+        const triggerUpdate = (worker) => {
+          if (worker) {
+            worker.postMessage({ type: 'SKIP_WAITING' });
+          }
+        };
+
+        if (registration.waiting) {
+          triggerUpdate(registration.waiting);
+        }
+
+        registration.addEventListener('updatefound', () => {
+          const newWorker = registration.installing;
+          if (!newWorker) {
+            return;
+          }
+          newWorker.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              triggerUpdate(newWorker);
+            }
+          });
+        });
+
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          window.location.reload();
+        });
+
+        registration.update();
+      })
+      .catch((error) => {
+        console.warn('Service worker registration failed.', error);
+      });
   });
 }
 
