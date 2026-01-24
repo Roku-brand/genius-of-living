@@ -1248,6 +1248,19 @@ body {
   color: var(--color-text-secondary);
 }
 
+.page-section__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.page-section__link {
+  font-size: 12px;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
 .page-link {
   display: inline-flex;
   align-items: center;

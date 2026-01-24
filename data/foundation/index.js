@@ -58,8 +58,7 @@ const normalizeFoundationItem = (item, category) => {
     ? item.lifehacks
     : defaultLifehacksByCategory[categoryId] || fallbackLifehacks;
   const tags = hasItems(item.tags) ? item.tags : [item.title, categoryTitle];
-  const pageUrl =
-    categoryId === 'wisdom' && item.tagId ? `./wisdom/${item.tagId}/` : item.pageUrl ?? null;
+  const pageUrl = item.pageUrl ?? (item.tagId ? `./wisdom/${item.tagId}/` : null);
 
   return {
     ...item,
