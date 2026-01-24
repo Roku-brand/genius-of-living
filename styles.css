@@ -886,6 +886,8 @@ body {
   border: 1px solid var(--category-color-border, var(--color-border));
   background: var(--color-surface);
   color: var(--color-text);
+  text-decoration: none;
+  display: block;
   padding: 10px 14px;
   border-radius: 8px;
   font-size: 14px;
