@@ -55,14 +55,48 @@
     <header class="site-header">
       <div class="site-header__inner">
         <a class="site-header__title" href="./">処世術<span class="site-header__accent">禄</span></a>
-        <div class="site-header__actions">
-          <nav class="tabs" aria-label="主要リンク">
-            <a class="tab tab--link is-active" href="./">トップ</a>
-            <a class="tab tab--link" href="./shoseijutsu/">処世術（まとまり）</a>
-            <a class="tab tab--link" href="./wisdom/">思想カード</a>
-            <a class="tab tab--link" href="./principles/">処世術の原則</a>
-          </nav>
-        </div>
+        <nav class="tabs" role="tablist" aria-label="ページ内タブ">
+          <button
+            class="tab tab--panel is-active"
+            role="tab"
+            aria-selected="true"
+            aria-controls="tab-top"
+            id="tab-top-button"
+            tabindex="0"
+          >
+            トップ
+          </button>
+          <button
+            class="tab tab--panel"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-techniques"
+            id="tab-techniques-button"
+            tabindex="-1"
+          >
+            処世術一覧
+          </button>
+          <button
+            class="tab tab--panel"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-foundation"
+            id="tab-foundation-button"
+            tabindex="-1"
+          >
+            思想基盤
+          </button>
+          <button
+            class="tab tab--panel"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-hub"
+            id="tab-hub-button"
+            tabindex="-1"
+          >
+            処世術ハブ
+          </button>
+        </nav>
       </div>
     </header>
 
@@ -71,48 +105,6 @@
         <ol>
           <li><a href="./">処世術禄</a></li>
         </ol>
-      </nav>
-      <nav class="tabs" role="tablist" aria-label="ページ内タブ">
-        <button
-          class="tab tab--panel is-active"
-          role="tab"
-          aria-selected="true"
-          aria-controls="tab-top"
-          id="tab-top-button"
-          tabindex="0"
-        >
-          トップ
-        </button>
-        <button
-          class="tab tab--panel"
-          role="tab"
-          aria-selected="false"
-          aria-controls="tab-techniques"
-          id="tab-techniques-button"
-          tabindex="-1"
-        >
-          処世術一覧
-        </button>
-        <button
-          class="tab tab--panel"
-          role="tab"
-          aria-selected="false"
-          aria-controls="tab-foundation"
-          id="tab-foundation-button"
-          tabindex="-1"
-        >
-          思想基盤
-        </button>
-        <button
-          class="tab tab--panel"
-          role="tab"
-          aria-selected="false"
-          aria-controls="tab-hub"
-          id="tab-hub-button"
-          tabindex="-1"
-        >
-          処世術ハブ
-        </button>
       </nav>
       <section id="tab-top" class="panel panel--top is-active" role="tabpanel" aria-labelledby="tab-top-button">
         <div class="top-landing">
