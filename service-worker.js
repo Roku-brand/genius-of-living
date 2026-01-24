@@ -1,7 +1,9 @@
-const CACHE_NAME = 'shoseijutsu-cache-v3';
+const CACHE_VERSION = 'v2024-10-09';
+const CACHE_NAME = `shoseijutsu-cache-${CACHE_VERSION}`;
 const ASSETS = [
   './',
   './index.html',
+  './404.html',
   './styles.css',
   './app.js',
   './admin.html',
@@ -43,27 +45,57 @@ self.addEventListener('activate', (event) => {
   );
 });
 
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') {
     return;
   }
 
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
+  const acceptHeader = event.request.headers.get('accept') || '';
+  const isHtmlRequest =
+    event.request.mode === 'navigate' ||
+    event.request.destination === 'document' ||
+    acceptHeader.includes('text/html');
 
-      return fetch(event.request)
-        .then((response) => {
-          if (!response || response.status !== 200 || response.type === 'opaque') {
-            return response;
+  if (isHtmlRequest) {
+    event.respondWith(
+      (async () => {
+        try {
+          const response = await fetch(event.request, { cache: 'no-store' });
+          if (response && response.status === 200) {
+            const cache = await caches.open(CACHE_NAME);
+            cache.put(event.request, response.clone());
           }
-          const responseClone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
+          return response;
+        } catch (error) {
+          const cache = await caches.open(CACHE_NAME);
+          const cached = await cache.match(event.request);
+          return cached || cache.match('./index.html');
+        }
+      })(),
+    );
+    return;
+  }
+
+  event.respondWith(
+    (async () => {
+      const cache = await caches.open(CACHE_NAME);
+      const cachedResponse = await cache.match(event.request);
+      const fetchPromise = fetch(event.request)
+        .then((response) => {
+          if (response && response.status === 200 && response.type !== 'opaque') {
+            cache.put(event.request, response.clone());
+          }
           return response;
         })
-        .catch(() => caches.match('./index.html'));
-    }),
+        .catch(() => cachedResponse);
+
+      return cachedResponse || fetchPromise;
+    })(),
   );
 });
