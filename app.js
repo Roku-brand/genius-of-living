@@ -1,6 +1,5 @@
 import { featuredTechniques } from './data/featured-techniques.js';
 import { techniquesData } from './data/techniques.js';
-import { hubTechniques } from './data/hub-techniques.js';
 import {
   foundationCategories,
   getAllFoundationItems,
@@ -617,71 +616,10 @@ if (techniquesIndexSearchInput && techniquesIndexResults && techniquesIndexCount
 
 const foundationTabList = document.querySelector('#foundation-tablist');
 const foundationPanels = document.querySelector('#foundation-tabpanels');
-const hubFolderList = document.querySelector('#hub-folder-list');
-
 // Foundation detail panel for page-style navigation
 const foundationDetailPanel = createElement('div', 'foundation-detail-panel');
 foundationDetailPanel.id = 'foundation-detail-panel';
 foundationDetailPanel.hidden = true;
-
-const createHubFolderCard = (item) => {
-  const isExpanded = item.isExpanded ?? false;
-  const card = createElement('article', 'hub-folder');
-  const header = createElement('div', 'hub-folder__header');
-  const titleButton = createElement('button', 'hub-folder__title-button', item.title);
-  titleButton.type = 'button';
-  titleButton.setAttribute('aria-expanded', String(isExpanded));
-
-  const details = createElement('div', 'hub-folder__details');
-  details.id = `hub-folder-details-${item.id}`;
-  details.hidden = !isExpanded;
-  titleButton.setAttribute('aria-controls', details.id);
-
-  const detailsHeader = createElement('div', 'hub-folder__details-header');
-  const category = createElement('p', 'hub-folder__category', item.category);
-  const summary = createElement('p', 'hub-folder__summary', item.summary);
-  const meta = createElement('div', 'hub-folder__meta');
-  const count = createElement('span', 'hub-folder__meta-item', `処世術 ${item.items.length}`);
-
-  meta.appendChild(count);
-
-  detailsHeader.appendChild(category);
-  detailsHeader.appendChild(summary);
-  detailsHeader.appendChild(meta);
-
-  const itemList = createElement('ul', 'hub-folder__items');
-  item.items.forEach((itemTitle, index) => {
-    const listItem = createElement('li', 'hub-folder__item', `${String(index + 1).padStart(2, '0')}. ${itemTitle}`);
-    itemList.appendChild(listItem);
-  });
-
-  card.appendChild(header);
-  header.appendChild(titleButton);
-  details.appendChild(detailsHeader);
-  details.appendChild(itemList);
-  card.appendChild(details);
-
-  titleButton.addEventListener('click', () => {
-    const nextState = !details.hidden;
-    details.hidden = nextState;
-    titleButton.setAttribute('aria-expanded', String(!nextState));
-    item.isExpanded = !nextState;
-  });
-
-  return card;
-};
-
-const renderHubFolders = () => {
-  if (!hubFolderList || !isDataReady(hubTechniques, hubFolderList)) {
-    return;
-  }
-  hubFolderList.innerHTML = '';
-  hubTechniques.forEach((item) => {
-    hubFolderList.appendChild(createHubFolderCard(item));
-  });
-};
-
-renderHubFolders();
 
 // Show foundation detail in a page-style panel (like technique detail)
 const showFoundationDetail = (item, { origin = 'foundation', returnTo = null } = {}) => {
@@ -1077,8 +1015,5 @@ if (foundationTabList && foundationPanels && foundationCategories.length > 0) {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && !foundationModal.hidden) {
     closeFoundationModal();
-  }
-  if (e.key === 'Escape' && !hubPostModal.modal.hidden) {
-    hubPostModal.closeModal();
   }
 });
