@@ -86,7 +86,7 @@ const renderHeader = ({ relativeRoot, active }) => {
           <nav class="tabs" aria-label="主要リンク">
             <a class="tab${isActive('top')}" href="${relativeRoot}">トップ</a>
             <a class="tab${isActive('techniques')}" href="${relativeRoot}shoseijutsu/">処世術一覧</a>
-            <a class="tab${isActive('foundation')}" href="${relativeRoot}wisdom/">思想基盤</a>
+            <a class="tab${isActive('foundation')}" href="${relativeRoot}wisdom/">思想カード</a>
           </nav>
         </div>
       </div>
